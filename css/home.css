@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  font-family: 'Proxima Nova', Georgia, sans-serif;
+}
+
+.nav-bar {
+  /* background-color: lightgray; */
+  overflow: hidden;
+}
+
+.logo {
+  float: left;
+  display: block;
+  color: #FF8C00;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+}

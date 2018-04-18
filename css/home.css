@@ -16,14 +16,13 @@
 }
 
 .logo {
-  height: 48px !important;
-  padding: 10px !important;
+  height: 75px !important;
+  padding: 12px 27px !important;
+  font-weight: bold;
+  color: orange;
+  font-size: 50px;
 }
 
-.logo img {
-  width: 100% !important;
-  height: 38px !important;
-}
 
 .title.item {
   padding: .92857143em 1.14285714em !important;

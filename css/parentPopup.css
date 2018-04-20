@@ -27,12 +27,12 @@ button {
 	padding:5px;
 	background-color:orange;
 	text-align: center;
-	flex: 1 1 0;
 }
 
 #buttonContainer {
 	display:flex;
 	flex-direction:row;
+	margin-top:20px;
 }
 
 #main {
@@ -41,6 +41,7 @@ button {
 	grid-template-columns:30% 70%;
 	grid-row-gap:30px;
 	margin:10px;
+	width:90%;
 }
 
 
@@ -88,6 +89,7 @@ button {
 	grid-column: 1;
 	grid-row: 4;
 	font-weight:bold;
+	height:100px;
 }
 
 #detailsText {

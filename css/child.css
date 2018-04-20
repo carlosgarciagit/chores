@@ -1,3 +1,7 @@
+:root {
+	--main-background: #fdc435;
+}
+
 body {
 	margin: auto;
 	position:relative;
@@ -5,7 +9,7 @@ body {
 	font-family:"Helvetica";
 }
 img {
-	background-color:#f2f2f2;
+	background-color:var(--main-background);
 	width:40px;
 	height:40px;
 }
@@ -17,11 +21,11 @@ img {
 	align-content: flex-start;
 	flex-direction: row;
 	height:auto;
-	border-bottom: solid grey 4px;
+	background-color: var(--main-background);
 }
 
 #chores {
-	color:orange;
+	color:white;
 	font-size:30px;
 	margin:15px;
 }
@@ -35,7 +39,7 @@ img {
 }
 
 #welcome {
-	color:orange;
+	color:white;
 	font-size:30px;
 	margin-right:10px;
 }
@@ -62,7 +66,7 @@ img {
 }
 
 div span {
-	background-color: orange;
+	background-color: var(--main-background);
 	border: solid white 1px;
 	padding:8px;
 	border-radius:10px;
@@ -86,7 +90,7 @@ div span {
 }
 
 .title {
-	color:orange;
+	color:var(--main-background);
 	text-align:center;
 	font-size:35px;
 	border-bottom: solid grey 5px;

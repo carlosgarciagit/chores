@@ -51,6 +51,7 @@ img {
 	display:flex;
 	justify-content:space-around;
 	flex-direction:row;
+	align-items:center;
 }
 
 #rewards {
@@ -71,7 +72,7 @@ div span {
 	height:60px;
 	width:60px;
 	background-color: white;
-	padding-left:10px;
+	margin:5px;
 }
 
 .column {
@@ -97,8 +98,15 @@ div span {
 	flex-direction:row;
 	justify-content:space-between;
 	align-items:center;
-	margin:10px;
+	margin:15px;
 	padding:5px;
 	font-size:25px;
 	border: solid grey .05px;
+	padding: 0px 10px 0px 10px;
+}
+
+#arrow {
+	width:75px;
+	background-color: #f2f2f2;
+	margin:-10px;
 }

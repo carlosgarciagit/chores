@@ -1,5 +1,7 @@
 :root {
 	--main-background: #fdc435;
+	--grey-background: #f2f2f2;
+	--grey-out: hsl(40, 100%, 27%);
 }
 
 body {
@@ -7,11 +9,6 @@ body {
 	position:relative;
 	background-color: #f2f2f2;
 	font-family:"Helvetica";
-}
-img {
-	background-color:var(--main-background);
-	width:40px;
-	height:40px;
 }
 
 #topBar {
@@ -22,11 +19,11 @@ img {
 	flex-direction: row;
 	height:auto;
 	background-color: var(--main-background);
+	color:white;
+	font-size:30px;
 }
 
 #chores {
-	color:white;
-	font-size:30px;
 	margin:15px;
 }
 
@@ -36,6 +33,12 @@ img {
 	align-items: center;
 	justify-content: center;
 	margin:15px;
+}
+
+#gearBtn {
+	background-color: var(--main-background);
+	border:none;
+	color:white;
 }
 
 #welcome {
@@ -60,16 +63,16 @@ img {
 
 #rewards {
 	text-align: center;
-	font-size:30px;
 	margin:15px;
-	color:white;
 }
 
-div span {
+#rewardsBtn {
 	background-color: var(--main-background);
 	border: solid white 1px;
 	padding:8px;
 	border-radius:10px;
+	font-size:30px;
+	color:white;
 }
 
 .itemImg {

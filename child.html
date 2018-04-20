@@ -6,20 +6,28 @@
     <!-- stylesheets -->
     <link rel="stylesheet" href="css/child.css" />
     <link rel="stylesheet" type="text/css" href="assets/fonts/fonts.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300|Roboto|Material+Icons" rel="stylesheet">
+
     <title>chores</title>
+
+    <script src="scripts/util.js"></script>
+    <script src="scripts/child.js"></script>
+
   </head>
   <body>
     <div id="topBar">
       <div id="chores">chores</div>
       <div id="settings">
         <div id="welcome">Welcome, Allie!</div>
-        <img src="assets/images/gear.png"/>
+        <button id="gearBtn">
+          <i id="gear" class="material-icons">settings</i>
+        </button>
       </div>
     </div>
 
     <div id="main">
       <div id="container">
-        <div class="column">
+        <div class="column" id="left">
           <div class="title">To Do</div>
 
           <div class="item">
@@ -50,7 +58,7 @@
 
         <img src="assets/images/double_arrow.png"/ id="arrow">
 
-        <div class="column">
+        <div class="column" id = "right">
           <div class="title">Completed</div>
 
           <div class="item">
@@ -66,7 +74,9 @@
           </div>
         </div>
       </div>
-      <div id="rewards"><span>Your Rewards!</span></div>
+      <div id="rewards">
+        <button id="rewardsBtn">Your Rewards!</button>
+      </div>
       
     </div>
 

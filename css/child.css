@@ -1,0 +1,104 @@
+body {
+	margin: auto;
+	position:relative;
+	background-color: #f2f2f2;
+	font-family:"Helvetica";
+}
+img {
+	background-color:#f2f2f2;
+	width:40px;
+	height:40px;
+}
+
+#topBar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	align-content: flex-start;
+	flex-direction: row;
+	height:auto;
+	border-bottom: solid grey 4px;
+}
+
+#chores {
+	color:orange;
+	font-size:30px;
+	margin:15px;
+}
+
+#settings {
+	display:flex;
+	flex-direction:row;
+	align-items: center;
+	justify-content: center;
+	margin:15px;
+}
+
+#welcome {
+	color:orange;
+	font-size:30px;
+	margin-right:10px;
+}
+
+#main {
+	display:flex;
+	justify-content:center;
+	align-content:center;
+	flex-direction:column;
+}
+
+#container {
+	display:flex;
+	justify-content:space-around;
+	flex-direction:row;
+}
+
+#rewards {
+	text-align: center;
+	font-size:30px;
+	margin:15px;
+	color:white;
+}
+
+div span {
+	background-color: orange;
+	border: solid white 1px;
+	padding:8px;
+	border-radius:10px;
+}
+
+.itemImg {
+	height:60px;
+	width:60px;
+	background-color: white;
+	padding-left:10px;
+}
+
+.column {
+	display:flex;
+	flex-direction:column;
+	border: solid grey 1px;
+	height:600px;
+	background:white;
+	flex: 1 1 0;
+	margin:20px 20px 20px 20px;
+}
+
+.title {
+	color:orange;
+	text-align:center;
+	font-size:35px;
+	border-bottom: solid grey 5px;
+	margin:10px;
+}
+
+.item {
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items:center;
+	margin:10px;
+	padding:5px;
+	font-size:25px;
+	border: solid grey .05px;
+}

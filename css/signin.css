@@ -3,6 +3,7 @@ body {
 	margin: auto;
 	position:relative;
 	background-color: orange;
+	font-family:"Helvetica";
 }
 
 #container {

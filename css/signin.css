@@ -1,0 +1,33 @@
+
+body {
+	margin: auto;
+	position:relative;
+	background-color: orange;
+}
+
+#container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	flex-direction: column;
+	height:auto;
+}
+
+#welcome {
+	text-align:center;
+	font-size:50px;
+	color:white;
+	margin-top:200px;
+
+}
+
+#name {
+	text-align:center;
+	justify-content: center;
+	font-size:30px;
+	height:40px;
+	width:300px;
+	font-size:20px;
+	margin:20px;
+}

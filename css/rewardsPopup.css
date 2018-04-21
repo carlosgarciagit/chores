@@ -1,0 +1,64 @@
+:root {
+	--main-background: #fdc435;
+	--grey-out: hsl(40, 100%, 27%);
+}
+
+
+#rewardsPopup {
+	height:450px;
+	width:500px;
+	padding:10px;
+	margin:auto;
+	border: solid grey 3px;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	visibility: hidden;
+	background-color: white;
+	align-self: center;
+	z-index: 1;
+	margin-top:-480px;
+	position: relative;
+}
+
+#rewardsPopupTitle {
+	font-size: 40px;
+	color:var(--main-background);;
+	text-align:center;
+	margin-bottom:30px;
+	border-bottom: solid grey 5px;
+}
+
+#rewardsPopupClose {
+	font-size: 25px;
+	width:50%;
+}
+
+#rewardsPopupMain {
+	display:grid;
+	grid-template-rows: 10% 10% 10% 70%;
+	grid-template-columns:30% 70%;
+	grid-row-gap:30px;
+	margin:10px;
+}
+
+.rewardsItem {
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items:center;
+	margin:15px;
+	padding:5px;
+	font-size:25px;
+	border: solid grey .05px;
+	padding: 0px 10px 0px 10px;
+	width:90%;
+}
+
+.remind {
+	font-size:20px;
+	background-color:var(--main-background);
+	text-align: center;
+	border-radius:10px;
+
+}

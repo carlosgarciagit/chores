@@ -7,24 +7,46 @@ Util.events(document, {
 		dom.settings = Util.one("#gearBtn");
 		dom.toDo = Util.one("#left")
 		dom.completed = Util.one("#right")
+		dom.chorePopup = Util.one("#chorePopup")
+		dom.rewardsPopup = Util.one("#rewardsPopup")
+		dom.main = Util.one("#main")
 
 		dom.rewards.addEventListener("click", 
 			function() {
-				console.log('rewards')
+				dom.rewardsPopup.style.visibility = "visible"
+				dom.main.style.opacity = "0.15";
 		}); 
+
+		Util.one("#rewardsPopupClose").addEventListener("click", 
+			function() {
+				dom.rewardsPopup.style.visibility = "hidden"
+				dom.main.style.opacity = "1";
+			}); 
 
 		dom.settings.addEventListener("click", 
 			function() {
 				console.log('settings')
 			}); 
 
+
 		var items = Util.all(".item")
 		for (let item of items) {
 			item.addEventListener("click",
 				function() {
 					console.log('item')
+					if(item.id == "clothes") {
+						dom.chorePopup.style.visibility = "visible"
+						dom.main.style.opacity = "0.15";
+					}
 				});
+
 		}
+
+		Util.one("#chorePopupClose").addEventListener("click", 
+			function() {
+				dom.chorePopup.style.visibility = "hidden"
+				dom.main.style.opacity = "1";
+			}); 
 	},
 
 	"mousedown": function(evt) {
@@ -36,20 +58,5 @@ Util.events(document, {
 				console.log('hello')
 			}
 		}
-		// if (elm.hasParent()) {
-		// 	console.log("click")
-		// }
-		// else if (elm.id.includes("pic") && !animationInProgress){
-		// 	dragCandy = elm;
-		// 	dragCandy.style.pointerEvents = "none";
-		// 	dragCandy.style.zIndex = "10";
-		// 	dragCandy.style.top = "0px";
-		// 	dragCandy.style.left = "0px";
-		// 	lastX = evt.clientX;
-		// 	lastY = evt.clientY;
-
-		// 	removePulsing();
-		// 	clearTimeout(hintVar);
-		// }
 	},
 });

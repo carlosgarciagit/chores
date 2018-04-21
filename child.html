@@ -3,18 +3,23 @@
   <head>
     <meta charset="UTF-8">
     <link rel="icon" href="assets/images/favicon.ico">
-    <!-- stylesheets -->
-    <link rel="stylesheet" href="css/child.css" />
-    <link rel="stylesheet" type="text/css" href="assets/fonts/fonts.css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:300|Roboto|Material+Icons" rel="stylesheet">
 
     <title>chores</title>
 
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="css/child.css" />
+    <link rel="stylesheet" href="css/chorePopup.css" />
+    <link rel="stylesheet" href="css/rewardsPopup.css" />
+    <link rel="stylesheet" type="text/css" href="assets/fonts/fonts.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300|Roboto|Material+Icons" rel="stylesheet">
+
+    <!-- scripts -->
     <script src="scripts/util.js"></script>
     <script src="scripts/child.js"></script>
 
   </head>
   <body>
+
     <div id="topBar">
       <div id="chores">chores</div>
       <div id="settings">
@@ -36,7 +41,7 @@
             <div>April 20</div>
           </div>
 
-          <div class="item">
+          <div class="item" id="clothes">
             <img src="assets/images/clothes.jpeg" class="itemImg"</div>
             <div>Fold clothes</div>
             <div>April 22</div>
@@ -77,7 +82,41 @@
       <div id="rewards">
         <button id="rewardsBtn">Your Rewards!</button>
       </div>
-      
+    </div>
+
+    <div id = "chorePopup">
+      <div id="chorePopupTitle">Chore Details</div>
+      <div id="chorePopupMain">
+        <div id="choreLabel">Chore:</div>
+        <div id="choreText">Fold clothes</div>
+
+        <div id="dateLabel">Due date:</div>
+        <div id="dateText">April 22, 2018</div>
+
+        <div id="rewardLabel">Reward:</div>
+        <div id="rewardText">A trip to the park!</div>
+
+        <div id="detailsLabel">Details:</div>
+        <div id="detailsText">
+          Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet.
+        </div>
+      </div>
+      <button id="chorePopupClose">EXIT</button>
+    </div>
+
+    <div id = "rewardsPopup">
+      <div id="rewardsPopupTitle">Your Rewards</div>
+        <div class="rewardsItem">
+            <img src="assets/images/park.jpg" class="itemImg"</div>
+            <div>trip to the park!</div>
+            <button class="remind">Remind!</button>
+        </div>
+        <div class="rewardsItem">
+            <img src="assets/images/ice-cream.png" class="itemImg"</div>
+            <div>ice cream</div>
+            <button class="remind">Remind!</button>
+        </div>
+      <button id="rewardsPopupClose">EXIT</button>
     </div>
 
   </body>

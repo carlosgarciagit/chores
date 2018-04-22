@@ -60,6 +60,17 @@ Util.events(document, {
 				dom.main.style.opacity = "1";
 			}); 
 
+		// remind buttons
+		var reminds = Util.all(".remind")
+		for (let remind of reminds) {
+			remind.addEventListener("click",
+				function() {
+					remind.classList.remove("remind");
+					remind.classList.add("reminded");
+					remind.innerHTML = "Reminded!"
+				});
+		}
+
 		// settings popup
 		dom.settings.addEventListener("click", 
 			function() {
@@ -82,7 +93,7 @@ Util.events(document, {
 					color.classList.add("colorSelected")
 					dom.root.style.setProperty('--main-background', color.style.backgroundColor);
 				});
-	}
+		}
 },
 
 	"mousedown": function(evt) {
@@ -142,7 +153,6 @@ Util.events(document, {
 
 	"keyup": function(evt) {
 		Util.one("#welcome").innerHTML = "Hi, "+dom.childName.value+"!"
-		console.log('hi')
 	},
 });
 

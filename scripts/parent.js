@@ -69,18 +69,6 @@ Util.events(document, {
 			function() {
 				dom.newChore.style.visibility = "hidden"
 			}); 
-		// rewards popup
-		// dom.rewards.addEventListener("click",
-		// 	function() {
-		// 		dom.rewardsPopup.style.visibility = "visible"
-		// 		dom.main.style.opacity = "0.15";
-		// 	});
-
-		// Util.one("#rewardsPopupClose").addEventListener("click",
-		// 	function() {
-		// 		dom.rewardsPopup.style.visibility = "hidden"
-		// 		dom.main.style.opacity = "1";
-		// 	});
 
 		// settings popup
 		dom.settings.addEventListener("click",

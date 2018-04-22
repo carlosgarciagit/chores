@@ -186,3 +186,11 @@ body {
 	font-size:25px;
 	border: solid grey .05px;
 }
+
+.item:hover {
+	border: solid var(--main-background) 0.5px;
+	transform:scale(1.02);
+}
+
+
+

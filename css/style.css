@@ -17,8 +17,9 @@ body {
 	margin: 0px;
 	min-height: 100vh;
 	width: 100%;
-	font-family: 'Helvetica';
+	font-family: 'Lato';
 }
+
 #container {
 	display: grid;
 	height: 100%;
@@ -110,7 +111,7 @@ body {
 #checkoff {
 	height: 100%
 	grid-column: 2 / 3;
-	grid-row: 2 / 3;	
+	grid-row: 2 / 3;
 	display:flex;
 	flex-direction:column;
 	border: solid grey 1px;
@@ -186,6 +187,7 @@ body {
 	font-size:25px;
 	border: solid grey .05px;
 }
+<<<<<<< HEAD
 
 .item:hover {
 	border: solid var(--main-background) 0.5px;
@@ -194,3 +196,5 @@ body {
 
 
 
+=======
+>>>>>>> ca7b649e6b91186d0746ba176dfd8e14a3281530

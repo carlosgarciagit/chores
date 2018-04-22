@@ -84,7 +84,7 @@ button {
 #inner {
 	display: grid;
 	grid-template-columns: 50% 50%;
-	grid-template-rows: 20% 35% 35%;
+	grid-template-rows: 20% 20% 20% 20% 20%;
 	height: 95%;
 	width: 95%;
 	padding: 2.5%;
@@ -104,7 +104,7 @@ button {
 #uncomplete {
 	height: 100%
 	grid-column: 1 / 2;
-	grid-row: 2 / 4;
+	grid-row: 2 / 6;
 	display:flex;
 	flex-direction:column;
 	border: solid grey 1px;
@@ -151,7 +151,7 @@ button {
 #checkoff {
 	height: 100%
 	grid-column: 2 / 3;
-	grid-row: 2 / 3;
+	grid-row: 2 / 4;
 	display:flex;
 	flex-direction:column;
 	border: solid grey 1px;
@@ -165,13 +165,13 @@ button {
 #reward {
 	height: 100%
 	grid-column: 2 / 3;
-	grid-row: 3 / 4;
+	grid-row: 4 / 6;
 	display:flex;
 	flex-direction:column;
 	border: solid grey 1px;
 	border-radius: 10px;
 	background:white;
-	flex: 1 1 0;
+	flex: 1 1 1;
 	margin:20px 20px 20px 20px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
@@ -206,6 +206,58 @@ button {
 	transform: scale(1.04);
 	color:var(--secondary-background);
 
+}
+
+#rewardsDone {
+	margin-right: 5px;
+	height: 35px;
+	width: 35px;
+	padding: 2px;
+	font-size: 35px;
+	background-color: var(--main-background);
+	border-radius: 10px;
+	cursor: pointer;
+	color:white;
+}
+
+#rewardsDone:hover {
+	transform: scale(1.04);
+	color:var(--secondary-background);
+
+}
+
+#checkoffDone {
+	margin-right: 5px;
+	height: 35px;
+	width: 35px;
+	padding: 2px;
+	font-size: 35px;
+	background-color: var(--main-background);
+	border-radius: 10px;
+	cursor: pointer;
+	color:white;
+}
+
+#checkoffDone:hover {
+	transform: scale(1.04);
+	color:var(--secondary-background);
+}
+
+.material-icons.pencil {
+	margin-right: 5px;
+	height: 35px;
+	width: 35px;
+	padding: 2px;
+	font-size: 35px;
+	background-color: var(--main-background);
+	border-radius: 10px;
+	cursor: pointer;
+	color:white;
+}
+
+.material-icons.pencil:hover {
+	transform: scale(1.04);
+	color:var(--secondary-background);
 }
 
 .tab {
@@ -270,5 +322,9 @@ button {
 
 #editName:hover {
 	transform: scale(1.02);
+}
+
+#hiddenReward {
+	visibility: hidden;
 }
 

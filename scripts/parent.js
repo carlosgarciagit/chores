@@ -32,7 +32,6 @@ Util.events(document, {
 		for (let item of items) {
 			item.addEventListener("click",
 				function() {
-					console.log(item.id)
 					if(item.id == "clothes" ) {
 						dom.chorePopup.style.visibility = "visible"
 						dom.center.style.opacity = "0.15";
@@ -94,7 +93,15 @@ Util.events(document, {
 					color.classList.add("colorSelected")
 					dom.root.style.setProperty('--main-background', color.style.backgroundColor);
 				});
-	}
+		}
+
+		// checkmark in pending checkoffs
+		Util.one("#checkoffDone").addEventListener("click",
+			function(event) {
+				Util.one("#doggie").remove();
+				event.stopPropagation();
+				Util.one("#hiddenReward").style.visibility = "visible"
+			});
 },
 
 	"mousedown": function(evt) {

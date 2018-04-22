@@ -20,6 +20,13 @@ body {
 	font-family: 'Lato';
 }
 
+.itemImg {
+	height:40px;
+	width:40px;
+	background-color: white;
+	margin:5px;
+}
+
 #container {
 	display: grid;
 	height: 100%;
@@ -80,6 +87,9 @@ body {
 	background:white;
 	flex: 1 1 0;
 	margin:20px 20px 20px 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 #new {
 	grid-column: 2 / 3;
@@ -100,13 +110,18 @@ body {
 	border: 2px var(--secondary-border) solid;
 	background-color: var(--main-background);
 	text-align:center;
+	border-radius: 10px;
+	cursor: pointer;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 #newButton p {
 	font-size: 2em;
+	font-weight: bold;
 }
 #newButton:hover {
-	color: var(--secondary-focus);
-	border-color: var(--secondary-focus);
+
+	transform: scale(1.02);
 }
 #checkoff {
 	height: 100%
@@ -118,6 +133,9 @@ body {
 	background:white;
 	flex: 1 1 0;
 	margin:20px 20px 20px 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 #reward {
 	height: 100%
@@ -126,9 +144,12 @@ body {
 	display:flex;
 	flex-direction:column;
 	border: solid grey 1px;
+	border-radius: 10px;
 	background:white;
 	flex: 1 1 0;
 	margin:20px 20px 20px 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 #right {
 	display: flex;
@@ -144,15 +165,22 @@ body {
 	font-size: 1.5em;
 	margin-right: 10px;
 }
+
 #settings {
 	margin-right: 5px;
-	height: 50px;
-	width: 50px;
-	font-size: 50px;
+	height: 35px;
+	width: 35px;
+	padding: 2px;
+	font-size: 35px;
+	background-color: var(--main-background);
+	border-radius: 10px;
+	cursor: pointer;
 }
+
 #settings:hover {
-	color: var(--secondary-focus);
+	transform: scale(1.04);
 }
+
 .tab {
 	display: flex;
 	width: 100%;
@@ -161,7 +189,8 @@ body {
 	align-items: flex-start;
 	justify-content: center;
 	font-size: 1.5em;
-	background-color: var(--secondary-background)
+	background-color: var(--secondary-background);
+	cursor: pointer;
 }
 .tab:hover {
 	background-color: var(--secondary-focus)
@@ -170,6 +199,7 @@ body {
 	width: 100%;
 	margin-left: 15px;
 	font-weight: bold;
+
 }
 .title {
 	color:var(--main-background);
@@ -189,16 +219,28 @@ body {
 	margin:10px;
 	padding:5px;
 	font-size:25px;
-	border: solid grey .05px;
+	border-color: grey;
+	border-width: thin;
+	border-style: solid;
+	border-radius: 10px;
+
 }
-<<<<<<< HEAD
 
 .item:hover {
 	border: solid var(--main-background) 0.5px;
 	transform:scale(1.02);
+	cursor: grab;
 }
 
+#editName {
+	font-size: 30px;
+	margin-top:10px;
+	cursor: pointer;
+	padding: 3px;
+	background-color: var(--main-background);
+	border-radius: 10px;
+}
 
-
-=======
->>>>>>> ca7b649e6b91186d0746ba176dfd8e14a3281530
+#editName:hover {
+	transform: scale(1.02);
+}

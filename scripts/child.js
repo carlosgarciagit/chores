@@ -3,6 +3,9 @@ var prevX = 0;
 var prevY = 0;
 var startingColumn = null;
 
+var foldClothes = ["Fold clothes", "April 22, 2018", "A trip to the park!", "Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet."]
+var grandma = ["Talk to Grandma", "April 18, 2018", "One hour of video games", "It's Grandma's birthday! Call her sometime after soccer practice and wish her a happy day and tell her about how school is going."]
+
 Util.events(document, {
 	// Final initalization entry point: the Javascript code inside this block
 	// runs at the end of start-up when the DOM is ready
@@ -27,10 +30,13 @@ Util.events(document, {
 		for (let item of items) {
 			item.addEventListener("click",
 				function() {
-					console.log('item')
-					if(item.id == "clothes") {
-						dom.chorePopup.style.visibility = "visible"
-						dom.main.style.opacity = "0.15";
+					
+					// need to add for all chores!
+					switch(item.id) {
+						case "clothes": 
+							populateChoreDetails(foldClothes); break;
+						case "grandma":
+							populateChoreDetails(grandma); break;
 					}
 				});
 		}
@@ -167,7 +173,7 @@ Util.events(document, {
 	},
 
 	"keyup": function(evt) {
-		Util.one("#welcome").innerHTML = "Welcome, "+dom.childName.value+"!"
+		Util.one("#welcome").innerHTML = "Hi, "+dom.childName.value+"!"
 		console.log('hi')
 	},
 });
@@ -178,5 +184,14 @@ function removeOtherBorders() {
 		color.classList.remove("colorSelected")
 	}
 	console.log('end of fun')
+}
+
+function populateChoreDetails(details) {
+	dom.chorePopup.style.visibility = "visible"
+	dom.main.style.opacity = "0.15";
+	Util.one("#choreText").innerHTML = details[0]
+	Util.one("#dateText").innerHTML = details[1]
+	Util.one("#rewardText").innerHTML = details[2]
+	Util.one("#detailsText").innerHTML = details[3]
 }
 

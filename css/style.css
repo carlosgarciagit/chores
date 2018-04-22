@@ -6,19 +6,20 @@
 	--secondary-focus: #cfcfcf;
 	--behind_tab: #E1E2E1;
 	--final-background: #F5F5F6;
+	
 	--orange: #fdc435;
 	--light-purple:#c78edb;
 	--dark-purple:#6d189e;
-	--cyan:#00faff;
+	--cyan:#8cdbd7;
 	--light-blue:#4286f4;
 	--dark-blue:#194c9e;
 	--light-pink:#ffbfea;
 	--hot-pink:#fc0aec;
 	--red:#c61b1b;
-	--mint:#77ffb4;
+	--mint:#99db8c;
 	--lime:#22e814;
 	--dark-green:#11773f;
-	--yellow:#eded21;
+	--yellow:#e2d512;
 
 }
 html {
@@ -132,6 +133,7 @@ button {
 	height: 50%;
 	border: 2px var(--secondary-border) solid;
 	background-color: var(--main-background);
+	color:white;
 	text-align:center;
 	border-radius: 10px;
 	cursor: pointer;

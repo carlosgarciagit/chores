@@ -24,8 +24,8 @@ Util.events(document, {
 		dom.parentName.value = "Andrew";
 
 		// set margins of settings
-		dom.settingsPopup.style.marginTop = "-600px";
-		dom.settingsPopup.style.marginLeft = "500px";
+		dom.settingsPopup.style.marginTop = "-400px";
+		dom.settingsPopup.style.marginLeft = "0px";
 
 		// parent popup
 		var items = Util.all(".item")
@@ -63,11 +63,16 @@ Util.events(document, {
 		Util.one("#new").addEventListener("click", 
 			function() {
 				dom.newChore.style.visibility = "visible"
+				dom.center.style.opacity = "0.15";
+				dom.sidebar.style.opacity = "0.15";
+
 			}); 
 
 		Util.one("#newchorePopupClose").addEventListener("click", 
 			function() {
 				dom.newChore.style.visibility = "hidden"
+				dom.center.style.opacity = "1";
+				dom.sidebar.style.opacity = "1";
 			}); 
 		// rewards popup
 		// dom.rewards.addEventListener("click",

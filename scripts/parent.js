@@ -10,9 +10,9 @@ Util.events(document, {
 		// dom.toDo = Util.one("#left")
 		// dom.completed = Util.one("#right")
 		dom.chorePopup = Util.one("#chorePopup")
+		dom.choreDone = Util.one("#choreCompleted")
 		// dom.rewardsPopup = Util.one("#rewardsPopup")
 		// dom.settingsPopup = Util.one("#settingsPopup")
-		// dom.main = Util.one("#main")
 		// dom.childName = Util.one("#nameText");
 		
 		// // set color and name defaults
@@ -24,10 +24,13 @@ Util.events(document, {
 		for (let item of items) {
 			item.addEventListener("click",
 				function() {
-					console.log('item')
-					if(item.id == "clothes") {
+					console.log(item.id)
+					if(item.id == "clothes" ) {
 						dom.chorePopup.style.visibility = "visible"
-						dom.main.style.opacity = "0.15";
+					}
+					if (item.id == "doggie"){
+						dom.choreDone.style.visibility = "visible"
+
 					}
 				});
 		}
@@ -35,9 +38,12 @@ Util.events(document, {
 		Util.one("#chorePopupClose").addEventListener("click", 
 			function() {
 				dom.chorePopup.style.visibility = "hidden"
-				dom.main.style.opacity = "1";
 			}); 
 
+		Util.one("#chorePopupClose1").addEventListener("click", 
+			function() {
+				dom.choreDone.style.visibility = "hidden"
+			}); 
 		// rewards popup
 		// dom.rewards.addEventListener("click", 
 		// 	function() {
@@ -88,7 +94,6 @@ Util.events(document, {
 	},
 
 	"keyup": function(evt) {
-		Util.one("#welcome").innerHTML = "Welcome, "+dom.childName.value+"!"
 		console.log('hi')
 	},
 });

@@ -88,6 +88,7 @@ body {
 	flex: 1 1 0;
 	margin:20px 20px 20px 20px;
 	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 #new {
@@ -133,6 +134,8 @@ body {
 	flex: 1 1 0;
 	margin:20px 20px 20px 20px;
 	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 #reward {
 	height: 100%
@@ -145,6 +148,8 @@ body {
 	background:white;
 	flex: 1 1 0;
 	margin:20px 20px 20px 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 #right {
 	display: flex;
@@ -218,6 +223,7 @@ body {
 	border-width: thin;
 	border-style: solid;
 	border-radius: 10px;
+
 }
 
 .item:hover {

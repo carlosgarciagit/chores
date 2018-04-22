@@ -1,5 +1,6 @@
 :root {
 	--main-background: var(--orange);
+	--secondary-background: #9e9e9e;
 
 	--orange: #fdc435;
 	--light-purple:#c78edb;
@@ -177,7 +178,7 @@ button {
 }
 
 #gearBtn:hover {
-	color: grey;
+	color: var(--secondary-background);
 }
 
 #welcome {

@@ -191,3 +191,14 @@ body {
 	font-size:25px;
 	border: solid grey .05px;
 }
+<<<<<<< HEAD
+
+.item:hover {
+	border: solid var(--main-background) 0.5px;
+	transform:scale(1.02);
+}
+
+
+
+=======
+>>>>>>> ca7b649e6b91186d0746ba176dfd8e14a3281530

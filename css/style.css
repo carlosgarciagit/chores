@@ -202,6 +202,8 @@ button {
 
 #settings:hover {
 	transform: scale(1.04);
+	color:var(--secondary-background);
+
 }
 
 .tab {

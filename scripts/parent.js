@@ -11,6 +11,7 @@ Util.events(document, {
 		// dom.completed = Util.one("#right")
 		dom.chorePopup = Util.one("#chorePopup")
 		dom.choreDone = Util.one("#choreCompleted")
+		dom.newChore = Util.one("#newShore")
 		// dom.rewardsPopup = Util.one("#rewardsPopup")
 		// dom.settingsPopup = Util.one("#settingsPopup")
 		// dom.childName = Util.one("#nameText");
@@ -43,6 +44,16 @@ Util.events(document, {
 		Util.one("#chorePopupClose1").addEventListener("click", 
 			function() {
 				dom.choreDone.style.visibility = "hidden"
+			}); 
+
+		Util.one("#new").addEventListener("click", 
+			function() {
+				dom.newChore.style.visibility = "visible"
+			}); 
+
+		Util.one("#newchorePopupClose").addEventListener("click", 
+			function() {
+				dom.newChore.style.visibility = "hidden"
 			}); 
 		// rewards popup
 		// dom.rewards.addEventListener("click",

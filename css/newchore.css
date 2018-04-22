@@ -1,4 +1,4 @@
-#choreCompleted {
+#newShore{
 	height:450px;
 	width:500px;
 	padding:10px;
@@ -11,12 +11,13 @@
 	background-color: white;
 	align-self: center;
 	z-index: 1;
-	margin-top:-600px;
+	margin-top:-560px;
+	margin-left:400px;
 	position: relative;
 	border-radius: 10px;
 }
 
-#chorePopupTitle1{
+#newchorePopup{
 	font-size: 40px;
 	color:var(--main-background);;
 	text-align:center;
@@ -24,12 +25,12 @@
 	border-bottom: solid grey 5px;
 }
 
-#chorePopupClose1 {
+#newchorePopupClose {
 	font-size: 25px;
 	width:50%;
 }
 
-#chorePopupMain1 {
+#newchorePopupMain {
 	display:grid;
 	grid-template-rows: 10% 10% 10% 70%;
 	grid-template-columns:30% 70%;
@@ -37,53 +38,53 @@
 	margin:10px;
 }
 
-#choreLabel1 {
+#newchoreLabel1{
 	font-size:20px;
 	grid-column: 1;
 	grid-row: 1;
 	font-weight:bold;
 }
 
-#choreText1 {
+#newchoreText {
 	font-size:20px;
 	grid-column: 2;
 	grid-row: 1;
 }
 
-#dateLabel1 {
+#newdateLabel {
 	font-size:20px;
 	grid-column: 1;
 	grid-row: 2;
 	font-weight:bold;
 }
 
-#dateText1 {
+#newdateText {
 	font-size:20px;
 	grid-column: 2;
 	grid-row: 2;
 }
 
-#rewardLabel1 {
+#newrewardLabel {
 	font-size:20px;
 	grid-column: 1;
 	grid-row: 3;
 	font-weight:bold;
 }
 
-#rewardText1 {
+#newrewardText {
 	font-size:20px;
 	grid-column: 2;
 	grid-row: 3;
 }
 
-#detailsLabel1 {
+#newdetailsLabel {
 	font-size:20px;
 	grid-column: 1;
 	grid-row: 4;
 	font-weight:bold;
 }
 
-#detailsText1 {
+#newdetailsText {
 	font-size:20px;
 	grid-column: 2;
 	grid-row: 4;

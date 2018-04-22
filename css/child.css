@@ -14,6 +14,10 @@
 	--lime:#22e814;
 	--dark-green:#11773f;
 	--yellow:#eded21;
+
+	--left: 0px;
+	--top: 0px;
+    --movespeed: 5s;
 }
 
 body {
@@ -22,6 +26,9 @@ body {
 	background-color: #f2f2f2;
 	font-family: 'Lato';
 	z-index: 1;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+  	-moz-user-select: none;     /* Firefox all */
+  	-ms-user-select: none;      /* IE 10+ */
 }
 
 
@@ -86,6 +93,44 @@ button {
 	width:60px;
 	background-color: white;
 	margin:5px;
+}
+
+.item-drag {
+	display:inline-flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items:center;
+	margin:15px;
+	padding:5px;
+	font-size:25px;
+	border: solid grey .5px;
+	padding: 0px 10px 0px 10px;
+	border-radius: 10px;
+	background-color: white;
+
+	position: relative;
+	pointer-events: none;
+	top: var(--top);
+    left: var(--left);
+    z-index: 3 
+
+}
+.item-move-back {
+	display:inline-flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items:center;
+	margin:15px;
+	padding:5px;
+	font-size:25px;
+	border: solid grey .5px;
+	padding: 0px 10px 0px 10px;
+	border-radius: 10px;
+	background-color: white;
+
+	position: relative;
+    z-index: 2;
+    animation: moveBack calc(2*var(--movespeed));
 }
 
 .taskName {
@@ -164,4 +209,13 @@ button {
 
 #rewardsBtn:hover {
 	background-color: grey;
+}
+
+@keyframes moveBack {
+     0% {
+         transform: translate(var(--left), var(--top));
+    }
+     100% {
+         transform: translate(0px, 0px);
+    }
 }

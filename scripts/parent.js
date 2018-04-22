@@ -121,7 +121,7 @@ Util.events(document, {
 	},
 
 	"keyup": function(evt) {
-		console.log('hi')
+		Util.one("#welcome").innerHTML = "Hi, "+dom.parentName.value+"!"
 	},
 });
 

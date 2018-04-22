@@ -26,8 +26,8 @@ Util.events(document, {
 		dom.parentName.value = "Andrew";
 
 		// set margins of settings
-		dom.settingsPopup.style.marginTop = "-600px";
-		dom.settingsPopup.style.marginLeft = "500px";
+		dom.settingsPopup.style.marginTop = "-525px";
+		dom.settingsPopup.style.marginLeft = "400px";
 
 		dom.chorePopup.style.marginLeft="500px"
 		dom.chorePopup.style.marginTop="-525px"

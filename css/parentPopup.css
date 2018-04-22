@@ -2,7 +2,7 @@ body {
 	font-family: "Helvetica";
 }
 
-.chorePopup {
+.newchorePopup {
 	height:450px;
 	width:500px;
 	margin:50px;
@@ -13,7 +13,7 @@ body {
 	align-items: center;
 }
 
-#title {
+#newtitle {
 	font-size: 40px;
 	color:orange;
 	text-align:center;
@@ -35,7 +35,7 @@ button {
 	margin-top:20px;
 }
 
-#main {
+#newmain {
 	display:grid;
 	grid-template-rows: 10% 10% 10% 70%;
 	grid-template-columns:30% 70%;
@@ -45,46 +45,46 @@ button {
 }
 
 
-#choreLabel {
+#newchoreLabel {
 	font-size:20px;
 	grid-column: 1;
 	grid-row: 1;
 	font-weight:bold;
 }
 
-#choreText {
+#newchoreText {
 	font-size:20px;
 	grid-column: 2;
 	grid-row: 1;
 }
 
-#dateLabel {
+#newdateLabel {
 	font-size:20px;
 	grid-column: 1;
 	grid-row: 2;
 	font-weight:bold;
 }
 
-#dateText {
+#newdateText {
 	font-size:20px;
 	grid-column: 2;
 	grid-row: 2;
 }
 
-#rewardLabel {
+#newrewardLabel {
 	font-size:20px;
 	grid-column: 1;
 	grid-row: 3;
 	font-weight:bold;
 }
 
-#rewardText {
+#newrewardText {
 	font-size:20px;
 	grid-column: 2;
 	grid-row: 3;
 }
 
-#detailsLabel {
+#newdetailsLabel {
 	font-size:20px;
 	grid-column: 1;
 	grid-row: 4;
@@ -92,7 +92,7 @@ button {
 	height:100px;
 }
 
-#detailsText {
+#newdetailsText {
 	font-size:20px;
 	grid-column: 2;
 	grid-row: 4;

@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="css/settingsPopup.css" />
 	<link rel="stylesheet" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300|Roboto|Material+Icons" rel="stylesheet">
-	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
-
 
  	<script src="scripts/util.js"></script>
     <script src="scripts/parent.js"></script>
@@ -31,7 +29,7 @@
 		<div id="sidebar">
 			<div class="tab">
 				<p>Dave</p>
-				<i class="material-icons" style="font-size: 40px; margin-top:20px;">keyboard_arrow_right</i>
+				<i id = "Dave" class="material-icons" style="font-size: 40px; margin-top:20px; color:var(--main-background)">keyboard_arrow_right</i>
 			</div>
 			<div class="tab">
 				<p>Sally</p>
@@ -46,7 +44,6 @@
 			<div id="inner">
 			<div id="name">
 				<p id="welcome"><b>Dave</b></p>
-				<i  id="editName" class="material-icons">edit</i>
 			</div>
 			<div id="uncomplete">
 
@@ -55,28 +52,28 @@
 						<img src="assets/images/lawn.jpg" class="itemImg"</div>
             <div>Mow the lawn</div>
             <div>April 20</div>
-						<i id="settings" class="material-icons">edit</i>
+						<i class="material-icons pencil">edit</i>
           </div>
 
           <div class="item" id = "clothes">
 						<img src="assets/images/clothes.jpeg" class="itemImg"</div>
             <div>Fold clothes</div>
             <div>April 22</div>
-						<i id="settings" class="material-icons">edit</i>
+						<i class="material-icons pencil">edit</i>
           </div>
 
           <div class="item">
 						<img src="assets/images/dishes.jpeg" class="itemImg"</div>
             <div>Clean dishes</div>
             <div>April 20</div>
-						<i id="settings" class="material-icons">edit</i>
+						<i class="material-icons pencil">edit</i>
           </div>
 
           <div class="item">
 						<img src="assets/images/cook.jpg" class="itemImg"</div>
             <div>Help make dinner</div>
             <div>April 29</div>
-						<i id="settings" class="material-icons">edit</i>
+						<i class="material-icons pencil">edit</i>
           </div>
 
 			</div>
@@ -86,12 +83,12 @@
 			</div>
 
 			<div id="checkoff">
-				<div class="title">Completed</div>
+				<div class="title">Pending Checkoff</div>
 			        <div class="item" id="doggie">
 						<img src="assets/images/dog.jpeg" class="itemImg">
 			            <div>Wash the dog</div>
 			            <div>April 19</div>
-						<i id="settings" class="material-icons">done</i>
+						<i id="checkoffDone" class="material-icons">done</i>
           			</div>
 
 			</div>
@@ -99,12 +96,19 @@
 			<div id="reward">
 				<div class="title">Reward</div>
 
-          <div class="item">
-						<img src="assets/images/park.jpg" class="itemImg">
-            <div>Go to the park</div>
-            <div>April 21</div>
-						<i id="settings" class="material-icons">done</i>
-          </div>
+		         <div class="item">
+					<img src="assets/images/park.jpg" class="itemImg">
+	            	<div>Go to the park</div>
+	            	<div>April 21</div>
+					<i id="rewardsDone" class="material-icons">done</i>
+		        </div>
+
+		        <div class="item" id="hiddenReward">
+					<img src="assets/images/heart.jpg" class="itemImg">
+	            	<div>Hugs and Kisses</div>
+	            	<div>April 21</div>
+					<i id="rewardsDone" class="material-icons">done</i>
+		        </div>
 
 
 				</div>

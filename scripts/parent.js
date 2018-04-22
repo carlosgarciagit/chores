@@ -32,7 +32,6 @@ Util.events(document, {
 		for (let item of items) {
 			item.addEventListener("click",
 				function() {
-					console.log(item.id)
 					if(item.id == "clothes" ) {
 						dom.chorePopup.style.visibility = "visible"
 						dom.center.style.opacity = "0.15";
@@ -74,18 +73,6 @@ Util.events(document, {
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
 			}); 
-		// rewards popup
-		// dom.rewards.addEventListener("click",
-		// 	function() {
-		// 		dom.rewardsPopup.style.visibility = "visible"
-		// 		dom.main.style.opacity = "0.15";
-		// 	});
-
-		// Util.one("#rewardsPopupClose").addEventListener("click",
-		// 	function() {
-		// 		dom.rewardsPopup.style.visibility = "hidden"
-		// 		dom.main.style.opacity = "1";
-		// 	});
 
 		// settings popup
 		dom.settings.addEventListener("click",
@@ -111,7 +98,15 @@ Util.events(document, {
 					color.classList.add("colorSelected")
 					dom.root.style.setProperty('--main-background', color.style.backgroundColor);
 				});
-	}
+		}
+
+		// checkmark in pending checkoffs
+		Util.one("#checkoffDone").addEventListener("click",
+			function(event) {
+				Util.one("#doggie").remove();
+				event.stopPropagation();
+				Util.one("#hiddenReward").style.visibility = "visible"
+			});
 },
 
 	"mousedown": function(evt) {

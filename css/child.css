@@ -46,7 +46,7 @@ button {
 	display:flex;
 	flex-direction:column;
 	border: solid grey 1px;
-	height:600px;
+	height:550px;
 	background:white;
 	flex: 1 1 0;
 	margin:20px 20px 20px 20px;
@@ -59,10 +59,12 @@ button {
 	font-size:35px;
 	border-bottom: solid grey 5px;
 	margin:10px;
+	font-weight: bold;
+	padding-bottom: 5px;
 }
 
 .item {
-	display:flex;
+	display:inline-flex;
 	flex-direction:row;
 	justify-content:space-between;
 	align-items:center;
@@ -86,6 +88,15 @@ button {
 	margin:5px;
 }
 
+.taskName {
+}
+
+.dueDate {
+}
+
+.material-icons {
+}
+
 #topBar {
 	display: flex;
 	justify-content: space-between;
@@ -100,6 +111,7 @@ button {
 
 #chores {
 	margin:15px;
+	font-weight: bold;
 }
 
 #settings {

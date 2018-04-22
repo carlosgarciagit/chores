@@ -13,6 +13,7 @@
 	z-index: 1;
 	margin-top:-450px;
 	position: relative;
+	border-radius: 10px;
 }
 
 #settingsPopupTitle {

@@ -34,6 +34,7 @@
 	grid-template-columns:30% 70%;
 	grid-row-gap:30px;
 	margin:10px;
+	flex-grow:1;
 }
 
 #choreLabel {

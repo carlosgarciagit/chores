@@ -7,6 +7,7 @@
     <title>chores</title>
 
     <link rel="stylesheet" href="css/chorePopup.css" />
+    <link rel="stylesheet" href="css/choreCompleted.css" />
 	<link rel="stylesheet" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300|Roboto|Material+Icons" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
@@ -84,22 +85,14 @@
 
 			<div id="checkoff">
 				<div class="title">Completed</div>
-
-          <div class="item">
+			        <div class="item" id="doggie">
 						<img src="assets/images/dog.jpeg" class="itemImg">
-            <div>Wash the dog</div>
-            <div>April 19</div>
+			            <div>Wash the dog</div>
+			            <div>April 19</div>
 						<i id="settings" class="material-icons">done</i>
-          </div>
+          			</div>
 
-          <!-- <div class="item">
-						<img src="assets/images/lawn.jpg" class="itemImg">
-            <div>Talk to Grandma</div>
-            <div>April 18</div>
-						<i id="settings" class="material-icons">done</i>
-          </div> -->
-
-				</div>
+			</div>
 
 			<div id="reward">
 				<div class="title">Reward</div>
@@ -117,6 +110,51 @@
 
 
 	</div>
+
+	<!-- chore popup, visibility initally hidden -->
+    <div id = "chorePopup">
+      <div id="chorePopupTitle">Chore Details</div>
+      <div id="chorePopupMain">
+        <div id="choreLabel">Chore:</div>
+        <div id="choreText">Fold clothes</div>
+
+        <div id="dateLabel">Due date:</div>
+        <div id="dateText">April 22, 2018</div>
+
+        <div id="rewardLabel">Reward:</div>
+        <div id="rewardText">A trip to the park!</div>
+
+        <div id="detailsLabel">Details:</div>
+        <div id="detailsText">
+          Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet.
+        </div>
+      </div>
+      <button id="chorePopupClose">EXIT</button>
+    </div>
+
+    <!-- completed chore popup, visibility initally hidden -->
+	<div id = "choreCompleted">
+      <div id="chorePopupTitle1">Chore Details</div>
+      <div id="chorePopupMain1">
+        <div id="choreLabel1">Chore:</div>
+        <div id="choreText1">Wash the Dog</div>
+
+        <div id="dateLabel1">Due date:</div>
+        <div id="dateText1">April 19, 2018</div>
+
+        <div id="rewardLabel1">Reward:</div>
+        <div id="rewardText1">Hugs and Kisses</div>
+
+        <div id="detailsLabel1">Details:</div>
+        <div id="detailsText1">
+          Your dirty dog will be in his cage downstairs in the kitchen. Take the dog to the backyard and wash him with the dog soap in the filing cabinet. Be sure to make the dog look pretty.
+        </div>
+      </div>
+      <button id="chorePopupClose1">EXIT</button>
+    </div>
+
+
+
 </body>
 
 </html>

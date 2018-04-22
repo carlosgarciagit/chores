@@ -6,6 +6,19 @@
 	--secondary-focus: #cfcfcf;
 	--behind_tab: #E1E2E1;
 	--final-background: #F5F5F6;
+	--orange: #fdc435;
+	--light-purple:#c78edb;
+	--dark-purple:#6d189e;
+	--cyan:#00faff;
+	--light-blue:#4286f4;
+	--dark-blue:#194c9e;
+	--light-pink:#ffbfea;
+	--hot-pink:#fc0aec;
+	--red:#c61b1b;
+	--mint:#77ffb4;
+	--lime:#22e814;
+	--dark-green:#11773f;
+	--yellow:#eded21;
 
 }
 html {
@@ -18,6 +31,16 @@ body {
 	min-height: 100vh;
 	width: 100%;
 	font-family: 'Lato';
+	z-index: 1
+}
+
+button {
+	background-color: var(--main-background);
+	border: solid white 1px;
+	padding:8px;
+	border-radius:10px;
+	color:white;
+	text-align: center;
 }
 
 .itemImg {
@@ -244,3 +267,4 @@ body {
 #editName:hover {
 	transform: scale(1.02);
 }
+

@@ -13,9 +13,11 @@ Util.events(document, {
 		dom.rewardsPopup = Util.one("#rewardsPopup")
 		dom.settingsPopup = Util.one("#settingsPopup")
 		dom.main = Util.one("#main")
+		dom.childName = Util.one("#nameText");
 		
-		var selectedColor = Util.one("#default")
-		selectedColor.classList.add("colorSelected")
+		// set color and name defaults
+		Util.one("#default").classList.add("colorSelected")
+		dom.childName.value = "Allie";
 
 		// chore popup
 		var items = Util.all(".item")
@@ -62,14 +64,6 @@ Util.events(document, {
 				dom.main.style.opacity = "1";
 			});
 
-		Util.one("#settingsPopupSave").addEventListener("click", 
-			function() {
-				dom.settingsPopup.style.visibility = "hidden"
-				dom.main.style.opacity = "1";
-				dom.root.style.setProperty('--main-background', selectedColor.style.backgroundColor);
-			});
-		
-
 		// color picker within settings
 		var colors = Util.all(".color")
 		for (let color of colors) {
@@ -77,7 +71,7 @@ Util.events(document, {
 				function() {
 					removeOtherBorders();
 					color.classList.add("colorSelected")
-					selectedColor = color;
+					dom.root.style.setProperty('--main-background', color.style.backgroundColor);
 				});
 	}
 },
@@ -91,6 +85,11 @@ Util.events(document, {
 				console.log('hello')
 			}
 		}
+	},
+
+	"keyup": function(evt) {
+		Util.one("#welcome").innerHTML = "Welcome, "+dom.childName.value+"!"
+		console.log('hi')
 	},
 });
 

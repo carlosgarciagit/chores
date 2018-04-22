@@ -5,7 +5,7 @@ Util.events(document, {
 	// runs at the end of start-up when the DOM is ready
 	"DOMContentLoaded": function() {
 		dom.root = Util.one(":root");
-		// dom.rewards = Util.one("#rewardsBtn"); 
+		// dom.rewards = Util.one("#rewardsBtn");
 		// dom.settings = Util.one("#gearBtn");
 		// dom.toDo = Util.one("#left")
 		// dom.completed = Util.one("#right")
@@ -14,7 +14,7 @@ Util.events(document, {
 		// dom.rewardsPopup = Util.one("#rewardsPopup")
 		// dom.settingsPopup = Util.one("#settingsPopup")
 		// dom.childName = Util.one("#nameText");
-		
+
 		// // set color and name defaults
 		// Util.one("#default").classList.add("colorSelected")
 		// dom.childName.value = "Allie";
@@ -35,36 +35,36 @@ Util.events(document, {
 				});
 		}
 
-		Util.one("#chorePopupClose").addEventListener("click", 
+		Util.one("#chorePopupClose").addEventListener("click",
 			function() {
 				dom.chorePopup.style.visibility = "hidden"
-			}); 
+				});
 
 		Util.one("#chorePopupClose1").addEventListener("click", 
 			function() {
 				dom.choreDone.style.visibility = "hidden"
 			}); 
 		// rewards popup
-		// dom.rewards.addEventListener("click", 
+		// dom.rewards.addEventListener("click",
 		// 	function() {
 		// 		dom.rewardsPopup.style.visibility = "visible"
 		// 		dom.main.style.opacity = "0.15";
-		// 	}); 
+		// 	});
 
-		// Util.one("#rewardsPopupClose").addEventListener("click", 
+		// Util.one("#rewardsPopupClose").addEventListener("click",
 		// 	function() {
 		// 		dom.rewardsPopup.style.visibility = "hidden"
 		// 		dom.main.style.opacity = "1";
-		// 	}); 
+		// 	});
 
 		// settings popup
-		// dom.settings.addEventListener("click", 
+		// dom.settings.addEventListener("click",
 		// 	function() {
 		// 		dom.settingsPopup.style.visibility = "visible"
 		// 		dom.main.style.opacity = "0.15";
-		// 	}); 
+		// 	});
 
-		// Util.one("#settingsPopupClose").addEventListener("click", 
+		// Util.one("#settingsPopupClose").addEventListener("click",
 		// 	function() {
 		// 		dom.settingsPopup.style.visibility = "hidden"
 		// 		dom.main.style.opacity = "1";
@@ -84,7 +84,7 @@ Util.events(document, {
 
 	"mousedown": function(evt) {
 		var elm = document.elementFromPoint(evt.clientX, evt.clientY);
-		
+
 		var parents = Util.all(".item");
 		for (let item of parents) {
 			if(item.contains(elm)) {

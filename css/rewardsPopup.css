@@ -34,14 +34,13 @@
 #rewardsPopupClose {
 	font-size: 25px;
 	width:50%;
+	margin-bottom:10px;
 }
 
 #rewardsPopupMain {
-	display:grid;
-	grid-template-rows: 10% 10% 10% 70%;
-	grid-template-columns:30% 70%;
-	grid-row-gap:30px;
 	margin:10px;
+	flex-grow:1;
+	width:100%;
 }
 
 .rewardsItem {
@@ -55,7 +54,6 @@
 	border: solid grey .05px;
 	padding: 0px 10px 0px 10px;
 	width:90%;
-	/* border-radius: 10px; */
 }
 
 .remind {

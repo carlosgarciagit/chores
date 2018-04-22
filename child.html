@@ -28,7 +28,7 @@
     <div id="topBar">
       <div id="chores">chores</div>
       <div id="settings">
-        <div id="welcome">Welcome, Allie!</div>
+        <div id="welcome">Hi, Allie!</div>
         <button id="gearBtn">
           <i id="gear" class="material-icons">settings</i>
         </button>
@@ -87,7 +87,7 @@
             <i class="material-icons">dehaze</i>
           </div>
 
-          <div class="item">
+          <div class="item" id = "grandma">
             <img src="assets/images/grandma.svg" class="itemImg"</div>
             <div>Talk to Grandma</div>
             <div>April 18</div>
@@ -107,18 +107,16 @@
       <div id="chorePopupTitle">Chore Details</div>
       <div id="chorePopupMain">
         <div id="choreLabel">Chore:</div>
-        <div id="choreText">Fold clothes</div>
+        <div id="choreText"></div>
 
         <div id="dateLabel">Due date:</div>
-        <div id="dateText">April 22, 2018</div>
+        <div id="dateText"></div>
 
         <div id="rewardLabel">Reward:</div>
-        <div id="rewardText">A trip to the park!</div>
+        <div id="rewardText"></div>
 
         <div id="detailsLabel">Details:</div>
-        <div id="detailsText">
-          Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet.
-        </div>
+        <div id="detailsText"></div>
       </div>
       <button id="chorePopupClose">EXIT</button>
     </div>
@@ -126,6 +124,7 @@
     <!-- rewards popup, visibility initally hidden -->
     <div id="rewardsPopup">
       <div id="rewardsPopupTitle">Your Rewards</div>
+      <div id="rewardsPopupMain">
         <div class="rewardsItem">
             <img src="assets/images/park.jpg" class="itemImg"</div>
             <div>trip to the park!</div>
@@ -136,6 +135,7 @@
             <div>ice cream</div>
             <button class="remind">Remind!</button>
         </div>
+      </div>
       <button id="rewardsPopupClose">EXIT</button>
     </div>
 

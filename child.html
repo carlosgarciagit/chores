@@ -139,9 +139,9 @@
         <input id="nameText"></input>
         <div id="colorLabel">Color:</div>
         <div id="colorPicker">
-          <div class = "color"  tabindex="-1" style="background-color: var(--red)"></div>
+          <div class = "color" style="background-color: var(--red)"></div>
           <div class = "color" style="background-color: var(--light-pink)"></div>
-          <div class = "color" style="background-color: var(--orange)"></div>
+          <div class = "color" id="default" style="background-color: var(--orange)"></div>
           <div class = "color" style="background-color: var(--yellow)"></div>
           <div class = "color" style="background-color: var(--mint"></div>
           <div class = "color" style="background-color: var(--lime)"></div>
@@ -153,7 +153,10 @@
           <div class = "color" style="background-color: var(--dark-purple)"></div>
         </div>
       </div>
-      <button id="settingsPopupClose">EXIT</button>
+      <div id="buttonContainer">
+        <button id="settingsPopupSave">SAVE</button>
+        <button id="settingsPopupClose">EXIT</button>
+      </div>
     </div>
   </body>
 </html>

@@ -70,4 +70,15 @@
 .color {
 	height:40px;
 	border-radius: 50px;
+	border: solid white 3px;
+}
+
+.color:hover {
+	border:solid black 3px;
+}
+
+.colorSelected {
+	height:40px;
+	border-radius: 50px;
+	border: solid black 3px;
 }

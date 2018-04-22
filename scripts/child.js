@@ -9,8 +9,28 @@ Util.events(document, {
 		dom.completed = Util.one("#right")
 		dom.chorePopup = Util.one("#chorePopup")
 		dom.rewardsPopup = Util.one("#rewardsPopup")
+		dom.settingsPopup = Util.one("#settingsPopup")
 		dom.main = Util.one("#main")
 
+		// chore popup
+		var items = Util.all(".item")
+		for (let item of items) {
+			item.addEventListener("click",
+				function() {
+					console.log('item')
+					if(item.id == "clothes") {
+						dom.chorePopup.style.visibility = "visible"
+						dom.main.style.opacity = "0.15";
+					}
+				});
+
+		Util.one("#chorePopupClose").addEventListener("click", 
+			function() {
+				dom.chorePopup.style.visibility = "hidden"
+				dom.main.style.opacity = "1";
+			}); 
+
+		// rewards popup
 		dom.rewards.addEventListener("click", 
 			function() {
 				dom.rewardsPopup.style.visibility = "visible"
@@ -23,30 +43,19 @@ Util.events(document, {
 				dom.main.style.opacity = "1";
 			}); 
 
+		// settings popup
 		dom.settings.addEventListener("click", 
 			function() {
-				console.log('settings')
+				dom.settingsPopup.style.visibility = "visible"
+				dom.main.style.opacity = "0.15";
 			}); 
 
-
-		var items = Util.all(".item")
-		for (let item of items) {
-			item.addEventListener("click",
-				function() {
-					console.log('item')
-					if(item.id == "clothes") {
-						dom.chorePopup.style.visibility = "visible"
-						dom.main.style.opacity = "0.15";
-					}
-				});
-
-		}
-
-		Util.one("#chorePopupClose").addEventListener("click", 
+		Util.one("#settingsPopupClose").addEventListener("click", 
 			function() {
-				dom.chorePopup.style.visibility = "hidden"
+				dom.settingsPopup.style.visibility = "hidden"
 				dom.main.style.opacity = "1";
-			}); 
+			});
+		}
 	},
 
 	"mousedown": function(evt) {

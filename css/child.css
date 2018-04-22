@@ -1,7 +1,19 @@
 :root {
-	--main-background: #fdc435;
-	--grey-background: #f2f2f2;
-	--grey-out: hsl(40, 100%, 27%);
+	--main-background: var(--orange);
+	
+	--orange: #fdc435;
+	--light-purple:#c78edb;
+	--dark-purple:#6d189e;
+	--cyan:#00faff;
+	--light-blue:#4286f4;
+	--dark-blue:#194c9e;
+	--light-pink:#ffbfea;
+	--hot-pink:#fc0aec;
+	--red:#c61b1b;
+	--mint:#77ffb4;
+	--lime:#22e814;
+	--dark-green:#11773f;
+	--yellow:#eded21;
 }
 
 body {
@@ -19,6 +31,55 @@ button {
 	border-radius:10px;
 	color:white;
 	text-align: center;
+}
+
+.arrow {
+	color: var(--main-background);
+	margin:-6px;
+	font-size: 36px !important;
+	height: 36px !important;
+	width: 36px !important;
+}
+
+.column {
+	display:flex;
+	flex-direction:column;
+	border: solid grey 1px;
+	height:600px;
+	background:white;
+	flex: 1 1 0;
+	margin:20px 20px 20px 20px;
+}
+
+.title {
+	color:var(--main-background);
+	text-align:center;
+	font-size:35px;
+	border-bottom: solid grey 5px;
+	margin:10px;
+}
+
+.item {
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items:center;
+	margin:15px;
+	padding:5px;
+	font-size:25px;
+	border: solid grey .5px;
+	padding: 0px 10px 0px 10px;
+}
+
+.item:hover {
+	border: solid var(--main-background) 0.5px;
+}
+
+.itemImg {
+	height:60px;
+	width:60px;
+	background-color: white;
+	margin:5px;
 }
 
 #topBar {
@@ -51,6 +112,10 @@ button {
 	color:white;
 }
 
+#gearBtn:hover {
+	color: grey;
+}
+
 #welcome {
 	color:white;
 	font-size:30px;
@@ -81,45 +146,6 @@ button {
 	font-size:30px;
 }
 
-.itemImg {
-	height:60px;
-	width:60px;
-	background-color: white;
-	margin:5px;
-}
-
-.column {
-	display:flex;
-	flex-direction:column;
-	border: solid grey 1px;
-	height:600px;
-	background:white;
-	flex: 1 1 0;
-	margin:20px 20px 20px 20px;
-}
-
-.title {
-	color:var(--main-background);
-	text-align:center;
-	font-size:35px;
-	border-bottom: solid grey 5px;
-	margin:10px;
-}
-
-.item {
-	display:flex;
-	flex-direction:row;
-	justify-content:space-between;
-	align-items:center;
-	margin:15px;
-	padding:5px;
-	font-size:25px;
-	border: solid grey .05px;
-	padding: 0px 10px 0px 10px;
-}
-
-#arrow {
-	width:75px;
-	background-color: #f2f2f2;
-	margin:-10px;
+#rewardsBtn:hover {
+	background-color: grey;
 }

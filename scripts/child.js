@@ -1,4 +1,7 @@
 var dom = {};
+var prevX = 0;
+var prevY = 0;
+var startingColumn = null;
 
 var foldClothes = ["Fold clothes", "April 22, 2018", "A trip to the park!", "Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet."]
 var grandma = ["Talk to Grandma", "April 18, 2018", "One hour of video games", "It's Grandma's birthday! Call her sometime after soccer practice and wish her a happy day and tell her about how school is going."]
@@ -89,8 +92,84 @@ Util.events(document, {
 		for (let item of parents) {
 			if(item.contains(elm)) {
 				console.log('hello')
+				if(elm.innerHTML == "dehaze") {
+					item.className = "item-drag"
+					prevX = evt.clientX
+					prevY = evt.clientY
+					document.documentElement.style.setProperty('--top', 0 + 'px')
+					document.documentElement.style.setProperty('--left', 0 + 'px')
+					startingColumn = item.parentElement.id;
+					elm.ondragstart = function() {
+						return false;
+			}
+				}
 			}
 		}
+	},
+
+	"mousemove": function(evt) {
+		var element = Util.one(".item-drag");
+		if (element != null) {
+			document.documentElement.style.setProperty('--top', (evt.clientY - prevY) + 'px')
+			document.documentElement.style.setProperty('--left', (evt.clientX - prevX) + 'px')
+		}
+	},
+
+
+	"mouseup": function(evt) {
+		var item = Util.one(".item-drag");
+		/*if (candy != null) {
+			var otherCandy = document.elementFromPoint(evt.clientX, evt.clientY);
+			if (otherCandy.tagName == "IMG") {
+				otherCandy = otherCandy.parentElement
+			}
+			if (otherCandy.tagName == "SPAN") {
+				var candyParent = candy.parentElement
+				var fromCandy = board.getCandyAt(candyParent.id.slice(0, 1), candyParent.id.slice(2, 3))
+				var toCandy = board.getCandyAt(otherCandy.id.slice(0, 1), otherCandy.id.slice(2, 3))
+				var directions = ["left", "right", "up", "down"];
+				for (i = 0; i < directions.length; i++) {
+					direction = directions[i];
+					if (board.getCandyInDirection(fromCandy, direction) == toCandy) {
+						if (rules.isMoveTypeValid(fromCandy, direction)) {
+							board.flipCandies(fromCandy, toCandy)
+							crushCandy()
+							return
+						} else {
+							candy.className = "candy-drag-bad"
+							board.flipCandies(fromCandy, toCandy);
+							setTimeout(function() {
+								board.flipCandies(toCandy, fromCandy)
+							}, 400)
+							hintTimer = setTimeout(showHint, 5000);
+							return
+						}
+					}
+				}
+
+			}*/
+			if (item != null) {
+				var column = document.elementFromPoint(evt.clientX, evt.clientY);
+				console.log(column.id)
+				if (column.id == "left" && column.id != startingColumn) {
+					dom.toDo.appendChild(item)
+					document.documentElement.style.setProperty('--top', (item.offsetTop - evt.clientY) + 'px')
+					document.documentElement.style.setProperty('--left', (item.offsetLeft - evt.clientX) + 'px')
+				}
+				else if (column.id == "right" && column.id != startingColumn) {
+					dom.completed.appendChild(item)
+					item.className = "item"
+					console.log((item.offsetLeft - evt.clientX) + ", " + (item.offsetTop - evt.clientY))
+					document.documentElement.style.setProperty('--top', (item.offsetTop - evt.clientY) + 'px')
+					document.documentElement.style.setProperty('--left', (item.offsetLeft - evt.clientX) + 'px')
+				}
+				item.className = "item-move-back"
+				var promise = Util.afterAnimation(item, "moveBack")
+				promise.then(function() {
+					item.className = "item";
+				})
+				
+			}
 	},
 
 	"keyup": function(evt) {

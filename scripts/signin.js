@@ -6,7 +6,7 @@ Util.events(document, {
 				window.open("child.html", name="_self")
 			}
 			//parent
-			if (Util.one("#name").value == "Joe") {
+			if (Util.one("#name").value == "Andrew") {
 				window.open("parent.html", name="_self")
 			}
 		}

@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="css/chorePopup.css" />
     <link rel="stylesheet" href="css/choreCompleted.css" />
+    <link rel="stylesheet" href="css/settingsPopup.css" />
 	<link rel="stylesheet" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300|Roboto|Material+Icons" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
@@ -151,6 +152,31 @@
         </div>
       </div>
       <button id="chorePopupClose1">EXIT</button>
+    </div>
+
+    <!-- settings popup, visibility initally hidden -->
+    <div id = "settingsPopup">
+      <div id="settingsPopupTitle">Your Settings</div>
+      <div id="settingsPopupMain">
+        <div id="nameLabel">Name:</div>
+        <input id="nameText"></input>
+        <div id="colorLabel">Color:</div>
+        <div id="colorPicker">
+          <div class = "color" style="background-color: var(--red)"></div>
+          <div class = "color" style="background-color: var(--light-pink)"></div>
+          <div class = "color" id="default" style="background-color: var(--orange)"></div>
+          <div class = "color" style="background-color: var(--yellow)"></div>
+          <div class = "color" style="background-color: var(--mint"></div>
+          <div class = "color" style="background-color: var(--lime)"></div>
+          <div class = "color" style="background-color: var(--dark-green)"></div>
+          <div class = "color" style="background-color: var(--cyan)"></div>
+          <div class = "color" style="background-color: var(--light-blue)"></div>
+          <div class = "color" style="background-color: var(--dark-blue)"></div>
+          <div class = "color" style="background-color: var(--light-purple"></div>
+          <div class = "color" style="background-color: var(--dark-purple)"></div>
+        </div>
+      </div>
+      <button id="settingsPopupClose">SAVE AND EXIT</button>
     </div>
 
 

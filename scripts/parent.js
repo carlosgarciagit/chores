@@ -1,4 +1,6 @@
 var dom = {};
+var foldClothes = ["Fold clothes", "April 22, 2018", "A trip to the park!", "Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet."]
+
 
 Util.events(document, {
 	// Final initalization entry point: the Javascript code inside this block
@@ -11,7 +13,7 @@ Util.events(document, {
 		// dom.completed = Util.one("#right")
 		dom.chorePopup = Util.one("#chorePopup")
 		dom.choreDone = Util.one("#choreCompleted")
-		dom.newChore = Util.one("#newShore")
+		dom.newChore = Util.one("#newchorePopup")
 		// dom.rewardsPopup = Util.one("#rewardsPopup")
 		dom.settingsPopup = Util.one("#settingsPopup")
 		dom.parentName = Util.one("#nameText");
@@ -24,10 +26,13 @@ Util.events(document, {
 		dom.parentName.value = "Andrew";
 
 		// set margins of settings
-		dom.settingsPopup.style.marginTop = "-400px";
-		dom.settingsPopup.style.marginLeft = "0px";
+		dom.settingsPopup.style.marginTop = "-525px";
+		dom.settingsPopup.style.marginLeft = "400px";
 
-		// parent popup
+		dom.chorePopup.style.marginLeft="500px"
+		dom.chorePopup.style.marginTop="-525px"
+
+		// item popup
 		var items = Util.all(".item")
 		for (let item of items) {
 			item.addEventListener("click",
@@ -45,6 +50,19 @@ Util.events(document, {
 				});
 		}
 
+		Util.one("#clothesPencil").addEventListener("click",
+			function(event) {
+				event.stopPropagation();
+				dom.newChore.style.visibility = "visible"
+				Util.one("#newtitle").innerHTML = "Edit Chore"
+				Util.one("#newchoreText").value = foldClothes[0]
+				Util.one("#newdateText").value = foldClothes[1]
+				Util.one("#newrewardText").value = foldClothes[2]
+				Util.one("#newdetailsText").value = foldClothes[3]
+				dom.center.style.opacity = "0.15";
+				dom.sidebar.style.opacity = "0.15";
+			});
+
 		Util.one("#chorePopupClose").addEventListener("click",
 			function() {
 				dom.chorePopup.style.visibility = "hidden"
@@ -59,17 +77,20 @@ Util.events(document, {
 				dom.sidebar.style.opacity = "1";
 			}); 
 
-		Util.one("#new").addEventListener("click", 
+		Util.one("#newButton").addEventListener("click", 
 			function() {
 				dom.newChore.style.visibility = "visible"
 				dom.center.style.opacity = "0.15";
 				dom.sidebar.style.opacity = "0.15";
-
 			}); 
 
 		Util.one("#newchorePopupClose").addEventListener("click", 
 			function() {
 				dom.newChore.style.visibility = "hidden"
+				Util.one("#newchoreText").value = ""
+				Util.one("#newdateText").value = ""
+				Util.one("#newrewardText").value =""
+				Util.one("#newdetailsText").value = ""
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
 			}); 
@@ -109,16 +130,16 @@ Util.events(document, {
 			});
 },
 
-	"mousedown": function(evt) {
-		var elm = document.elementFromPoint(evt.clientX, evt.clientY);
+	// "mousedown": function(evt) {
+	// 	var elm = document.elementFromPoint(evt.clientX, evt.clientY);
 
-		var parents = Util.all(".item");
-		for (let item of parents) {
-			if(item.contains(elm)) {
-				console.log('hello')
-			}
-		}
-	},
+	// 	var parents = Util.all(".item");
+	// 	for (let item of parents) {
+	// 		if(item.contains(elm)) {
+	// 			console.log('hello')
+	// 		}
+	// 	}
+	// },
 
 	"keyup": function(evt) {
 		Util.one("#welcome").innerHTML = "Hi, "+dom.parentName.value+"!"

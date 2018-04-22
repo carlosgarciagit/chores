@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="css/chorePopup.css" />
     <link rel="stylesheet" href="css/choreCompleted.css" />
     <link rel="stylesheet" href="css/settingsPopup.css" />
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/parent.css">
+	<link rel="stylesheet" href="css/newchorePopup.css" />
 	<link href="https://fonts.googleapis.com/css?family=Lato:300|Roboto|Material+Icons" rel="stylesheet">
 
  	<script src="scripts/util.js"></script>
@@ -59,7 +60,7 @@
 						<img src="assets/images/clothes.jpeg" class="itemImg"</div>
             <div>Fold clothes</div>
             <div>April 22</div>
-						<i class="material-icons pencil">edit</i>
+						<i id="clothesPencil" class="material-icons pencil">edit</i>
           </div>
 
           <div class="item">
@@ -160,23 +161,28 @@
     </div>
 
     <!-- new shore pop-up -->
-    <div id = "newShore">
-      <div id="newChorePopupTitle">Chore Details</div>
-      <div id="newchorePopupMain">
+    <div id = "newchorePopup">
+      <div id="newtitle">Add Chore</div>
+      <div id="newmain">
         <div id="newchoreLabel">Chore:</div>
         <input id="newchoreText"></input>
 
         <div id="newdateLabel">Due date:</div>
-        <input id="newdateText"> </input>
+        <input id="newdateText"></input>
 
         <div id="newrewardLabel">Reward:</div>
         <input id="newrewardText"></input>
 
         <div id="newdetailsLabel">Details:</div>
-        <input id="newdetailsText"></input>
+        <input id="newdetailsText">
+        </input>
       </div>
 
-      <button id="newchorePopupClose">SAVE and EXIT</button>
+      <div id="buttonContainer">
+        <button>SAVE</button>
+        <button id="newchorePopupClose">EXIT</button>
+      </div>
+    </div>
 
     <!-- settings popup, visibility initally hidden -->
     <div id = "settingsPopup">

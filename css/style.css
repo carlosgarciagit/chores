@@ -220,7 +220,25 @@ button {
 	color:white;
 }
 
+#rewardsDoneCheck {
+	margin-right: 5px;
+	height: 35px;
+	width: 35px;
+	padding: 2px;
+	font-size: 35px;
+	background-color: var(--main-background);
+	border-radius: 10px;
+	cursor: pointer;
+	color:white;
+}
+
 #rewardsDone:hover {
+	transform: scale(1.04);
+	color:var(--secondary-background);
+
+}
+
+#rewardsDoneCheck:hover {
 	transform: scale(1.04);
 	color:var(--secondary-background);
 

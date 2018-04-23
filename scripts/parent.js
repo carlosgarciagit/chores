@@ -19,6 +19,7 @@ Util.events(document, {
 		dom.parentName = Util.one("#nameText");
 		dom.center = Util.one("#center")
 		dom.sidebar = Util.one("#sidebar")
+		dom.hiddenReward = Util.one("#hiddenReward")
 
 
 		// // set color and name defaults
@@ -69,6 +70,22 @@ Util.events(document, {
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
 				});
+
+
+		Util.one("#rewardsDone").addEventListener("click",
+			function() {
+				var remove1 = Util.one("#rewardsDone").parentNode
+				remove1.parentNode.removeChild(remove1);
+
+				});
+
+		Util.one("#rewardsDoneCheckoff").addEventListener("click",
+			function() {
+				remove2 = Util.one("#rewardsDoneCheckoff").parentNode
+				remove2.parentNode.removeChild(remove2);
+
+				});
+
 
 		Util.one("#chorePopupClose1").addEventListener("click", 
 			function() {

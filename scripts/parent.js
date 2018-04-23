@@ -1,6 +1,6 @@
 var dom = {};
 var foldClothes = ["Fold clothes", "April 22, 2018", "A trip to the park!", "Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet."]
-
+var add = false;
 
 Util.events(document, {
 	// Final initalization entry point: the Javascript code inside this block
@@ -88,7 +88,12 @@ Util.events(document, {
 				dom.newChore.style.visibility = "visible"
 				dom.center.style.opacity = "0.15";
 				dom.sidebar.style.opacity = "0.15";
+<<<<<<< HEAD
 			});
+=======
+				add = true;
+			}); 
+>>>>>>> 8924dbcb8d1850526bc39a1df5cfa3963da89800
 
 		Util.one("#newchorePopupClose").addEventListener("click",
 			function() {
@@ -99,6 +104,7 @@ Util.events(document, {
 				Util.one("#newdetailsText").value = ""
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
+<<<<<<< HEAD
 			});
 
 			Util.one("#newchorePopupSave").addEventListener("click",
@@ -106,6 +112,24 @@ Util.events(document, {
 					Util.one("#newchorePopupSave").innerHTML = "SAVED"
 					Util.one("#newchorePopupSave").style.backgroundColor = "lightgrey"
 				});
+=======
+				add = false;
+			});
+
+		Util.one("#save").addEventListener("click", 
+			function() {
+				dom.newChore.style.visibility = "hidden"
+				Util.one("#newchoreText").value = ""
+				Util.one("#newdateText").value = ""
+				Util.one("#newrewardText").value =""
+				Util.one("#newdetailsText").value = ""
+				dom.center.style.opacity = "1";
+				dom.sidebar.style.opacity = "1";
+				if(add) {
+					Util.one("#dinner").style.visibility = "visible";
+				}
+			}); 
+>>>>>>> 8924dbcb8d1850526bc39a1df5cfa3963da89800
 
 		// settings popup
 		dom.settings.addEventListener("click",

@@ -19,6 +19,7 @@ Util.events(document, {
 		dom.parentName = Util.one("#nameText");
 		dom.center = Util.one("#center")
 		dom.sidebar = Util.one("#sidebar")
+		dom.saveChore = Util.one("#newchorePopupSave")
 
 
 		// // set color and name defaults
@@ -52,6 +53,8 @@ Util.events(document, {
 
 		Util.one("#clothesPencil").addEventListener("click",
 			function(event) {
+				Util.one("#newchorePopupSave").innerHTML = "SAVE"
+				Util.one("#newchorePopupSave").style.backgroundColor = "#fdc435"
 				event.stopPropagation();
 				dom.newChore.style.visibility = "visible"
 				Util.one("#newtitle").innerHTML = "Edit Chore"
@@ -70,21 +73,24 @@ Util.events(document, {
 				dom.sidebar.style.opacity = "1";
 				});
 
-		Util.one("#chorePopupClose1").addEventListener("click", 
+		Util.one("#chorePopupClose1").addEventListener("click",
 			function() {
 				dom.choreDone.style.visibility = "hidden"
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
-			}); 
+			});
 
-		Util.one("#newButton").addEventListener("click", 
+		Util.one("#newButton").addEventListener("click",
 			function() {
+				Util.one("#newchorePopupSave").innerHTML = "SAVE"
+				Util.one("#newchorePopupSave").style.backgroundColor = "#fdc435"
+
 				dom.newChore.style.visibility = "visible"
 				dom.center.style.opacity = "0.15";
 				dom.sidebar.style.opacity = "0.15";
-			}); 
+			});
 
-		Util.one("#newchorePopupClose").addEventListener("click", 
+		Util.one("#newchorePopupClose").addEventListener("click",
 			function() {
 				dom.newChore.style.visibility = "hidden"
 				Util.one("#newchoreText").value = ""
@@ -93,7 +99,13 @@ Util.events(document, {
 				Util.one("#newdetailsText").value = ""
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
-			}); 
+			});
+
+			Util.one("#newchorePopupSave").addEventListener("click",
+				function() {
+					Util.one("#newchorePopupSave").innerHTML = "SAVED"
+					Util.one("#newchorePopupSave").style.backgroundColor = "lightgrey"
+				});
 
 		// settings popup
 		dom.settings.addEventListener("click",

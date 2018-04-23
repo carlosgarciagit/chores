@@ -1,6 +1,6 @@
 var dom = {};
 var foldClothes = ["Fold clothes", "April 22, 2018", "A trip to the park!", "Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet."]
-
+var add = false;
 
 Util.events(document, {
 	// Final initalization entry point: the Javascript code inside this block
@@ -19,7 +19,8 @@ Util.events(document, {
 		dom.parentName = Util.one("#nameText");
 		dom.center = Util.one("#center")
 		dom.sidebar = Util.one("#sidebar")
-		dom.hiddenReward = Util.one("#hiddenReward")
+		//dom.hiddenReward = Util.one("#hiddenReward")
+		dom.saveChore = Util.one("#newchorePopupSave")
 
 
 		// // set color and name defaults
@@ -92,16 +93,19 @@ Util.events(document, {
 				dom.choreDone.style.visibility = "hidden"
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
-			}); 
+			});
 
-		Util.one("#newButton").addEventListener("click", 
+		Util.one("#newButton").addEventListener("click",
 			function() {
+
 				dom.newChore.style.visibility = "visible"
 				dom.center.style.opacity = "0.15";
 				dom.sidebar.style.opacity = "0.15";
-			}); 
 
-		Util.one("#newchorePopupClose").addEventListener("click", 
+				add = true;
+			});
+
+		Util.one("#newchorePopupClose").addEventListener("click",
 			function() {
 				dom.newChore.style.visibility = "hidden"
 				Util.one("#newchoreText").value = ""
@@ -110,7 +114,23 @@ Util.events(document, {
 				Util.one("#newdetailsText").value = ""
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
-			}); 
+
+				add = false;
+			});
+
+		Util.one("#save").addEventListener("click",
+			function() {
+				dom.newChore.style.visibility = "hidden"
+				Util.one("#newchoreText").value = ""
+				Util.one("#newdateText").value = ""
+				Util.one("#newrewardText").value =""
+				Util.one("#newdetailsText").value = ""
+				dom.center.style.opacity = "1";
+				dom.sidebar.style.opacity = "1";
+				if(add) {
+					Util.one("#dinner").style.visibility = "visible";
+				}
+			});
 
 		// settings popup
 		dom.settings.addEventListener("click",

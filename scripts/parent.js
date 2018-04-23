@@ -1,6 +1,6 @@
 var dom = {};
 var foldClothes = ["Fold clothes", "April 22, 2018", "A trip to the park!", "Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet."]
-
+var add = false;
 
 Util.events(document, {
 	// Final initalization entry point: the Javascript code inside this block
@@ -82,6 +82,7 @@ Util.events(document, {
 				dom.newChore.style.visibility = "visible"
 				dom.center.style.opacity = "0.15";
 				dom.sidebar.style.opacity = "0.15";
+				add = true;
 			}); 
 
 		Util.one("#newchorePopupClose").addEventListener("click", 
@@ -93,6 +94,21 @@ Util.events(document, {
 				Util.one("#newdetailsText").value = ""
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
+				add = false;
+			});
+
+		Util.one("#save").addEventListener("click", 
+			function() {
+				dom.newChore.style.visibility = "hidden"
+				Util.one("#newchoreText").value = ""
+				Util.one("#newdateText").value = ""
+				Util.one("#newrewardText").value =""
+				Util.one("#newdetailsText").value = ""
+				dom.center.style.opacity = "1";
+				dom.sidebar.style.opacity = "1";
+				if(add) {
+					Util.one("#dinner").style.visibility = "visible";
+				}
 			}); 
 
 		// settings popup

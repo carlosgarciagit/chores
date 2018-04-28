@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/choreCompleted.css" />
     <link rel="stylesheet" href="css/settingsPopup.css" />
 	<link rel="stylesheet" href="css/parent.css">
-	<link rel="stylesheet" href="css/newchorePopup.css" />
+	<link rel="stylesheet" href="css/newChorePopup.css" />
 	<link href="https://fonts.googleapis.com/css?family=Lato:300|Roboto|Material+Icons" rel="stylesheet">
 
  	<script src="scripts/util.js"></script>
@@ -97,7 +97,7 @@
 			<div id="reward">
 				<div class="title">Pending Rewards</div>
 
-		         <div class="item">
+		         <div class="item" id="notHiddenReward">
 					<img src="assets/images/park.jpg" class="itemImg">
 	            	<div>Go to the park</div>
 	            	<div>April 21</div>
@@ -108,7 +108,7 @@
 					<img src="assets/images/heart.jpg" class="itemImg">
 	            	<div>Hugs and Kisses</div>
 	            	<div>April 21</div>
-					<i id="rewardsDone" class="material-icons">done</i>
+					<i id="rewardsDoneCheckoff" class="material-icons">done</i>
 		        </div>
 
 
@@ -174,11 +174,12 @@
         <input id="newrewardText"></input>
 
         <div id="newdetailsLabel">Details:</div>
-        <input id="newdetailsText">
-        </input>
+				<textarea id="newdetailsText" cols="40" rows="5"></textarea>
+
       </div>
 
       <div id="buttonContainer">
+
         <button id="save">SAVE</button>
         <button id="newchorePopupClose">EXIT</button>
       </div>

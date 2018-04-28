@@ -19,6 +19,8 @@ Util.events(document, {
 		dom.parentName = Util.one("#nameText");
 		dom.center = Util.one("#center")
 		dom.sidebar = Util.one("#sidebar")
+		//dom.hiddenReward = Util.one("#hiddenReward")
+		dom.saveChore = Util.one("#newchorePopupSave")
 
 
 		// // set color and name defaults
@@ -70,22 +72,40 @@ Util.events(document, {
 				dom.sidebar.style.opacity = "1";
 				});
 
+
+		Util.one("#rewardsDone").addEventListener("click",
+			function() {
+				var remove1 = Util.one("#rewardsDone").parentNode
+				remove1.parentNode.removeChild(remove1);
+
+				});
+
+		Util.one("#rewardsDoneCheckoff").addEventListener("click",
+			function() {
+				remove2 = Util.one("#rewardsDoneCheckoff").parentNode
+				remove2.parentNode.removeChild(remove2);
+
+				});
+
+
 		Util.one("#chorePopupClose1").addEventListener("click", 
 			function() {
 				dom.choreDone.style.visibility = "hidden"
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
-			}); 
+			});
 
-		Util.one("#newButton").addEventListener("click", 
+		Util.one("#newButton").addEventListener("click",
 			function() {
+
 				dom.newChore.style.visibility = "visible"
 				dom.center.style.opacity = "0.15";
 				dom.sidebar.style.opacity = "0.15";
-				add = true;
-			}); 
 
-		Util.one("#newchorePopupClose").addEventListener("click", 
+				add = true;
+			});
+
+		Util.one("#newchorePopupClose").addEventListener("click",
 			function() {
 				dom.newChore.style.visibility = "hidden"
 				Util.one("#newchoreText").value = ""
@@ -94,10 +114,11 @@ Util.events(document, {
 				Util.one("#newdetailsText").value = ""
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
+
 				add = false;
 			});
 
-		Util.one("#save").addEventListener("click", 
+		Util.one("#save").addEventListener("click",
 			function() {
 				dom.newChore.style.visibility = "hidden"
 				Util.one("#newchoreText").value = ""
@@ -109,7 +130,7 @@ Util.events(document, {
 				if(add) {
 					Util.one("#dinner").style.visibility = "visible";
 				}
-			}); 
+			});
 
 		// settings popup
 		dom.settings.addEventListener("click",

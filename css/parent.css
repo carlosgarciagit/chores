@@ -101,7 +101,7 @@ button {
 	margin-right: 15px;
 	font-size: 3.5em;
 }
-#uncomplete {
+#incomplete {
 	height: 100%
 	grid-column: 1 / 2;
 	grid-row: 2 / 6;
@@ -208,7 +208,7 @@ button {
 
 }
 
-#rewardsDone {
+.material-icons.rewardsDoneCheckoff {
 	margin-right: 5px;
 	height: 35px;
 	width: 35px;
@@ -220,13 +220,12 @@ button {
 	color:white;
 }
 
-#rewardsDone:hover {
+.material-icons.rewardsDoneCheckoff:hover {
 	transform: scale(1.04);
 	color:var(--secondary-background);
 }
 
-
-#rewardsDoneCheckoff {
+.material-icons.checkoffDone {
 	margin-right: 5px;
 	height: 35px;
 	width: 35px;
@@ -238,26 +237,7 @@ button {
 	color:white;
 }
 
-#rewardsDoneCheckoff:hover {
-	transform: scale(1.04);
-	color:var(--secondary-background);
-}
-
-
-
-#checkoffDone {
-	margin-right: 5px;
-	height: 35px;
-	width: 35px;
-	padding: 2px;
-	font-size: 35px;
-	background-color: var(--main-background);
-	border-radius: 10px;
-	cursor: pointer;
-	color:white;
-}
-
-#checkoffDone:hover {
+.material-icons.checkoffDone:hover {
 	transform: scale(1.04);
 	color:var(--secondary-background);
 }
@@ -342,8 +322,3 @@ button {
 #editName:hover {
 	transform: scale(1.02);
 }
-
-#hiddenReward {
-	visibility: hidden;
-}
-

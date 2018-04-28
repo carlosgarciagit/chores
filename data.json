@@ -39,7 +39,7 @@ var chores = {
         "chore": "Wash the dog",
         "duedate": "April 19",
         "details": "todo",
-        "reward": "todo",
+        "reward": "hugs",
         "picture": "assets/images/dog.jpeg"
     },
 
@@ -58,5 +58,15 @@ var chores = {
         "reward": "todo",
         "picture": "assets/images/lawn.jpg",
     },
+}
 
+var rewards = {
+    "park" : {
+        "name" : "a trip to the park",
+        "picture": "assets/images/park.jpg"
+    },
+    "hugs" : {
+        "name" : "hugs and kisses",
+        "picture": "assets/images/heart.jpg"
+    }
 }

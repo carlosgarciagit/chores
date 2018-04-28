@@ -7,130 +7,118 @@ Util.events(document, {
 	// runs at the end of start-up when the DOM is ready
 	"DOMContentLoaded": function() {
 		dom.root = Util.one(":root");
-		// dom.rewards = Util.one("#rewardsBtn");
 		dom.settings = Util.one("#settings");
-		// dom.toDo = Util.one("#left")
-		// dom.completed = Util.one("#right")
+
 		dom.chorePopup = Util.one("#chorePopup")
-		dom.choreDone = Util.one("#choreCompleted")
-		dom.newChore = Util.one("#newchorePopup")
-		// dom.rewardsPopup = Util.one("#rewardsPopup")
+		dom.editChorePopup = Util.one("#editChorePopup")
 		dom.settingsPopup = Util.one("#settingsPopup")
+
+		dom.incomplete = Util.one("#incomplete")
+		dom.checkoff = Util.one("#checkoff")
+		dom.rewards = Util.one("#reward")
 		dom.parentName = Util.one("#nameText");
 		dom.center = Util.one("#center")
 		dom.sidebar = Util.one("#sidebar")
-		//dom.hiddenReward = Util.one("#hiddenReward")
 		dom.saveChore = Util.one("#newchorePopupSave")
 
+		fillChores();
 
 		// // set color and name defaults
 		Util.one("#default").classList.add("colorSelected")
 		dom.parentName.value = "Andrew";
 
-		// set margins of settings
-		dom.settingsPopup.style.marginTop = "-525px";
-		dom.settingsPopup.style.marginLeft = "400px";
 
-		dom.chorePopup.style.marginLeft="500px"
-		dom.chorePopup.style.marginTop="-525px"
+		// edit popup for each chore
+		var edits = Util.all(".pencil")
+		for (let item of edits) {
+			item.addEventListener("click",
+				function() {
+					editChorePopup(item.id);
+				});
+		}
 
-		// item popup
+		// chore popup
 		var items = Util.all(".item")
 		for (let item of items) {
 			item.addEventListener("click",
 				function() {
-					if(item.id == "clothes" ) {
-						dom.chorePopup.style.visibility = "visible"
-						dom.center.style.opacity = "0.15";
-						dom.sidebar.style.opacity = "0.15";
-					}
-					if (item.id == "doggie"){
-						dom.choreDone.style.visibility = "visible"
-						dom.center.style.opacity = "0.15";
-						dom.sidebar.style.opacity = "0.15";
-					}
+					console.log(item.id)
+					regularChorePopup(item.id);
 				});
 		}
 
-		Util.one("#clothesPencil").addEventListener("click",
-			function(event) {
-				event.stopPropagation();
-				dom.newChore.style.visibility = "visible"
-				Util.one("#newtitle").innerHTML = "Edit Chore"
-				Util.one("#newchoreText").value = foldClothes[0]
-				Util.one("#newdateText").value = foldClothes[1]
-				Util.one("#newrewardText").value = foldClothes[2]
-				Util.one("#newdetailsText").value = foldClothes[3]
-				dom.center.style.opacity = "0.15";
-				dom.sidebar.style.opacity = "0.15";
-			});
+		// edit popup for each chore
+		var edits = Util.all(".pencil")
+		for (let item of edits) {
+			item.addEventListener("click",
+				function(event) {
+					event.stopPropagation();
+					editChorePopup(item.id);
+				});
+		}
 
-		Util.one("#chorePopupClose").addEventListener("click",
+		// don't have to save any info if it's exit
+		Util.one("#editExit").addEventListener("click",
 			function() {
-				dom.chorePopup.style.visibility = "hidden"
+				dom.editChorePopup.style.display = "none"
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
-				});
-
-
-		Util.one("#rewardsDone").addEventListener("click",
-			function() {
-				var remove1 = Util.one("#rewardsDone").parentNode
-				remove1.parentNode.removeChild(remove1);
-
-				});
-
-		Util.one("#rewardsDoneCheckoff").addEventListener("click",
-			function() {
-				remove2 = Util.one("#rewardsDoneCheckoff").parentNode
-				remove2.parentNode.removeChild(remove2);
-
-				});
-
-
-		Util.one("#chorePopupClose1").addEventListener("click", 
-			function() {
-				dom.choreDone.style.visibility = "hidden"
-				dom.center.style.opacity = "1";
-				dom.sidebar.style.opacity = "1";
-			});
+		});
 
 		Util.one("#newButton").addEventListener("click",
 			function() {
-
-				dom.newChore.style.visibility = "visible"
-				dom.center.style.opacity = "0.15";
-				dom.sidebar.style.opacity = "0.15";
-
-				add = true;
+				newChorePopup();
 			});
 
-		Util.one("#newchorePopupClose").addEventListener("click",
+		var items = Util.all(".checkoffDone")
+		for (let item of items) {
+			item.addEventListener("click",
+				function(event) {
+					event.stopPropagation();
+					dom.rewards.appendChild(makeReward(chores[item.id].reward));
+					this.parentNode.remove();
+				});
+		}
+
+		var items = Util.all(".rewardsDoneCheckoff")
+		for (let item of items) {
+			item.addEventListener("click",
+				function(event) {
+					event.stopPropagation();
+					this.parentNode.remove();
+				});
+		}
+
+
+		Util.one("#chorePopupClose").addEventListener("click", 
 			function() {
-				dom.newChore.style.visibility = "hidden"
-				Util.one("#newchoreText").value = ""
-				Util.one("#newdateText").value = ""
-				Util.one("#newrewardText").value =""
-				Util.one("#newdetailsText").value = ""
+				dom.chorePopup.style.display = "none"
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
-
-				add = false;
 			});
 
-		Util.one("#save").addEventListener("click",
-			function() {
-				dom.newChore.style.visibility = "hidden"
-				Util.one("#newchoreText").value = ""
-				Util.one("#newdateText").value = ""
-				Util.one("#newrewardText").value =""
-				Util.one("#newdetailsText").value = ""
-				dom.center.style.opacity = "1";
-				dom.sidebar.style.opacity = "1";
-				if(add) {
-					Util.one("#dinner").style.visibility = "visible";
-				}
-			});
+		// Util.one("#newchorePopupClose").addEventListener("click",
+		// 	function() {
+		// 		dom.newChore.style.display = "none"
+		// 		dom.center.style.opacity = "1";
+		// 		dom.sidebar.style.opacity = "1";
+
+		// 		add = false;
+		// 	});
+
+		// Util.one("#save").addEventListener("click",
+		// 	function() {
+		// 		dom.newChore.style.visibility = "hidden"
+		// 		Util.one("#newchoreText").value = ""
+		// 		Util.one("#newdateText").value = ""
+		// 		Util.one("#newrewardText").value =""
+		// 		Util.one("#newdetailsText").value = ""
+		// 		dom.center.style.opacity = "1";
+		// 		dom.sidebar.style.opacity = "1";
+		// 		if(add) {
+		// 			Util.one("#dinner").style.visibility = "visible";
+		// 		}
+		// 	});
 
 		// settings popup
 		dom.settings.addEventListener("click",
@@ -159,29 +147,128 @@ Util.events(document, {
 		}
 
 		// checkmark in pending checkoffs
-		Util.one("#checkoffDone").addEventListener("click",
-			function(event) {
-				Util.one("#doggie").remove();
-				event.stopPropagation();
-				Util.one("#hiddenReward").style.visibility = "visible"
-			});
-},
+		// Util.one("#checkoffDone").addEventListener("click",
+		// 	function(event) {
+		// 		Util.one("#doggie").remove();
+		// 		event.stopPropagation();
+		// 		Util.one("#hiddenReward").style.visibility = "visible"
+		// 	});
+	},
 
-	// "mousedown": function(evt) {
-	// 	var elm = document.elementFromPoint(evt.clientX, evt.clientY);
-
-	// 	var parents = Util.all(".item");
-	// 	for (let item of parents) {
-	// 		if(item.contains(elm)) {
-	// 			console.log('hello')
-	// 		}
-	// 	}
-	// },
 
 	"keyup": function(evt) {
 		Util.one("#welcome").innerHTML = "Hi, "+dom.parentName.value+"!"
 	},
 });
+
+// begin helper functions
+function regularChorePopup(choreName) {
+	dom.chorePopup.style.display = "flex";
+	dom.center.style.opacity = "0.15";
+	dom.sidebar.style.opacity = "0.15";
+
+	Util.one("#choreText").innerHTML = chores[choreName].chore;
+	Util.one("#dateText").innerHTML = chores[choreName].duedate;
+	Util.one("#rewardText").innerHTML = chores[choreName].reward;
+	Util.one("#detailsText").innerHTML = chores[choreName].details;
+}
+
+function editChorePopup(choreName) {
+	dom.editChorePopup.style.display = "flex";
+	dom.center.style.opacity = "0.15";
+	dom.sidebar.style.opacity = "0.15";
+
+	Util.one("#editChoreText").value = chores[choreName].chore;
+	Util.one("#editDateText").value = chores[choreName].duedate;
+	Util.one("#editRewardText").value = chores[choreName].reward;
+	Util.one("#editDetailsText").value = chores[choreName].details;
+}
+
+function newChorePopup(choreName) {
+	dom.editChorePopup.style.display = "flex";
+	dom.center.style.opacity = "0.15";
+	dom.sidebar.style.opacity = "0.15";
+
+	Util.one("#editChoreText").value = "";
+	Util.one("#editDateText").value = "";
+	Util.one("#editRewardText").value = "";
+	Util.one("#editDetailsText").value = "";
+}
+
+function fillChores() {
+	dom.incomplete.appendChild(makeChore("lawn", true));
+	dom.incomplete.appendChild(makeChore("clothes", true));
+	dom.incomplete.appendChild(makeChore("dishes", true));
+	
+	dom.checkoff.appendChild(makeChore("dog", false));
+	
+	dom.rewards.appendChild(makeReward("park"));
+}
+
+function makeChore(choreName, isEdit) {
+	var div = document.createElement("div");
+	div.classList = "item";
+	div.id = choreName;
+
+	// image
+	var img = document.createElement("img");
+	img.src = chores[choreName].picture;
+	img.classList = "itemImg"
+
+	// chore name
+	var name = document.createElement("div");
+	name.innerHTML = chores[choreName].chore;
+	name.classList = "choreName"
+
+	// due date
+	var duedate = document.createElement("div");
+	duedate.innerHTML = chores[choreName].duedate;
+
+	// icon 
+	var icon = document.createElement("i");
+	icon.classList = "material-icons";
+	icon.innerHTML = isEdit ? "mode_edit" : "done";
+	icon.classList.add(isEdit ? "pencil" : "checkoffDone");
+	icon.id = choreName;
+
+	div.appendChild(img);
+	div.appendChild(name);
+	div.appendChild(duedate);
+	div.appendChild(icon)
+
+	return div;
+}
+
+function makeReward(rewardName) {
+	var div = document.createElement("div");
+	div.classList = "item";
+	div.id = rewardName;
+
+	// image
+	var img = document.createElement("img");
+	img.src = rewards[rewardName].picture;
+	img.classList = "itemImg"
+
+	// chore name
+	var name = document.createElement("div");
+	name.innerHTML = rewards[rewardName].name;
+	name.classList = "choreName"
+
+	// icon 
+	console.log(icon)
+	var icon = document.createElement("i");
+	icon.classList = "material-icons rewardsDoneCheckoff";
+	icon.innerHTML = "done"
+	icon.id = rewardName;
+
+	div.appendChild(img);
+	div.appendChild(name);
+	div.appendChild(icon)
+
+	return div;
+}
+
+
 
 function removeOtherBorders() {
 	var colors = Util.all(".color")

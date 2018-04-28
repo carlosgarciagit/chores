@@ -6,6 +6,7 @@ var startingColumn = null;
 var foldClothes = ["Fold clothes", "April 22, 2018", "A trip to the park!", "Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet."]
 var grandma = ["Talk to Grandma", "April 18, 2018", "One hour of video games", "It's Grandma's birthday! Call her sometime after soccer practice and wish her a happy day and tell her about how school is going."]
 
+
 Util.events(document, {
 	// Final initalization entry point: the Javascript code inside this block
 	// runs at the end of start-up when the DOM is ready
@@ -24,6 +25,8 @@ Util.events(document, {
 		// set color and name defaults
 		Util.one("#default").classList.add("colorSelected")
 		dom.childName.value = "Allie";
+
+		fillChores();
 
 		// chore popup
 		var items = Util.all(".item")
@@ -94,7 +97,7 @@ Util.events(document, {
 					dom.root.style.setProperty('--main-background', color.style.backgroundColor);
 				});
 		}
-},
+	},
 
 	"mousedown": function(evt) {
 		var elm = document.elementFromPoint(evt.clientX, evt.clientY);
@@ -156,12 +159,14 @@ Util.events(document, {
 	},
 });
 
-function removeOtherBorders() {
-	var colors = Util.all(".color")
-	for (let color of colors) {
-		color.classList.remove("colorSelected")
-	}
-	console.log('end of fun')
+function fillChores() {
+	dom.toDo.appendChild(makeItem("lawn"));
+	dom.toDo.appendChild(makeItem("clothes"));
+	dom.toDo.appendChild(makeItem("dishes"));
+	dom.toDo.appendChild(makeItem("dinner"));
+	
+	dom.completed.appendChild(makeItem("dog"));
+	dom.completed.appendChild(makeItem("grandma"));
 }
 
 function populateChoreDetails(details) {
@@ -172,4 +177,47 @@ function populateChoreDetails(details) {
 	Util.one("#rewardText").innerHTML = details[2]
 	Util.one("#detailsText").innerHTML = details[3]
 }
+
+function makeItem(choreName) {
+	var div = document.createElement("div");
+	div.classList = "item";
+
+	// image
+	var img = document.createElement("img");
+	img.src = chores[choreName].picture;
+	img.classList = "itemImg"
+
+	// chore name
+	var name = document.createElement("div");
+	name.innerHTML = chores[choreName].chore;
+
+	// due date
+	var duedate = document.createElement("div");
+	duedate.innerHTML = chores[choreName].duedate;
+
+	// drag and drop img 
+	var dehaze = document.createElement("i");
+	dehaze.classList = "material-icons";
+	dehaze.innerHTML = "dehaze";
+
+	div.appendChild(img);
+	div.appendChild(name);
+	div.appendChild(duedate);
+	div.appendChild(dehaze)
+
+	return div;
+}
+
+function makeChorePopup(choreDict) {
+
+}
+
+function removeOtherBorders() {
+	var colors = Util.all(".color")
+	for (let color of colors) {
+		color.classList.remove("colorSelected")
+	}
+}
+
+
 

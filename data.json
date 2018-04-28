@@ -1,0 +1,62 @@
+var family = {
+    "andrew" : {
+        "name" : "Andrew",
+        "parent": true
+    },
+    "allie" : {
+        "name" : "Allie",
+        "parent": false,
+    }
+}
+
+var chores = {
+
+    "clothes": {
+        "chore": "Fold clothes",
+        "duedate": "April 22",
+        "details": "Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet.",
+        "reward": "A trip to the park",
+        "picture": "assets/images/clothes.jpeg"
+    },
+
+    "dishes": {
+        "chore": "Clean dishes",
+        "duedate": "April 20",
+        "details": "todo",
+        "reward": "todo",
+        "picture": "assets/images/dishes.jpeg"
+    },
+
+    "dinner": {
+        "chore": "Help make dinner",
+        "duedate": "April 29",
+        "details": "todo",
+        "reward": "todo",
+        "picture": "assets/images/cook.jpg"
+    },
+
+     "dog": {
+        "chore": "Wash the dog",
+        "duedate": "April 19",
+        "details": "todo",
+        "reward": "todo",
+        "picture": "assets/images/dog.jpeg"
+    },
+
+    "grandma": {
+        "chore": "Talk to Grandma",
+        "duedate": "April 18",
+        "details": "It's Grandma's birthday! Call her sometime after soccer practice and wish her a happy day and tell her about how school is going.",
+        "reward": "One hour of video games",
+        "picture": "assets/images/grandma.svg"
+    },
+
+     "lawn": {
+        "chore": "Mow the lawn",
+        "duedate": "April 20",
+        "details": "todo",
+        "reward": "todo",
+        "picture": "assets/images/lawn.jpg",
+    },
+
+}

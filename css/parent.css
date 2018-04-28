@@ -304,6 +304,21 @@ button {
 
 }
 
+.reward-item {
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items:center;
+	margin:10px;
+	padding:5px;
+	font-size:25px;
+	border-color: grey;
+	border-width: thin;
+	border-style: solid;
+	border-radius: 10px;
+
+}
+
 .item:hover {
 	border: solid var(--main-background) 0.5px;
 	transform:scale(1.02);

@@ -1,6 +1,6 @@
 var dom = {};
 var foldClothes = ["Fold clothes", "April 22, 2018", "A trip to the park!", "Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet."]
-var add = false;
+var currentChore = "";
 
 Util.events(document, {
 	// Final initalization entry point: the Javascript code inside this block
@@ -27,7 +27,6 @@ Util.events(document, {
 		Util.one("#default").classList.add("colorSelected")
 		dom.parentName.value = "Andrew";
 
-
 		// edit popup for each chore
 		var edits = Util.all(".pencil")
 		for (let item of edits) {
@@ -42,7 +41,6 @@ Util.events(document, {
 		for (let item of items) {
 			item.addEventListener("click",
 				function() {
-					console.log(item.id)
 					regularChorePopup(item.id);
 				});
 		}
@@ -53,6 +51,7 @@ Util.events(document, {
 			item.addEventListener("click",
 				function(event) {
 					event.stopPropagation();
+					currentChore = item.id
 					editChorePopup(item.id);
 				});
 		}
@@ -65,8 +64,33 @@ Util.events(document, {
 				dom.sidebar.style.opacity = "1";
 		});
 
+
+		Util.one("#editSave").addEventListener("click",
+			function() {
+				dom.editChorePopup.style.display = "none"
+				dom.center.style.opacity = "1";
+				dom.sidebar.style.opacity = "1";
+				if(currentChore == "") {
+					currentChore = Util.one("#editChoreText").value
+					chores[currentChore] = {};
+					chores[currentChore].chore = Util.one("#editChoreText").value;
+					chores[currentChore].duedate = Util.one("#editDateText").value;
+					chores[currentChore].reward = Util.one("#editRewardText").value;
+					chores[currentChore].details = Util.one("#editDetailsText").value;
+					chores[currentChore].picture = "assets/images/broom.png"
+					dom.incomplete.appendChild(makeChore(currentChore, true));
+				}
+				else {
+					chores[currentChore].chore = Util.one("#editChoreText").value;
+					chores[currentChore].duedate = Util.one("#editDateText").value;
+					chores[currentChore].reward = Util.one("#editRewardText").value;
+					chores[currentChore].details = Util.one("#editDetailsText").value;
+				}
+			});
+
 		Util.one("#newButton").addEventListener("click",
 			function() {
+				currentChore = "";
 				newChorePopup();
 			});
 
@@ -97,29 +121,6 @@ Util.events(document, {
 				dom.sidebar.style.opacity = "1";
 			});
 
-		// Util.one("#newchorePopupClose").addEventListener("click",
-		// 	function() {
-		// 		dom.newChore.style.display = "none"
-		// 		dom.center.style.opacity = "1";
-		// 		dom.sidebar.style.opacity = "1";
-
-		// 		add = false;
-		// 	});
-
-		// Util.one("#save").addEventListener("click",
-		// 	function() {
-		// 		dom.newChore.style.visibility = "hidden"
-		// 		Util.one("#newchoreText").value = ""
-		// 		Util.one("#newdateText").value = ""
-		// 		Util.one("#newrewardText").value =""
-		// 		Util.one("#newdetailsText").value = ""
-		// 		dom.center.style.opacity = "1";
-		// 		dom.sidebar.style.opacity = "1";
-		// 		if(add) {
-		// 			Util.one("#dinner").style.visibility = "visible";
-		// 		}
-		// 	});
-
 		// settings popup
 		dom.settings.addEventListener("click",
 			function() {
@@ -145,14 +146,6 @@ Util.events(document, {
 					dom.root.style.setProperty('--main-background', color.style.backgroundColor);
 				});
 		}
-
-		// checkmark in pending checkoffs
-		// Util.one("#checkoffDone").addEventListener("click",
-		// 	function(event) {
-		// 		Util.one("#doggie").remove();
-		// 		event.stopPropagation();
-		// 		Util.one("#hiddenReward").style.visibility = "visible"
-		// 	});
 	},
 
 
@@ -241,7 +234,7 @@ function makeChore(choreName, isEdit) {
 
 function makeReward(rewardName) {
 	var div = document.createElement("div");
-	div.classList = "item";
+	div.classList = "reward-item";
 	div.id = rewardName;
 
 	// image
@@ -255,7 +248,6 @@ function makeReward(rewardName) {
 	name.classList = "choreName"
 
 	// icon 
-	console.log(icon)
 	var icon = document.createElement("i");
 	icon.classList = "material-icons rewardsDoneCheckoff";
 	icon.innerHTML = "done"
@@ -275,5 +267,4 @@ function removeOtherBorders() {
 	for (let color of colors) {
 		color.classList.remove("colorSelected")
 	}
-	console.log('end of fun')
 }

@@ -4,16 +4,15 @@
 	padding:10px;
 	margin:auto;
 	border: solid grey 3px;
-	display:flex;
+	border-radius: 10px;
+	background-color: white;
+	z-index: 1;
+	position: relative;
+
 	flex-direction: column;
 	align-items: center;
-	visibility: hidden;
-	background-color: white;
 	align-self: center;
-	z-index: 1;
-	margin-top:-450px;
-	position: relative;
-	border-radius: 10px;
+	display:none;
 }
 
 #settingsPopupTitle {
@@ -30,7 +29,7 @@
 	grid-template-columns:30% 70%;
 	grid-row-gap:30px;
 	margin:10px;
-	width:90%;
+	width:85%;
 	margin-bottom: 75px;
 }
 

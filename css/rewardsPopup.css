@@ -4,16 +4,16 @@
 	padding:10px;
 	margin:auto;
 	border: solid grey 3px;
-	display:flex;
+	border-radius: 10px;
+	background-color: white;
+	z-index: 1;
+	position: relative;
+	
+
 	flex-direction: column;
 	align-items: center;
-	visibility: hidden;
-	background-color: white;
 	align-self: center;
-	z-index: 1;
-	margin-top:-480px;
-	position: relative;
-	border-radius: 10px;
+	display:none;
 }
 
 #rewardsPopupTitle {
@@ -34,7 +34,7 @@
 #rewardsPopupMain {
 	margin:10px;
 	flex-grow:1;
-	width:100%;
+	width:90%;
 }
 
 .rewardsItem {

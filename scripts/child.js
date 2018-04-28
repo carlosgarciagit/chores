@@ -3,10 +3,6 @@ var prevX = 0;
 var prevY = 0;
 var startingColumn = null;
 
-var foldClothes = ["Fold clothes", "April 22, 2018", "A trip to the park!", "Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet."]
-var grandma = ["Talk to Grandma", "April 18, 2018", "One hour of video games", "It's Grandma's birthday! Call her sometime after soccer practice and wish her a happy day and tell her about how school is going."]
-
-
 Util.events(document, {
 	// Final initalization entry point: the Javascript code inside this block
 	// runs at the end of start-up when the DOM is ready
@@ -33,33 +29,26 @@ Util.events(document, {
 		for (let item of items) {
 			item.addEventListener("click",
 				function() {
-					
-					// need to add for all chores!
-					switch(item.id) {
-						case "clothes": 
-							populateChoreDetails(foldClothes); break;
-						case "grandma":
-							populateChoreDetails(grandma); break;
-					}
+					populateChorePopup(item.id);
 				});
 		}
 
 		Util.one("#chorePopupClose").addEventListener("click", 
 			function() {
-				dom.chorePopup.style.visibility = "hidden"
+				dom.chorePopup.style.display = "none"
 				dom.main.style.opacity = "1";
 			}); 
 
 		// rewards popup
 		dom.rewards.addEventListener("click", 
 			function() {
-				dom.rewardsPopup.style.visibility = "visible"
+				dom.rewardsPopup.style.display = "flex";
 				dom.main.style.opacity = "0.15";
 			}); 
 
 		Util.one("#rewardsPopupClose").addEventListener("click", 
 			function() {
-				dom.rewardsPopup.style.visibility = "hidden"
+				dom.rewardsPopup.style.display = "none";
 				dom.main.style.opacity = "1";
 			}); 
 
@@ -77,13 +66,13 @@ Util.events(document, {
 		// settings popup
 		dom.settings.addEventListener("click", 
 			function() {
-				dom.settingsPopup.style.visibility = "visible"
+				dom.settingsPopup.style.display = "flex";
 				dom.main.style.opacity = "0.15";
 			}); 
 
 		Util.one("#settingsPopupClose").addEventListener("click", 
 			function() {
-				dom.settingsPopup.style.visibility = "hidden"
+				dom.settingsPopup.style.display = "none";
 				dom.main.style.opacity = "1";
 			});
 
@@ -105,7 +94,6 @@ Util.events(document, {
 		var parents = Util.all(".item");
 		for (let item of parents) {
 			if(item.contains(elm)) {
-				console.log('hello')
 				if(elm.innerHTML == "dehaze") {
 					item.className = "item-drag"
 					prevX = evt.clientX
@@ -169,18 +157,10 @@ function fillChores() {
 	dom.completed.appendChild(makeItem("grandma"));
 }
 
-function populateChoreDetails(details) {
-	dom.chorePopup.style.visibility = "visible"
-	dom.main.style.opacity = "0.15";
-	Util.one("#choreText").innerHTML = details[0]
-	Util.one("#dateText").innerHTML = details[1]
-	Util.one("#rewardText").innerHTML = details[2]
-	Util.one("#detailsText").innerHTML = details[3]
-}
-
 function makeItem(choreName) {
 	var div = document.createElement("div");
 	div.classList = "item";
+	div.id = choreName;
 
 	// image
 	var img = document.createElement("img");
@@ -190,6 +170,7 @@ function makeItem(choreName) {
 	// chore name
 	var name = document.createElement("div");
 	name.innerHTML = chores[choreName].chore;
+	name.classList = "choreName"
 
 	// due date
 	var duedate = document.createElement("div");
@@ -208,8 +189,14 @@ function makeItem(choreName) {
 	return div;
 }
 
-function makeChorePopup(choreDict) {
+function populateChorePopup(choreName) {
+	dom.chorePopup.style.display = "flex";
+	dom.main.style.opacity = "0.15";
 
+	Util.one("#choreText").innerHTML = chores[choreName].chore;
+	Util.one("#dateText").innerHTML = chores[choreName].duedate;
+	Util.one("#rewardText").innerHTML = chores[choreName].reward;
+	Util.one("#detailsText").innerHTML = chores[choreName].details;
 }
 
 function removeOtherBorders() {

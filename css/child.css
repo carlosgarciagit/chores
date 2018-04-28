@@ -40,6 +40,7 @@ button {
 	border-radius:10px;
 	color:white;
 	text-align: center;
+	cursor:pointer;
 }
 
 .arrow {
@@ -83,6 +84,7 @@ button {
 	padding: 0px 10px 0px 10px;
 	border-radius: 10px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	cursor:move;
 }
 
 .item:hover {
@@ -95,6 +97,11 @@ button {
 	width:60px;
 	background-color: white;
 	margin:5px;
+	cursor:move;
+}
+
+.choreName {
+	cursor:pointer;
 }
 
 .item-drag {
@@ -137,16 +144,6 @@ button {
     animation: moveBack calc(2*var(--movespeed));
 }
 
-.taskName {
-}
-
-.dueDate {
-}
-
-.material-icons {
-	height:100%;
-}
-
 #topBar {
 	display: flex;
 	justify-content: space-between;
@@ -176,6 +173,7 @@ button {
 	background-color: var(--main-background);
 	border:none;
 	color:white;
+	cursor:pointer;
 }
 
 #gearBtn:hover {

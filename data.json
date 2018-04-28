@@ -14,7 +14,7 @@ var chores = {
     "clothes": {
         "chore": "Fold clothes",
         "duedate": "April 22",
-        "details": "Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet.",
+        "details": "Your clean clothes will be in the laundry basket downstairs in the kitchen. Be sure to hang up your sundress in the closet.",
         "reward": "A trip to the park",
         "picture": "assets/images/clothes.jpeg"
     },
@@ -23,7 +23,7 @@ var chores = {
         "chore": "Clean dishes",
         "duedate": "April 20",
         "details": "todo",
-        "reward": "todo",
+        "reward": "hugs and kisses",
         "picture": "assets/images/dishes.jpeg"
     },
 
@@ -31,7 +31,7 @@ var chores = {
         "chore": "Help make dinner",
         "duedate": "April 29",
         "details": "todo",
-        "reward": "todo",
+        "reward": "choose dessert",
         "picture": "assets/images/cook.jpg"
     },
 

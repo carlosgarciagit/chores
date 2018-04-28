@@ -91,6 +91,7 @@ Util.events(document, {
 		Util.one("#newButton").addEventListener("click",
 			function() {
 				currentChore = "";
+				Util.one("#editTitle").innerHTML = "Add Chore";
 				newChorePopup();
 			});
 
@@ -170,6 +171,7 @@ function editChorePopup(choreName) {
 	dom.editChorePopup.style.display = "flex";
 	dom.center.style.opacity = "0.15";
 	dom.sidebar.style.opacity = "0.15";
+	Util.one("#editTitle").innerHTML = "Edit Chore";
 
 	Util.one("#editChoreText").value = chores[choreName].chore;
 	Util.one("#editDateText").value = chores[choreName].duedate;

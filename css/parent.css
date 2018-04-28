@@ -42,6 +42,7 @@ button {
 	border-radius:10px;
 	color:white;
 	text-align: center;
+	cursor: pointer;
 }
 
 .itemImg {

@@ -29,23 +29,23 @@
 			</div>
 		</div>
 		<div id="sidebar">
-			<div class="tab">
+			<div class="tab" id = "Dave" style="background-color: var(--main-background)">
 				<p>Dave</p>
-				<i id = "Dave" class="material-icons" style="font-size: 40px; margin-top:20px; color:var(--main-background)">keyboard_arrow_right</i>
+				<i class="material-icons" style="font-size: 40px; margin-top:20px; ">keyboard_arrow_right</i>
 			</div>
-			<div class="tab">
+			<div class="tab" id = "Sally" >
 				<p>Sally</p>
 				<i class="material-icons" style="font-size: 40px; margin-top:20px;">keyboard_arrow_right</i>
 			</div>
-			<div class="tab">
-				<p>Jack</p>
+			<div class="tab" id = "Allie">
+				<p>Allie</p>
 				<i class="material-icons" style="font-size: 40px; margin-top:20px;">keyboard_arrow_right</i>
 			</div>
 		</div>
 		<div id="center">
 			<div id="inner">
 			<div id="name">
-				<p id="welcome"><b>Dave</b></p>
+				<p id="childChores"><b>Dave's Chores</b></p>
 			</div>
 			<div id="incomplete">
           <div class="title">Not Completed</div>
@@ -67,7 +67,10 @@
 
     <!-- completed chore popup-->
 	<div id = "chorePopup">
-      <div id="chorePopupTitle">Chore Details</div>
+      <div id="chorePopupTop">
+        <div id="chorePopupTitle">Chore Details</div>
+        <i class="material-icons arrow">edit</i>
+      </div>
       <div id="chorePopupMain">
         <div id="choreLabel">Chore:</div>
         <div id="choreText"></div>

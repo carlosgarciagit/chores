@@ -104,6 +104,10 @@ button {
 	cursor:pointer;
 }
 
+.choreName:hover {
+	color:var(--main-background);
+}
+
 .item-drag {
 	display:inline-flex;
 	flex-direction:row;

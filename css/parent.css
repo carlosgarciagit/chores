@@ -52,6 +52,14 @@ button {
 	margin:5px;
 }
 
+.choreName {
+	cursor:pointer;
+}
+
+.choreName:hover {
+	color:var(--main-background);
+}
+
 #container {
 	display: grid;
 	height: 100%;
@@ -206,7 +214,10 @@ button {
 #settings:hover {
 	transform: scale(1.04);
 	color:var(--secondary-background);
+}
 
+#childChores {
+	font-weight:bold;
 }
 
 .material-icons.rewardsDoneCheckoff {
@@ -271,6 +282,7 @@ button {
 	background-color: var(--secondary-background);
 	cursor: pointer;
 }
+
 .tab:hover {
 	background-color: var(--secondary-focus)
 }

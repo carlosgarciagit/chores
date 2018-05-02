@@ -125,14 +125,14 @@ Util.events(document, {
 		// settings popup
 		dom.settings.addEventListener("click",
 			function() {
-				dom.settingsPopup.style.visibility = "visible"
+				dom.settingsPopup.style.display = "flex"
 				dom.center.style.opacity = "0.15";
 				dom.sidebar.style.opacity = "0.15";
 			});
 
 		Util.one("#settingsPopupClose").addEventListener("click",
 			function() {
-				dom.settingsPopup.style.visibility = "hidden"
+				dom.settingsPopup.style.display = "none"
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
 			});
@@ -145,6 +145,16 @@ Util.events(document, {
 					removeOtherBorders();
 					color.classList.add("colorSelected")
 					dom.root.style.setProperty('--main-background', color.style.backgroundColor);
+				});
+		}
+
+		var children = Util.all(".tab") 
+		for (let child of children) {
+			child.addEventListener("click",
+				function() {
+					removeOtherColors();
+					child.style.backgroundColor = getComputedStyle(dom.root).getPropertyValue("--main-background");
+					Util.one("#childChores").innerHTML = child.id + "'s Chores"
 				});
 		}
 	},
@@ -220,16 +230,16 @@ function makeChore(choreName, isEdit) {
 	duedate.innerHTML = chores[choreName].duedate;
 
 	// icon 
-	var icon = document.createElement("i");
-	icon.classList = "material-icons";
-	icon.innerHTML = isEdit ? "mode_edit" : "done";
-	icon.classList.add(isEdit ? "pencil" : "checkoffDone");
-	icon.id = choreName;
+	// var icon = document.createElement("i");
+	// icon.classList = "material-icons";
+	// icon.innerHTML = isEdit ? "mode_edit" : "done";
+	// icon.classList.add(isEdit ? "pencil" : "checkoffDone");
+	// icon.id = choreName;
 
 	div.appendChild(img);
 	div.appendChild(name);
 	div.appendChild(duedate);
-	div.appendChild(icon)
+	// div.appendChild(icon)
 
 	return div;
 }
@@ -268,5 +278,12 @@ function removeOtherBorders() {
 	var colors = Util.all(".color")
 	for (let color of colors) {
 		color.classList.remove("colorSelected")
+	}
+}
+
+function removeOtherColors() {
+	var children = Util.all(".tab")
+	for (let child of children) {
+		child.style.backgroundColor = getComputedStyle(dom.root).getPropertyValue("--secondary-color")
 	}
 }

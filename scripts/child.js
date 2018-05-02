@@ -176,15 +176,15 @@ function makeItem(choreName) {
 	var duedate = document.createElement("div");
 	duedate.innerHTML = chores[choreName].duedate;
 
-	// drag and drop img 
-	var dehaze = document.createElement("i");
-	dehaze.classList = "material-icons";
-	dehaze.innerHTML = "dehaze";
+	// // drag and drop img 
+	// var dehaze = document.createElement("i");
+	// dehaze.classList = "material-icons";
+	// dehaze.innerHTML = "dehaze";
 
 	div.appendChild(img);
 	div.appendChild(name);
 	div.appendChild(duedate);
-	div.appendChild(dehaze)
+	// div.appendChild(dehaze)
 
 	return div;
 }

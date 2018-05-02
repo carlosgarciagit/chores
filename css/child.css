@@ -106,6 +106,7 @@ button {
 
 .choreName:hover {
 	color:var(--main-background);
+	text-decoration: underline;
 }
 
 .item-drag {

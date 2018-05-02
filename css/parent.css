@@ -58,6 +58,7 @@ button {
 
 .choreName:hover {
 	color:var(--main-background);
+	text-decoration: underline;
 }
 
 #container {
@@ -220,6 +221,10 @@ button {
 	font-weight:bold;
 }
 
+.material-icons {
+	cursor: pointer;
+}
+
 .material-icons.rewardsDoneCheckoff {
 	margin-right: 5px;
 	height: 35px;
@@ -228,7 +233,6 @@ button {
 	font-size: 35px;
 	background-color: var(--main-background);
 	border-radius: 10px;
-	cursor: pointer;
 	color:white;
 }
 
@@ -245,28 +249,10 @@ button {
 	font-size: 35px;
 	background-color: var(--main-background);
 	border-radius: 10px;
-	cursor: pointer;
 	color:white;
 }
 
 .material-icons.checkoffDone:hover {
-	transform: scale(1.04);
-	color:var(--secondary-background);
-}
-
-.material-icons.pencil {
-	margin-right: 5px;
-	height: 35px;
-	width: 35px;
-	padding: 2px;
-	font-size: 35px;
-	background-color: var(--main-background);
-	border-radius: 10px;
-	cursor: pointer;
-	color:white;
-}
-
-.material-icons.pencil:hover {
 	transform: scale(1.04);
 	color:var(--secondary-background);
 }
@@ -349,4 +335,23 @@ button {
 
 #editName:hover {
 	transform: scale(1.02);
+}
+
+#deleteConfirmation {
+	height:100px;
+	width:250px;
+	padding:10px;
+	margin:auto;
+	border: solid grey 3px;
+	flex-direction: column;
+	align-items: center;
+	background-color: white;
+	align-self: center;
+	z-index: 1;
+	position: relative;
+	border-radius: 10px;
+	font-size:20px;
+
+	display:none;
+	top:0;
 }

@@ -19,7 +19,6 @@ Util.events(document, {
 		dom.childName = Util.one("#nameText");
 		
 		// set color and name defaults
-		Util.one("#default").classList.add("colorSelected")
 		dom.childName.value = "Allie";
 
 		fillChores();

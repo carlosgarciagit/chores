@@ -24,23 +24,40 @@ Util.events(document, {
 		fillChores();
 
 		// // set color and name defaults
-		Util.one("#default").classList.add("colorSelected")
 		dom.parentName.value = "Andrew";
 
 		// edit popup for each chore
-		var edits = Util.all(".pencil")
-		for (let item of edits) {
-			item.addEventListener("click",
-				function() {
-					editChorePopup(item.id);
-				});
-		}
+		Util.one("#pencil").addEventListener("click",
+			function() {
+				dom.chorePopup.style.display = "none"
+				editChorePopup(currentChore);
+			});
 
+		Util.one("#trashcan").addEventListener("click",
+			function() {
+				Util.one("#deleteConfirmation").style.display = "block"
+			});
+
+		Util.one("#confirm").addEventListener("click",
+			function() {
+				Util.one("#deleteConfirmation").style.display = "none"
+				dom.chorePopup.style.display = "none";
+				Util.one("#"+currentChore).remove();
+				dom.center.style.opacity = "1";
+				dom.sidebar.style.opacity = "1";
+			});
+
+		Util.one("#cancel").addEventListener("click",
+			function() {
+				Util.one("#deleteConfirmation").style.display = "none"
+			});
+		
 		// chore popup
 		var items = Util.all(".item")
 		for (let item of items) {
 			item.addEventListener("click",
 				function() {
+					currentChore = item.id;
 					regularChorePopup(item.id);
 				});
 		}
@@ -194,7 +211,9 @@ function newChorePopup(choreName) {
 	dom.center.style.opacity = "0.15";
 	dom.sidebar.style.opacity = "0.15";
 
+
 	Util.one("#editChoreText").value = "";
+	Util.one("#editChoreText").focus();
 	Util.one("#editDateText").value = "";
 	Util.one("#editRewardText").value = "";
 	Util.one("#editDetailsText").value = "";

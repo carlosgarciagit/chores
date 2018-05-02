@@ -2,6 +2,7 @@ var dom = {};
 var prevX = 0;
 var prevY = 0;
 var startingColumn = null;
+var error = false;
 
 Util.events(document, {
 	// Final initalization entry point: the Javascript code inside this block
@@ -20,8 +21,34 @@ Util.events(document, {
 		
 		// set color and name defaults
 		dom.childName.value = "Allie";
-
 		fillChores();
+
+		// settings popup
+		dom.settings.addEventListener("click", 
+			function() {
+				dom.settingsPopup.style.display = "flex";
+				dom.main.style.opacity = "0.15";
+			}); 
+
+		// close button for settings popup
+		Util.one("#settingsPopupClose").addEventListener("click", 
+			function() {
+				if (!error) { //error = false when user does not type name
+					dom.settingsPopup.style.display = "none";
+					dom.main.style.opacity = "1";
+				}
+			});
+
+		// color picker within settings
+		var colors = Util.all(".color")
+		for (let color of colors) {
+			color.addEventListener("click",
+				function() {
+					removeOtherBorders();
+					color.classList.add("colorSelected")
+					dom.root.style.setProperty('--main-background', color.style.backgroundColor);
+				});
+		}
 
 		// chore popup
 		var items = Util.all(".item")
@@ -32,6 +59,7 @@ Util.events(document, {
 				});
 		}
 
+		// chore popup close button
 		Util.one("#chorePopupClose").addEventListener("click", 
 			function() {
 				dom.chorePopup.style.display = "none"
@@ -45,13 +73,14 @@ Util.events(document, {
 				dom.main.style.opacity = "0.15";
 			}); 
 
+		// rewards popup close button
 		Util.one("#rewardsPopupClose").addEventListener("click", 
 			function() {
 				dom.rewardsPopup.style.display = "none";
 				dom.main.style.opacity = "1";
 			}); 
 
-		// remind buttons
+		// remind buttons within reward popup
 		var reminds = Util.all(".remind")
 		for (let remind of reminds) {
 			remind.addEventListener("click",
@@ -62,31 +91,10 @@ Util.events(document, {
 				});
 		}
 
-		// settings popup
-		dom.settings.addEventListener("click", 
-			function() {
-				dom.settingsPopup.style.display = "flex";
-				dom.main.style.opacity = "0.15";
-			}); 
-
-		Util.one("#settingsPopupClose").addEventListener("click", 
-			function() {
-				dom.settingsPopup.style.display = "none";
-				dom.main.style.opacity = "1";
-			});
-
-		// color picker within settings
-		var colors = Util.all(".color")
-		for (let color of colors) {
-			color.addEventListener("click",
-				function() {
-					removeOtherBorders();
-					color.classList.add("colorSelected")
-					dom.root.style.setProperty('--main-background', color.style.backgroundColor);
-				});
-		}
+		
 	},
 
+	// drag and drop
 	"mousedown": function(evt) {
 		var elm = document.elementFromPoint(evt.clientX, evt.clientY);
 		
@@ -108,6 +116,7 @@ Util.events(document, {
 		}
 	},
 
+	// drag and drop
 	"mousemove": function(evt) {
 		var element = Util.one(".item-drag");
 		if (element != null) {
@@ -116,7 +125,7 @@ Util.events(document, {
 		}
 	},
 
-
+	// drag and drop
 	"mouseup": function(evt) {
 		var item = Util.one(".item-drag");
 			if (item != null) {
@@ -141,8 +150,17 @@ Util.events(document, {
 			}
 	},
 
+	// dynamically change user's name when they change it in settings popup
 	"keyup": function(evt) {
 		Util.one("#welcome").innerHTML = "Hi, "+dom.childName.value+"!"
+		// alert the user to an error if they delete entire name
+		if (dom.childName.value.length == 0) {
+			dom.childName.classList = "error";
+		}
+		error = dom.childName.value.length == 0;
+		if (!error) {
+			dom.childName.classList = "";
+		}
 	},
 });
 

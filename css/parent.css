@@ -355,3 +355,7 @@ button {
 	display:none;
 	top:0;
 }
+
+.error {
+	border: 2px solid red;
+}

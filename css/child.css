@@ -220,6 +220,10 @@ button {
 	background-color: grey;
 }
 
+.error {
+	border: 2px solid red;
+}
+
 @keyframes moveBack {
      0% {
          transform: translate(var(--left), var(--top));

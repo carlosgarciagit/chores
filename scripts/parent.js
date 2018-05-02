@@ -1,6 +1,7 @@
 var dom = {};
-var foldClothes = ["Fold clothes", "April 22, 2018", "A trip to the park!", "Your clean clothes will be in the laundry basket downstairs in the kitchen. Take the basket to your room and fold and put up all your clothes. Be sure to hang up your sundress in the closet."]
+var monthsDict = {1:"Jan", 2:"Feb", 3:"Mar", 4:"Apr", 5:"May", 6:"Jun", 7:"Jul", 8:"Aug", 9:"Sep", 10:"Oct", 11:"Nov", 12:"Dec"};
 var currentChore = "";
+var popupActive = false;
 
 Util.events(document, {
 	// Final initalization entry point: the Javascript code inside this block
@@ -79,6 +80,7 @@ Util.events(document, {
 				dom.editChorePopup.style.display = "none"
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
+				popupActive = false;
 		});
 
 
@@ -87,11 +89,14 @@ Util.events(document, {
 				dom.editChorePopup.style.display = "none"
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
+				popupActive = false;
+
 				if(currentChore == "") {
 					currentChore = Util.one("#editChoreText").value
 					chores[currentChore] = {};
 					chores[currentChore].chore = Util.one("#editChoreText").value;
-					chores[currentChore].duedate = Util.one("#editDateText").value;
+					chores[currentChore].formatdate = Util.one("#editDateText").value;
+					chores[currentChore].duedate = getDate(Util.one("#editDateText").value);
 					chores[currentChore].reward = Util.one("#editRewardText").value;
 					chores[currentChore].details = Util.one("#editDetailsText").value;
 					chores[currentChore].picture = "assets/images/broom.png"
@@ -99,7 +104,8 @@ Util.events(document, {
 				}
 				else {
 					chores[currentChore].chore = Util.one("#editChoreText").value;
-					chores[currentChore].duedate = Util.one("#editDateText").value;
+					chores[currentChore].formatdate = Util.one("#editDateText").value;
+					chores[currentChore].duedate = getDate(Util.one("#editDateText").value);
 					chores[currentChore].reward = Util.one("#editRewardText").value;
 					chores[currentChore].details = Util.one("#editDetailsText").value;
 				}
@@ -108,7 +114,6 @@ Util.events(document, {
 		Util.one("#newButton").addEventListener("click",
 			function() {
 				currentChore = "";
-				Util.one("#editTitle").innerHTML = "Add Chore";
 				newChorePopup();
 			});
 
@@ -137,6 +142,7 @@ Util.events(document, {
 				dom.chorePopup.style.display = "none"
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
+				popupActive = false;
 			});
 
 		// settings popup
@@ -187,6 +193,7 @@ function regularChorePopup(choreName) {
 	dom.chorePopup.style.display = "flex";
 	dom.center.style.opacity = "0.15";
 	dom.sidebar.style.opacity = "0.15";
+	popupActive = true;
 
 	Util.one("#choreText").innerHTML = chores[choreName].chore;
 	Util.one("#dateText").innerHTML = chores[choreName].duedate;
@@ -199,9 +206,10 @@ function editChorePopup(choreName) {
 	dom.center.style.opacity = "0.15";
 	dom.sidebar.style.opacity = "0.15";
 	Util.one("#editTitle").innerHTML = "Edit Chore";
+	popupActive = true;
 
 	Util.one("#editChoreText").value = chores[choreName].chore;
-	Util.one("#editDateText").value = chores[choreName].duedate;
+	Util.one("#editDateText").value = chores[choreName].formatdate;
 	Util.one("#editRewardText").value = chores[choreName].reward;
 	Util.one("#editDetailsText").value = chores[choreName].details;
 }
@@ -210,6 +218,8 @@ function newChorePopup(choreName) {
 	dom.editChorePopup.style.display = "flex";
 	dom.center.style.opacity = "0.15";
 	dom.sidebar.style.opacity = "0.15";
+	Util.one("#editTitle").innerHTML = "Add Chore";
+	popupActive = true;
 
 
 	Util.one("#editChoreText").value = "";
@@ -249,16 +259,20 @@ function makeChore(choreName, isEdit) {
 	duedate.innerHTML = chores[choreName].duedate;
 
 	// icon 
-	// var icon = document.createElement("i");
-	// icon.classList = "material-icons";
-	// icon.innerHTML = isEdit ? "mode_edit" : "done";
-	// icon.classList.add(isEdit ? "pencil" : "checkoffDone");
-	// icon.id = choreName;
+	if (!isEdit) {
+		var icon = document.createElement("i");
+		icon.classList = "material-icons checkoffDone";
+		icon.innerHTML = "done";
+		icon.id = choreName;
+	}
 
 	div.appendChild(img);
 	div.appendChild(name);
 	div.appendChild(duedate);
-	// div.appendChild(icon)
+	if(!isEdit) {
+		div.appendChild(icon)
+	}
+	
 
 	return div;
 }
@@ -291,7 +305,15 @@ function makeReward(rewardName) {
 	return div;
 }
 
+function disableAroundPopup() {
+	Util.one("#newButton").disabled = "true";
+	dom.settings.disabled = "true";
+}
 
+function enableAroundPopup() {
+	Util.one("#newButton").disabled = "false";
+	dom.settings.disabled = "false";
+}
 
 function removeOtherBorders() {
 	var colors = Util.all(".color")
@@ -305,4 +327,10 @@ function removeOtherColors() {
 	for (let child of children) {
 		child.style.backgroundColor = getComputedStyle(dom.root).getPropertyValue("--secondary-color")
 	}
+}
+
+function getDate(date){
+	var split = date.split("-");
+	var month = parseInt(split[1]);
+	return monthsDict[month] + " " + parseInt(split[2]);
 }

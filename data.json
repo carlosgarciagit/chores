@@ -13,7 +13,8 @@ var chores = {
 
     "clothes": {
         "chore": "Fold clothes",
-        "duedate": "April 22",
+        "duedate": "May 1",
+        "formatdate": "2018-05-01",
         "details": "Your clean clothes will be in the laundry basket downstairs in the kitchen. Be sure to hang up your sundress in the closet.",
         "reward": "A trip to the park",
         "picture": "assets/images/clothes.jpeg"
@@ -22,6 +23,7 @@ var chores = {
     "dishes": {
         "chore": "Clean dishes",
         "duedate": "April 20",
+        "formatdate": "2018-04-20",
         "details": "todo",
         "reward": "hugs and kisses",
         "picture": "assets/images/dishes.jpeg"
@@ -30,6 +32,7 @@ var chores = {
     "dinner": {
         "chore": "Help make dinner",
         "duedate": "April 29",
+        "formatdate": "2018-04-29",
         "details": "todo",
         "reward": "choose dessert",
         "picture": "assets/images/cook.jpg"
@@ -38,6 +41,7 @@ var chores = {
      "dog": {
         "chore": "Wash the dog",
         "duedate": "April 19",
+        "formatdate": "2018-04-19",
         "details": "todo",
         "reward": "hugs",
         "picture": "assets/images/dog.jpeg"
@@ -46,6 +50,7 @@ var chores = {
     "grandma": {
         "chore": "Talk to Grandma",
         "duedate": "April 18",
+        "formatdate": "2018-04-18",
         "details": "It's Grandma's birthday! Call her sometime after soccer practice and wish her a happy day and tell her about how school is going.",
         "reward": "One hour of video games",
         "picture": "assets/images/grandma.svg"
@@ -54,6 +59,7 @@ var chores = {
      "lawn": {
         "chore": "Mow the lawn",
         "duedate": "April 20",
+        "formatdate": "2018-04-20",
         "details": "todo",
         "reward": "todo",
         "picture": "assets/images/lawn.jpg",

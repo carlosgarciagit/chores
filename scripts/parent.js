@@ -325,7 +325,7 @@ function makeReward(rewardName) {
 	// chore name
 	var name = document.createElement("div");
 	name.innerHTML = rewards[rewardName].name;
-	name.classList = "choreName"
+	name.classList = "rewardName"
 
 	// icon 
 	var icon = document.createElement("i");

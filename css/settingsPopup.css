@@ -1,14 +1,15 @@
 #settingsPopup {
-	height:450px;
-	width:500px;
+	height: 65%;
+    width: 50%;
 	padding:10px;
-	margin:auto;
+	position: fixed;
+    margin: auto;
+    top: 25%;
+    left: 25%;
 	border: solid grey 3px;
 	border-radius: 10px;
 	background-color: white;
 	z-index: 1;
-	position: relative;
-
 	flex-direction: column;
 	align-items: center;
 	align-self: center;

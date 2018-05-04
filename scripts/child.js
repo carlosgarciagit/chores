@@ -9,7 +9,7 @@ Util.events(document, {
 	// runs at the end of start-up when the DOM is ready
 	"DOMContentLoaded": function() {
 		dom.root = Util.one(":root");
-		dom.rewards = Util.one("#rewardsBtn"); 
+		dom.rewards = Util.one("#rewardsBtn");
 		dom.settings = Util.one("#gearBtn");
 		dom.toDo = Util.one("#left")
 		dom.completed = Util.one("#right")
@@ -18,20 +18,46 @@ Util.events(document, {
 		dom.settingsPopup = Util.one("#settingsPopup")
 		dom.main = Util.one("#main")
 		dom.childName = Util.one("#nameText");
-		
+
 		// set color and name defaults
 		dom.childName.value = "Allie";
 		fillChores();
 
 		// settings popup
-		dom.settings.addEventListener("click", 
+		dom.settings.addEventListener("click",
 			function() {
 				dom.settingsPopup.style.display = "flex";
 				dom.main.style.opacity = "0.15";
-			}); 
+			});
+
+		//help sequence
+		Util.one("#helpBtn").addEventListener("click",
+			function() {
+				helpSequence1()
+			});
+
+		Util.one("#next1").addEventListener("click",
+			function() {
+				helpSequence2()
+			});
+
+		Util.one("#next2").addEventListener("click",
+			function() {
+				helpSequence3()
+			});
+
+		Util.one("#next3").addEventListener("click",
+			function() {
+				helpSequence4()
+			});
+
+		Util.one("#next4").addEventListener("click",
+			function() {
+				helpSequence5()
+			});
 
 		// close button for settings popup
-		Util.one("#settingsPopupClose").addEventListener("click", 
+		Util.one("#settingsPopupClose").addEventListener("click",
 			function() {
 				if (!error) { //error = false when user does not type name
 					dom.settingsPopup.style.display = "none";
@@ -60,25 +86,25 @@ Util.events(document, {
 		}
 
 		// chore popup close button
-		Util.one("#chorePopupClose").addEventListener("click", 
+		Util.one("#chorePopupClose").addEventListener("click",
 			function() {
 				dom.chorePopup.style.display = "none"
 				dom.main.style.opacity = "1";
-			}); 
+			});
 
 		// rewards popup
-		dom.rewards.addEventListener("click", 
+		dom.rewards.addEventListener("click",
 			function() {
 				dom.rewardsPopup.style.display = "flex";
 				dom.main.style.opacity = "0.15";
-			}); 
+			});
 
 		// rewards popup close button
-		Util.one("#rewardsPopupClose").addEventListener("click", 
+		Util.one("#rewardsPopupClose").addEventListener("click",
 			function() {
 				dom.rewardsPopup.style.display = "none";
 				dom.main.style.opacity = "1";
-			}); 
+			});
 
 		// remind buttons within reward popup
 		var reminds = Util.all(".remind")
@@ -91,13 +117,13 @@ Util.events(document, {
 				});
 		}
 
-		
+
 	},
 
 	// drag and drop
 	"mousedown": function(evt) {
 		var elm = document.elementFromPoint(evt.clientX, evt.clientY);
-		
+
 		var parents = Util.all(".item");
 		for (let item of parents) {
 			if(item.contains(elm)) {
@@ -146,7 +172,7 @@ Util.events(document, {
 				promise.then(function() {
 					item.className = "item";
 				})
-				
+
 			}
 	},
 
@@ -169,7 +195,7 @@ function fillChores() {
 	dom.toDo.appendChild(makeItem("clothes"));
 	dom.toDo.appendChild(makeItem("dishes"));
 	dom.toDo.appendChild(makeItem("dinner"));
-	
+
 	dom.completed.appendChild(makeItem("dog"));
 	dom.completed.appendChild(makeItem("grandma"));
 }
@@ -193,7 +219,7 @@ function makeItem(choreName) {
 	var duedate = document.createElement("div");
 	duedate.innerHTML = chores[choreName].duedate;
 
-	// // drag and drop img 
+	// // drag and drop img
 	// var dehaze = document.createElement("i");
 	// dehaze.classList = "material-icons";
 	// dehaze.innerHTML = "dehaze";
@@ -223,5 +249,55 @@ function removeOtherBorders() {
 	}
 }
 
+//onboarding functions
+function helpSequence1() {
+	dom.main.style.opacity = "0.15";
+	var welcomePopup = document.getElementById("welcomePopup");
+	welcomePopup.style.display = "flex";
+}
 
+function helpSequence2() {
+	var welcomePopup = document.getElementById("welcomePopup");
+	welcomePopup.style.display = "none";
 
+	dom.main.style.opacity = "1";
+	var completedList = document.getElementById("right");
+	completedList.style.opacity = "0.15";
+
+	var todoPopup = document.getElementById("todoPopup")
+	todoPopup.style.display = "flex"
+}
+
+function helpSequence3() {
+	var todoPopup = document.getElementById("todoPopup")
+	todoPopup.style.display = "none"
+
+	var completedList = document.getElementById("right");
+	completedList.style.opacity = "1";
+
+	var todoList = document.getElementById("left");
+	todoList.style.opacity = "0.15"
+
+	var completedPopup = document.getElementById("completedPopup")
+	completedPopup.style.display = "flex"
+}
+
+function helpSequence4() {
+	var completedPopup = document.getElementById("completedPopup");
+	completedPopup.style.display = "none";
+
+	var completedList = document.getElementById("right");
+	completedList.style.opacity = "0.15";
+
+	var rewardsPopup = document.getElementById("rewPopup");
+	rewardsPopup.style.display = "flex"
+}
+
+function helpSequence5() {
+	var rewardsPopup = document.getElementById("rewPopup");
+	rewardsPopup.style.display = "none"
+	var completedList = document.getElementById("right");
+	completedList.style.opacity = "1";
+	var todoList = document.getElementById("left");
+	todoList.style.opacity = "1"
+}

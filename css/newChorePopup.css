@@ -1,15 +1,18 @@
 #editChorePopup {
-	height:450px;
-	width:500px;
-	margin:50px;
-	padding:10px;
+	height: 65%;
+    width: 50%;
+    padding:10px;
+    top:25%;
+    left:25%;
+    margin:auto;
 	border: solid grey 3px;
 	flex-direction: column;
 	align-items: center;
 	z-index: 1;
 	align-self: center;
 	background-color: white;
-
+	position: fixed;
+	border-radius: 10px;
 	display:none;
 }
 

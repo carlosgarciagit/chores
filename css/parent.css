@@ -113,6 +113,7 @@ button {
 	font-size: 3.5em;
 }
 #incomplete {
+	overflow: auto;
 	height: 100%
 	grid-column: 1 / 2;
 	grid-row: 2 / 6;

@@ -127,7 +127,7 @@ button {
 	pointer-events: none;
 	top: var(--top);
     left: var(--left);
-    z-index: 3 
+    z-index: 3
 
 }
 .item-move-back {
@@ -185,6 +185,17 @@ button {
 	color: var(--secondary-background);
 }
 
+#helpBtn {
+	background-color: var(--main-background);
+	border:none;
+	color:white;
+	cursor:pointer;
+}
+
+#helpBtn:hover {
+	color: var(--secondary-background);
+}
+
 #welcome {
 	color:white;
 	font-size:30px;
@@ -196,7 +207,7 @@ button {
 	justify-content:center;
 	align-content:center;
 	flex-direction:column;
-	z-index: 1;	
+	z-index: 1;
 	flex-grow:1;
 }
 
@@ -219,6 +230,106 @@ button {
 #rewardsBtn:hover {
 	background-color: grey;
 }
+
+/* tutorial css */
+#welcomePopup {
+	height: 15%;
+  width: 30%;
+	padding: 15px;
+	position: fixed;
+  margin: auto;
+  top: 25%;
+  left: 34%;
+	border: solid grey 3px;
+	border-radius: 10px;
+	background-color: white;
+	z-index: 10;
+	flex-direction: column;
+	align-items: center;
+	align-self: center;
+	display:none;
+}
+
+#todoPopup {
+	height: 30%;
+	width: 30%;
+	padding: 15px;
+	position: fixed;
+	margin: auto;
+	top: 25%;
+	left: 55%;
+	border: solid grey 3px;
+	border-radius: 10px;
+	background-color: white;
+	z-index: 10;
+	flex-direction: column;
+	align-items: center;
+	align-self: center;
+	display:none;
+	text-align: center;
+}
+
+#completedPopup {
+	height: 30%;
+	width: 30%;
+	padding: 15px;
+	position: fixed;
+	margin: auto;
+	top: 25%;
+	left: 10%;
+	border: solid grey 3px;
+	border-radius: 10px;
+	background-color: white;
+	z-index: 10;
+	flex-direction: column;
+	align-items: center;
+	align-self: center;
+	display:none;
+	text-align: center;
+}
+
+#rewPopup {
+	height: 20%;
+	width: 30%;
+	padding: 15px;
+	position: fixed;
+	margin: auto;
+	top: 60%;
+	left: 34%;
+	border: solid grey 3px;
+	border-radius: 10px;
+	background-color: white;
+	z-index: 10;
+	flex-direction: column;
+	align-items: center;
+	align-self: center;
+	display:none;
+	text-align: center;
+}
+
+.welcomeTo {
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 20px;
+}
+
+.welcomeChores {
+	font-size: 30px;
+	font-weight: bolder;
+	padding-top: 20px;
+	color: var(--main-background);
+}
+
+.next {
+	width: 100px;
+	height: 50px;
+	margin-top: 15px;
+	font-size: 20px;
+}
+/*    */
+
+
+
 
 .error {
 	border: 2px solid red;

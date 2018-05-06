@@ -126,8 +126,7 @@ Util.events(document, {
 
 		var parents = Util.all(".item");
 		for (let item of parents) {
-			if(item.contains(elm)) {
-				if(elm.innerHTML == "dehaze") {
+			if(item.contains(elm)) {	
 					item.className = "item-drag"
 					prevX = evt.clientX
 					prevY = evt.clientY
@@ -136,7 +135,6 @@ Util.events(document, {
 					startingColumn = item.parentElement.id;
 					elm.ondragstart = function() {
 						return false;
-			}
 				}
 			}
 		}

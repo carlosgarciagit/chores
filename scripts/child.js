@@ -56,6 +56,11 @@ Util.events(document, {
 				helpSequence5()
 			});
 
+		Util.one("#skip").addEventListener("click",
+			function() {
+				skipIntro()
+			});
+
 		// close button for settings popup
 		Util.one("#settingsPopupClose").addEventListener("click",
 			function() {
@@ -126,7 +131,7 @@ Util.events(document, {
 
 		var parents = Util.all(".item");
 		for (let item of parents) {
-			if(item.contains(elm)) {	
+			if(item.contains(elm)) {
 					item.className = "item-drag"
 					prevX = evt.clientX
 					prevY = evt.clientY
@@ -252,6 +257,9 @@ function helpSequence1() {
 	dom.main.style.opacity = "0.15";
 	var welcomePopup = document.getElementById("welcomePopup");
 	welcomePopup.style.display = "flex";
+
+	var skip = document.getElementById("skip");
+	skip.style.display = "flex";
 }
 
 function helpSequence2() {
@@ -306,4 +314,33 @@ function helpSequence5() {
 	todoList.style.opacity = "1"
 
 	dom.rewards.style.border = ""
+	var skip = document.getElementById("skip");
+	skip.style.display = "none";
+}
+
+function skipIntro() {
+	var welcomePopup = document.getElementById("welcomePopup");
+	welcomePopup.style.display = "none";
+
+	var todoPopup = document.getElementById("todoPopup")
+	todoPopup.style.display = "none"
+
+	var completedPopup = document.getElementById("completedPopup");
+	completedPopup.style.display = "none";
+
+	var rewardsPopup = document.getElementById("rewPopup");
+	rewardsPopup.style.display = "none";
+
+	var skip = document.getElementById("skip");
+	skip.style.display = "none";
+
+	var todoList = document.getElementById("left");
+	todoList.style.opacity = "1";
+
+	var completedList = document.getElementById("right");
+	completedList.style.opacity = "1";
+	completedList.style.border = ""
+	todoList.style.border = "";
+	dom.rewards.style.border = "";
+	dom.main.style.opacity = "1";
 }

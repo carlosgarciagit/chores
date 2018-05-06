@@ -1,6 +1,7 @@
 var dom = {};
 var monthsDict = {1:"Jan", 2:"Feb", 3:"Mar", 4:"Apr", 5:"May", 6:"Jun", 7:"Jul", 8:"Aug", 9:"Sep", 10:"Oct", 11:"Nov", 12:"Dec"};
 var currentChore = "";
+var currentChild = "Dave";
 var popupActive = false;
 var error = false;
 
@@ -23,7 +24,7 @@ Util.events(document, {
 		dom.sidebar = Util.one("#sidebar")
 		dom.saveChore = Util.one("#newchorePopupSave")
 
-		fillChores();
+		fillChores("Dave");
 
 		// // set color and name defaults
 		dom.parentName.value = "Andrew";
@@ -62,21 +63,18 @@ Util.events(document, {
 		for (let child of children) {
 			child.addEventListener("click",
 				function() {
+					startClean();
 					Util.one(".tabSelected").classList.remove("tabSelected")
 					child.classList.add("tabSelected")
 					Util.one("#childChores").innerHTML = child.id + "'s Chores"
+					fillChores(child.id);
+					itemEventListeners();
+					currentChild = child.id;
 				});
 		}
 
 		// chore popup
-		var items = Util.all(".item")
-		for (let item of items) {
-			item.addEventListener("click",
-				function() {
-					currentChore = item.id;
-					regularChorePopup(item.id);
-				});
-		}
+		itemEventListeners();
 
 		// chore popup close button
 		Util.one("#chorePopupClose").addEventListener("click", 
@@ -163,6 +161,7 @@ Util.events(document, {
 						chores[currentChore].reward = Util.one("#editRewardText").value;
 						chores[currentChore].details = Util.one("#editDetailsText").value;
 						chores[currentChore].picture = "assets/images/broom.png";
+						chores[currentChore].child = currentChld;
 						var chore = makeChore(currentChore, true);
 						dom.incomplete.appendChild(chore);
 						// make it clickable
@@ -226,8 +225,8 @@ Util.events(document, {
 
 });
 
-
 // begin helper functions
+
 function regularChorePopup(choreName) {
 	dom.chorePopup.style.display = "flex";
 	dom.center.style.opacity = "0.15";
@@ -272,17 +271,7 @@ function newChorePopup(choreName) {
 	Util.one("#editDetailsText").value = "";
 }
 
-function fillChores() {
-	dom.incomplete.appendChild(makeChore("lawn", true));
-	dom.incomplete.appendChild(makeChore("clothes", true));
-	dom.incomplete.appendChild(makeChore("dishes", true));
-	
-	dom.checkoff.appendChild(makeChore("dog", false));
-	
-	dom.rewards.appendChild(makeReward("park"));
-}
-
-function makeChore(choreName, isEdit) {
+function makeChore(choreName, isCompleted) {
 	var div = document.createElement("div");
 	div.classList = "item";
 	div.id = choreName.split(' ').join('+');
@@ -303,21 +292,18 @@ function makeChore(choreName, isEdit) {
 	duedate.innerHTML = chores[choreName].duedate;
 	duedate.id = div.id + "date"
 
-	// icon 
-	if (!isEdit) {
+	div.appendChild(img);
+	div.appendChild(name);
+	div.appendChild(duedate);
+
+	// icon if completed
+	if(isCompleted) {
 		var icon = document.createElement("i");
 		icon.classList = "material-icons checkoffDone";
 		icon.innerHTML = "done";
 		icon.id = choreName;
-	}
-
-	div.appendChild(img);
-	div.appendChild(name);
-	div.appendChild(duedate);
-	if(!isEdit) {
 		div.appendChild(icon)
 	}
-	
 
 	return div;
 }
@@ -384,5 +370,52 @@ function updateChoreDivs(choreName) {
 	var chore =Util.one("#"+choreName);
 	Util.one("#"+chore.id+"name").innerHTML = chores[currentChore].chore;
 	Util.one("#"+chore.id+"date").innerHTML = chores[currentChore].duedate;
-	
 }
+
+// differnt chores for different children
+function fillChores(childName) {
+	// if (childName != "Allie")
+	for (var key in chores) {
+		dict = chores[key]
+		if (dict.child == childName) {
+			if (dict.completed) {
+				dom.incomplete.appendChild(makeChore(key, false))
+			}
+			else {
+				dom.checkoff.appendChild(makeChore(key, true))
+			}
+			
+		}
+	}
+
+	for (var key in rewards) {
+		dict = rewards[key]
+		if (dict.child == childName) {
+			dom.rewards.appendChild(makeReward(key))
+		}
+	}
+}
+
+function startClean() {
+	var items = Util.all(".item")
+	for (let item of items) {
+		item.remove();
+	}
+	var items = Util.all(".reward-item")
+	for (let item of items) {
+		item.remove();
+	}
+}
+
+function itemEventListeners(){
+	var items = Util.all(".item")
+	for (let item of items) {
+		item.addEventListener("click",
+			function() {
+				currentChore = item.id;
+				regularChorePopup(item.id);
+			});
+	}
+}
+
+

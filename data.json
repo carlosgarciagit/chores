@@ -17,34 +17,42 @@ var chores = {
         "formatdate": "2018-05-01",
         "details": "Your clean clothes will be in the laundry basket downstairs in the kitchen. Be sure to hang up your sundress in the closet.",
         "reward": "A trip to the park",
-        "picture": "assets/images/clothes.jpeg"
+        "picture": "assets/images/clothes.jpeg",
+        "child": "Allie",
+        "completed": true,
     },
 
     "dishes": {
         "chore": "Clean dishes",
         "duedate": "April 20",
         "formatdate": "2018-04-20",
-        "details": "todo",
-        "reward": "hugs and kisses",
-        "picture": "assets/images/dishes.jpeg"
+        "details": "Clean off the dishes and run the dishwasher after dinner.",
+        "reward": "Hugs and kisses",
+        "picture": "assets/images/dishes.jpeg",
+        "child": "Dave",
+        "completed": false,
     },
 
     "dinner": {
         "chore": "Help make dinner",
         "duedate": "April 29",
         "formatdate": "2018-04-29",
-        "details": "todo",
-        "reward": "choose dessert",
-        "picture": "assets/images/cook.jpg"
+        "details": "Be thinking about what you want to make so we can get groceries!",
+        "reward": "Choose dessert",
+        "picture": "assets/images/cook.jpg",
+        "child": "Dave",
+        "completed": true,
     },
 
      "dog": {
         "chore": "Wash the dog",
         "duedate": "April 19",
         "formatdate": "2018-04-19",
-        "details": "todo",
-        "reward": "hugs",
-        "picture": "assets/images/dog.jpeg"
+        "details": "Toby really needs a bath! Use the hose by the porch to wash him off with shampoo.",
+        "reward": "Dog park with Toby",
+        "picture": "assets/images/dog.jpeg",
+        "child": "Sally",
+        "completed": false,
     },
 
     "grandma": {
@@ -53,26 +61,37 @@ var chores = {
         "formatdate": "2018-04-18",
         "details": "It's Grandma's birthday! Call her sometime after soccer practice and wish her a happy day and tell her about how school is going.",
         "reward": "One hour of video games",
-        "picture": "assets/images/grandma.svg"
+        "picture": "assets/images/grandma.svg",
+        "child": "Allie",
+        "completed": false,
     },
 
      "lawn": {
         "chore": "Mow the lawn",
         "duedate": "April 20",
         "formatdate": "2018-04-20",
-        "details": "todo",
-        "reward": "todo",
+        "details": "Make sure to cut the grass near the gazebo with the smaller mower.",
+        "reward": "$10",
         "picture": "assets/images/lawn.jpg",
+        "child": "Dave",
+        "completed": true,
     },
 }
 
 var rewards = {
     "park" : {
         "name" : "a trip to the park",
-        "picture": "assets/images/park.jpg"
+        "picture": "assets/images/park.jpg",
+        "child": "Sally"
     },
     "hugs" : {
         "name" : "hugs and kisses",
-        "picture": "assets/images/heart.jpg"
+        "picture": "assets/images/heart.jpg",
+        "child": "Sally"
+    },
+    "money" : {
+        "name" : "$10",
+        "picture": "assets/images/heart.jpg",
+        "child": "Dave"
     }
 }

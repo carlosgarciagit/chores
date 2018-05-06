@@ -155,15 +155,22 @@ Util.events(document, {
 					popupActive = false;
 
 					if(currentChore == "") {
-						currentChore = Util.one("#editChoreText").value
+						currentChore = Util.one("#editChoreText").value.split(' ').join('+');
 						chores[currentChore] = {};
 						chores[currentChore].chore = Util.one("#editChoreText").value;
 						chores[currentChore].formatdate = Util.one("#editDateText").value;
 						chores[currentChore].duedate = getDate(Util.one("#editDateText").value);
 						chores[currentChore].reward = Util.one("#editRewardText").value;
 						chores[currentChore].details = Util.one("#editDetailsText").value;
-						chores[currentChore].picture = "assets/images/broom.png"
-						dom.incomplete.appendChild(makeChore(currentChore, true));
+						chores[currentChore].picture = "assets/images/broom.png";
+						var chore = makeChore(currentChore, true);
+						dom.incomplete.appendChild(chore);
+						// make it clickable
+						chore.addEventListener("click",
+							function() {
+								currentChore = chore.id;
+								regularChorePopup(chore.id);
+							});
 					}
 					else {
 						chores[currentChore].chore = Util.one("#editChoreText").value;
@@ -172,6 +179,7 @@ Util.events(document, {
 						chores[currentChore].reward = Util.one("#editRewardText").value;
 						chores[currentChore].details = Util.one("#editDetailsText").value;
 					}
+					updateChoreDivs(currentChore)
 				}
 				
 			});
@@ -277,7 +285,7 @@ function fillChores() {
 function makeChore(choreName, isEdit) {
 	var div = document.createElement("div");
 	div.classList = "item";
-	div.id = choreName;
+	div.id = choreName.split(' ').join('+');
 
 	// image
 	var img = document.createElement("img");
@@ -288,10 +296,12 @@ function makeChore(choreName, isEdit) {
 	var name = document.createElement("div");
 	name.innerHTML = chores[choreName].chore;
 	name.classList = "choreName"
+	name.id = div.id + "name"
 
 	// due date
 	var duedate = document.createElement("div");
 	duedate.innerHTML = chores[choreName].duedate;
+	duedate.id = div.id + "date"
 
 	// icon 
 	if (!isEdit) {
@@ -368,4 +378,11 @@ function getDate(date){
 	var split = date.split("-");
 	var month = parseInt(split[1]);
 	return monthsDict[month] + " " + parseInt(split[2]);
+}
+
+function updateChoreDivs(choreName) {
+	var chore =Util.one("#"+choreName);
+	Util.one("#"+chore.id+"name").innerHTML = chores[currentChore].chore;
+	Util.one("#"+chore.id+"date").innerHTML = chores[currentChore].duedate;
+	
 }

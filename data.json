@@ -18,7 +18,7 @@ var chores = {
         "details": "Your clean clothes will be in the laundry basket downstairs in the kitchen. Be sure to hang up your sundress in the closet.",
         "reward": "A trip to the park",
         "picture": "assets/images/clothes.jpeg",
-        "child": "Allie",
+        "child": "Dave",
         "completed": true,
     },
 
@@ -41,7 +41,7 @@ var chores = {
         "reward": "Choose dessert",
         "picture": "assets/images/cook.jpg",
         "child": "Dave",
-        "completed": true,
+        "completed": false,
     },
 
      "dog": {
@@ -62,7 +62,7 @@ var chores = {
         "details": "It's Grandma's birthday! Call her sometime after soccer practice and wish her a happy day and tell her about how school is going.",
         "reward": "One hour of video games",
         "picture": "assets/images/grandma.svg",
-        "child": "Allie",
+        "child": "Sally",
         "completed": false,
     },
 
@@ -73,7 +73,40 @@ var chores = {
         "details": "Make sure to cut the grass near the gazebo with the smaller mower.",
         "reward": "$10",
         "picture": "assets/images/lawn.jpg",
-        "child": "Dave",
+        "child": "Sally",
+        "completed": true,
+    },
+
+    "toys": {
+        "chore": "Pick up your toys",
+        "duedate": "May 10",
+        "formatdate": "2018-05-10",
+        "details": "Make sure to cut the grass near the gazebo with the smaller mower.",
+        "reward": "$10",
+        "picture": "assets/images/lawn.jpg",
+        "child": "Allie",
+        "completed": true,
+    },
+
+    "vacuum": {
+        "chore": "vaccum the stairs",
+        "duedate": "May 10",
+        "formatdate": "2018-05-10",
+        "details": "Make sure to cut the grass near the gazebo with the smaller mower.",
+        "reward": "$10",
+        "picture": "assets/images/lawn.jpg",
+        "child": "Allie",
+        "completed": true,
+    },
+
+    "dust": {
+        "chore": "dust the shelves",
+        "duedate": "May 10",
+        "formatdate": "2018-05-10",
+        "details": "Make sure to cut the grass near the gazebo with the smaller mower.",
+        "reward": "$10",
+        "picture": "assets/images/lawn.jpg",
+        "child": "Allie",
         "completed": true,
     },
 }

@@ -14,7 +14,7 @@
 	--light-blue:#4286f4;
 	--dark-blue:#194c9e;
 	--light-pink:#ffbfea;
-	--hot-pink:#fc0aec;
+	--hot-pink:#ff7ac9;
 	--red:#c61b1b;
 	--mint:#99db8c;
 	--lime:#22e814;
@@ -85,6 +85,7 @@ button {
 	grid-row: 2 / 3;
 	background-color: var(--behind_tab);
 }
+
 #center {
 	height: 100%;
 	width: 100%;
@@ -269,6 +270,7 @@ button {
 	font-size: 1.5em;
 	background-color: var(--secondary-background);
 	cursor: pointer;
+	color:white;
 }
 
 .tab:hover {
@@ -280,6 +282,10 @@ button {
 	font-weight: bold;
 
 }
+.tabSelected {
+	background-color: var(--main-background)
+}
+
 .title {
 	color:var(--main-background);
 	text-align:center;

@@ -62,8 +62,8 @@ Util.events(document, {
 		for (let child of children) {
 			child.addEventListener("click",
 				function() {
-					removeOtherColors();
-					child.style.backgroundColor = getComputedStyle(dom.root).getPropertyValue("--main-background");
+					Util.one(".tabSelected").classList.remove("tabSelected")
+					child.classList.add("tabSelected")
 					Util.one("#childChores").innerHTML = child.id + "'s Chores"
 				});
 		}
@@ -360,7 +360,7 @@ function removeOtherBorders() {
 function removeOtherColors() {
 	var children = Util.all(".tab")
 	for (let child of children) {
-		child.style.backgroundColor = getComputedStyle(dom.root).getPropertyValue("--secondary-color")
+		child.style.classList = "tab"
 	}
 }
 

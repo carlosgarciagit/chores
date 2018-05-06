@@ -263,6 +263,7 @@ function helpSequence2() {
 	dom.main.style.opacity = "1";
 	var completedList = document.getElementById("right");
 	completedList.style.opacity = "0.15";
+	Util.one("#left").style.border = "2px red solid";
 
 	var todoPopup = document.getElementById("todoPopup")
 	todoPopup.style.display = "flex"
@@ -274,9 +275,11 @@ function helpSequence3() {
 
 	var completedList = document.getElementById("right");
 	completedList.style.opacity = "1";
+	completedList.style.border = "2px red solid";
 
 	var todoList = document.getElementById("left");
 	todoList.style.opacity = "0.15"
+	todoList.style.border = "";
 
 	var completedPopup = document.getElementById("completedPopup")
 	completedPopup.style.display = "flex"
@@ -288,6 +291,9 @@ function helpSequence4() {
 
 	var completedList = document.getElementById("right");
 	completedList.style.opacity = "0.15";
+	completedList.style.border = "";
+
+	dom.rewards.style.border = "2px red solid"
 
 	var rewardsPopup = document.getElementById("rewPopup");
 	rewardsPopup.style.display = "flex"
@@ -300,4 +306,6 @@ function helpSequence5() {
 	completedList.style.opacity = "1";
 	var todoList = document.getElementById("left");
 	todoList.style.opacity = "1"
+
+	dom.rewards.style.border = ""
 }

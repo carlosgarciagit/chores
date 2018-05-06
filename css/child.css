@@ -79,7 +79,7 @@ button {
 	align-items:center;
 	margin:15px;
 	padding:5px;
-	font-size:25px;
+	font-size:2.5vw;
 	border: solid grey .5px;
 	padding: 0px 10px 0px 10px;
 	border-radius: 10px;
@@ -93,8 +93,8 @@ button {
 }
 
 .itemImg {
-	height:60px;
-	width:60px;
+	height:6vw;
+	width:6vw;
 	background-color: white;
 	margin:5px;
 	cursor:move;

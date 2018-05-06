@@ -161,8 +161,9 @@ Util.events(document, {
 						chores[currentChore].reward = Util.one("#editRewardText").value;
 						chores[currentChore].details = Util.one("#editDetailsText").value;
 						chores[currentChore].picture = "assets/images/broom.png";
-						chores[currentChore].child = currentChld;
-						var chore = makeChore(currentChore, true);
+						chores[currentChore].child = currentChild;
+						chores[currentChore].completed = false;
+						var chore = makeChore(currentChore, false);
 						dom.incomplete.appendChild(chore);
 						// make it clickable
 						chore.addEventListener("click",
@@ -378,7 +379,7 @@ function fillChores(childName) {
 	for (var key in chores) {
 		dict = chores[key]
 		if (dict.child == childName) {
-			if (dict.completed) {
+			if (!dict.completed) {
 				dom.incomplete.appendChild(makeChore(key, false))
 			}
 			else {

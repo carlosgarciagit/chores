@@ -46,8 +46,8 @@ button {
 }
 
 .itemImg {
-	height:4vw;
-	width:4vw;
+	height:3vw;
+	width:3vw;
 	background-color: white;
 	margin:5px;
 }
@@ -108,14 +108,15 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	text-align: center;
 }
-#name p {
+#childChores{
 	margin-right: 15px;
-	font-size: 3.5em;
+	font-size: 5.125vw;
+	margin-left: 20px;
 }
 #incomplete {
-	overflow: auto;
-	height: 100%
+	height: 100%;
 	grid-column: 1 / 2;
 	grid-row: 2 / 6;
 	display:flex;
@@ -154,7 +155,7 @@ button {
 
 }
 #newButton p {
-	font-size: 2em;
+	font-size: 2.5vw;
 	font-weight: bold;
 }
 #newButton:hover {
@@ -220,9 +221,7 @@ button {
 	color:var(--secondary-background);
 }
 
-#childChores {
-	font-weight:bold;
-}
+
 
 .material-icons {
 	cursor: pointer;
@@ -246,10 +245,10 @@ button {
 
 .material-icons.checkoffDone {
 	margin-right: 5px;
-	height: 3.5vw;
-	width: 3.5vw;
+	height: 2.5vw;
+	width: 2.5vw;
 	padding: 2px;
-	font-size: 3.5vw;
+	font-size: 2.5vw;
 	background-color: var(--main-background);
 	border-radius: 10px;
 	color:white;
@@ -289,7 +288,7 @@ button {
 .title {
 	color:var(--main-background);
 	text-align:center;
-	font-size:35px;
+	font-size:2.5vw;
 	border-bottom: solid grey 5px;
 	margin:10px;
 	font-weight: bold;
@@ -303,7 +302,7 @@ button {
 	align-items:center;
 	margin: -1px -1px 0px -1px;
 	padding:5px 30px 5px 10px;
-	font-size:2.5vw;
+	font-size:1.5vw;
 	border-color: grey;
 	border-width: thin;
 	border-style: solid;

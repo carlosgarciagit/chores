@@ -197,7 +197,7 @@ Util.events(document, {
 				dom.picturePopup.style.display = "none"
 				Util.one("#editPictureImg").src = Util.one(".picSelected").src
 			});
-		
+
 		// chore popup close button
 		Util.one("#chorePopupClose").addEventListener("click",
 			function() {
@@ -331,6 +331,9 @@ Util.events(document, {
 		if (dom.parentName.value.length == 0) {
 			dom.parentName.classList = "error";
 		}
+		else {
+			dom.parentName.classList.remove("error")
+		}
 		error = dom.parentName.value.length == 0;
 	},
 
@@ -345,18 +348,6 @@ Util.events(document, {
 });
 
 // begin helper functions
-
-// function populateKids(){
-// 	var kids = Util.all(".tab");
-	
-// 	for (var i in kids){
-// 		var div = document.createElement("div");
-// 		div.innerHTML = kids[i].id;
-// 		Util.one("#members").appendChild(div)
-
-// 		console.log(kids[i])
-// 	}
-// }
 
 function regularChorePopup(choreName) {
 	dom.chorePopup.style.display = "flex";

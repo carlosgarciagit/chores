@@ -23,6 +23,8 @@ Util.events(document, {
 		dom.center = Util.one("#center")
 		dom.sidebar = Util.one("#sidebar")
 		dom.saveChore = Util.one("#newchorePopupSave")
+		dom.name = Util.one("#name")
+		dom.new = Util.one("#newButton")
 
 		fillChores("Dave");
 
@@ -44,6 +46,47 @@ Util.events(document, {
 				dom.settingsPopup.style.display = "flex"
 				dom.center.style.opacity = "0.15";
 				dom.sidebar.style.opacity = "0.15";
+			});
+
+		//help sequence
+		Util.one("#helpBtn").addEventListener("click",
+			function() {
+				helpSequence1()
+			});
+
+		Util.one("#next1").addEventListener("click",
+			function() {
+				helpSequence2()
+			});
+
+		Util.one("#next2").addEventListener("click",
+			function() {
+				helpSequence3()
+			});
+
+		Util.one("#next3").addEventListener("click",
+			function() {
+				helpSequence4()
+			});
+
+		Util.one("#next4").addEventListener("click",
+			function() {
+				helpSequence5()
+			});
+
+		Util.one("#next5").addEventListener("click",
+			function() {
+				helpSequence6()
+			});
+
+		Util.one("#next6").addEventListener("click",
+			function() {
+				helpSequence7()
+			});
+
+		Util.one("#skip").addEventListener("click",
+			function() {
+				skip()
 			});
 
 		// close button for settings popup
@@ -68,7 +111,7 @@ Util.events(document, {
 		}
 
 		// for switching which child's chores user is looking at
-		var children = Util.all(".tab") 
+		var children = Util.all(".tab")
 		for (let child of children) {
 			child.addEventListener("click",
 				function() {
@@ -89,13 +132,13 @@ Util.events(document, {
 					pendingCheckoffEventListeners();
 					pendingRewardEventListeners();
 					// list item popups
-		
+
 					currentChild = child.id;
 				});
 		}
 
 		// chore popup close button
-		Util.one("#chorePopupClose").addEventListener("click", 
+		Util.one("#chorePopupClose").addEventListener("click",
 			function() {
 				dom.chorePopup.style.display = "none"
 				dom.center.style.opacity = "1";
@@ -207,7 +250,7 @@ Util.events(document, {
 					}
 					updateChoreDivs(currentChore)
 				}
-				
+
 			});
 	},
 
@@ -329,7 +372,7 @@ function makeReward(rewardName) {
 	name.innerHTML = rewards[rewardName].name;
 	name.classList = "rewardName"
 
-	// icon 
+	// icon
 	var icon = document.createElement("i");
 	icon.classList = "material-icons rewardsDoneCheckoff";
 	icon.innerHTML = "done"
@@ -390,7 +433,7 @@ function fillChores(childName) {
 			else {
 				dom.checkoff.appendChild(makeChore(key, true))
 			}
-			
+
 		}
 	}
 
@@ -455,3 +498,137 @@ function pendingRewardEventListeners() {
 }
 
 
+
+//onboarding functions
+function helpSequence1() {
+	var welcomePopup = document.getElementById("welcomePopup");
+	welcomePopup.style.display = "flex";
+
+	var skip = document.getElementById("skip");
+	skip.style.display = "flex"
+
+	dom.sidebar.style.opacity = "0.15"
+	dom.incomplete.style.opacity = "0.15"
+	dom.checkoff.style.opacity = "0.15"
+	dom.rewards.style.opacity = "0.15"
+	dom.name.style.opacity = "0.15"
+	dom.new.style.opacity = "0.15"
+}
+
+function helpSequence2() {
+	var welcomePopup = document.getElementById("welcomePopup");
+	welcomePopup.style.display = "none";
+
+	var newChorePopup = document.getElementById("newChorePopup");
+	newChorePopup.style.display = "flex";
+
+	dom.new.style.opacity = "1"
+	dom.new.style.border = "2px red solid"
+}
+
+
+function helpSequence3() {
+	var newChorePopup = document.getElementById("newChorePopup");
+	newChorePopup.style.display = "none";
+
+	dom.new.style.opacity = "0.15"
+	dom.new.style.border = ""
+
+	var sidebarPopup = document.getElementById("sidebarPopup");
+	sidebarPopup.style.display = "flex";
+
+	dom.sidebar.style.opacity = "1"
+	dom.sidebar.style.border = "2px red solid"
+
+}
+
+function helpSequence4() {
+	var sidebarPopup = document.getElementById("sidebarPopup");
+	sidebarPopup.style.display = "none";
+
+	dom.sidebar.style.opacity = "0.15"
+	dom.sidebar.style.border = ""
+
+	var incompletePopup = document.getElementById("incompletePopup");
+	incompletePopup.style.display = "flex";
+
+	dom.incomplete.style.opacity = "1"
+	dom.incomplete.style.border = "2px red solid"
+}
+
+function helpSequence5() {
+	var incompletePopup = document.getElementById("incompletePopup");
+	incompletePopup.style.display = "none";
+
+	dom.incomplete.style.opacity = "0.15"
+	dom.incomplete.style.border = ""
+
+	var pendingPopup = document.getElementById("pendingPopup");
+	pendingPopup.style.display = "flex";
+
+	dom.checkoff.style.opacity = "1"
+	dom.checkoff.style.border = "2px red solid"
+
+}
+
+function helpSequence6() {
+	var pendingPopup = document.getElementById("pendingPopup");
+	pendingPopup.style.display = "none";
+
+	dom.checkoff.style.opacity = "0.15"
+	dom.checkoff.style.border = ""
+
+	var rewardsPopup = document.getElementById("rewardsPopup");
+	rewardsPopup.style.display = "flex";
+
+	dom.rewards.style.opacity = "1"
+	dom.rewards.style.border = "2px red solid"
+}
+
+function helpSequence7() {
+	var rewardsPopup = document.getElementById("rewardsPopup");
+	rewardsPopup.style.display = "none";
+
+	dom.sidebar.style.opacity = "1"
+	dom.incomplete.style.opacity = "1"
+	dom.checkoff.style.opacity = "1"
+	dom.rewards.style.opacity = "1"
+	dom.name.style.opacity = "1"
+	dom.new.style.opacity = "1"
+
+	dom.rewards.style.border = ""
+	var skip = document.getElementById("skip");
+	skip.style.display = "none"
+}
+
+function skip() {
+	dom.sidebar.style.opacity = "1"
+	dom.incomplete.style.opacity = "1"
+	dom.checkoff.style.opacity = "1"
+	dom.rewards.style.opacity = "1"
+	dom.name.style.opacity = "1"
+	dom.new.style.opacity = "1"
+
+	dom.sidebar.style.border = ""
+	dom.incomplete.style.border = ""
+	dom.checkoff.style.border = ""
+	dom.rewards.style.border = ""
+	dom.name.style.border = ""
+	dom.new.style.border = ""
+
+	var rewardsPopup = document.getElementById("rewardsPopup");
+	rewardsPopup.style.display = "none";
+	var pendingPopup = document.getElementById("pendingPopup");
+	pendingPopup.style.display = "none";
+	var incompletePopup = document.getElementById("incompletePopup");
+	incompletePopup.style.display = "none";
+	var sidebarPopup = document.getElementById("sidebarPopup");
+	sidebarPopup.style.display = "none";
+	var newChorePopup = document.getElementById("newChorePopup");
+	newChorePopup.style.display = "none";
+	var welcomePopup = document.getElementById("welcomePopup");
+	welcomePopup.style.display = "none";
+
+	var skip = document.getElementById("skip");
+	skip.style.display = "none"
+}

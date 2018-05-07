@@ -1,0 +1,95 @@
+#memberPopup {
+	height: 65%;
+    width: 50%;
+    padding:10px;
+    top:25%;
+    left:25%;
+    margin:auto;
+	border: solid grey 3px;
+	flex-direction: column;
+	align-items: center;
+	z-index: 1;
+	align-self: center;
+	background-color: white;
+	position: fixed;
+	border-radius: 10px;
+	display:none;
+}
+
+#memberPopupTitle {
+	font-size: 40px;
+	color:var(--main-background);
+	text-align:center;
+	margin-bottom:30px;
+}
+
+#buttonContainer1 {
+	display:flex;
+	flex-direction:row;
+	margin-top:20px;
+}
+
+#memberPopupMain {
+	display:grid;
+	grid-template-rows: 10% 10% 10% 70%;
+	grid-template-columns:30% 70%;
+	grid-row-gap:30px;
+	margin:10px;
+	width:90%;
+}
+
+
+#memberLabel {
+	font-size:20px;
+	grid-column: 1;
+	grid-row: 1;
+	font-weight:bold;
+}
+
+#memberText {
+	font-size:20px;
+	grid-column: 2;
+	grid-row: 1;
+}
+
+#memberDateLabel {
+	font-size:20px;
+	grid-column: 1;
+	grid-row: 2;
+	font-weight:bold;
+}
+
+#memberDateText {
+	font-size:20px;
+	grid-column: 2;
+	grid-row: 2;
+}
+
+
+#memberDetailsLabel {
+	font-size:20px;
+	grid-column: 1;
+	grid-row: 4;
+	font-weight:bold;
+	height:100px;
+}
+
+#memberDetailsText {
+	font-size:20px;
+	grid-column: 2;
+	grid-row: 4;
+}
+
+
+#memberSave{
+	font-size: 25px;
+	width:50%;
+}
+
+#memberExit{
+	font-size: 25px;
+	width:50%;
+}
+
+
+

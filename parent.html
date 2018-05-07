@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/choreCompleted.css" />
     <link rel="stylesheet" href="css/settingsPopup.css" />
     <link rel="stylesheet" href="css/parent.css">
+    <link rel="stylesheet" href="css/members.css">
   	<link rel="stylesheet" href="css/newChorePopup.css" />
   	<link href="https://fonts.googleapis.com/css?family=Lato:300|Roboto|Material+Icons" rel="stylesheet">
 
@@ -135,8 +136,25 @@
           <div class = "color" style="background-color: var(--dark-purple)"></div>
         </div>
       </div>
-      <button id="viewKids">EDIT MEMBERS</button>
+      <button id="viewKids">ADD MEMBER</button>
       <button id="settingsPopupClose">SAVE AND EXIT</button>
+    </div>
+
+
+     <!-- members popup -->
+    <div id = "memberPopup">
+      <div id="memberPopupTitle">Add Member</div>
+      <div id="memberPopupMain">
+        <div id="memberLabel">Name:</div>
+        <input id="memberText"></input>
+
+        <div id="memberDateLabel">Birthday:</div>
+        <input type="date" id="memberDateText"></input>
+      </div>
+      <div id="buttonContainer1">
+        <button id="memberSave">SAVE</button>
+        <button id="memberExit">EXIT</button>
+      </div>
     </div>
 
    <!-- delete confirmation, visibility initally hidden -->

@@ -23,7 +23,7 @@ Util.events(document, {
 		dom.center = Util.one("#center")
 		dom.sidebar = Util.one("#sidebar")
 		dom.saveChore = Util.one("#newchorePopupSave")
-
+		dom.members = Util.one("#memberPopup")
 		fillChores("Dave");
 
 		// // set color and name defaults
@@ -50,6 +50,32 @@ Util.events(document, {
 					dom.settingsPopup.style.display = "none"
 					dom.center.style.opacity = "1";
 					dom.sidebar.style.opacity = "1";
+				}
+			});
+
+		//close members
+		Util.one("#memberExit").addEventListener("click",
+			function() {
+				if (!error) {
+					dom.members.style.display = "none"
+				}
+			});
+
+		//add member on save
+		Util.one("#memberSave").addEventListener("click",
+			function() {
+				if (!error) {
+					var div = document.createElement("div");
+					div.className = "tab"
+					var name = Util.one("#memberText").value
+					div.id = name
+					div.innerHTML = '<p>'+name+'</p> <i class="material-icons" style="font-size: 40px; margin-top:20px; ">keyboard_arrow_right</i>'
+					Util.one("#sidebar").appendChild(div);
+					dom.members.style.display = "none"
+					dom.settingsPopup.style.display = "none"
+					dom.center.style.opacity = "1";
+					dom.sidebar.style.opacity = "1";
+
 				}
 			});
 
@@ -104,6 +130,12 @@ Util.events(document, {
 			function() {
 				dom.chorePopup.style.display = "none"
 				Util.one("#deleteConfirmation").style.display = "block"
+			});
+
+		//edit members popup opens
+		Util.one("#viewKids").addEventListener("click",
+			function() {
+				dom.members.style.display = "block"
 			});
 
 		// confirm for delete confirmation
@@ -215,6 +247,18 @@ Util.events(document, {
 });
 
 // begin helper functions
+
+// function populateKids(){
+// 	var kids = Util.all(".tab");
+	
+// 	for (var i in kids){
+// 		var div = document.createElement("div");
+// 		div.innerHTML = kids[i].id;
+// 		Util.one("#members").appendChild(div)
+
+// 		console.log(kids[i])
+// 	}
+// }
 
 function regularChorePopup(choreName) {
 	dom.chorePopup.style.display = "flex";

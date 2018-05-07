@@ -39,6 +39,7 @@ Util.events(document, {
 		itemEventListeners();
 		pendingCheckoffEventListeners();
 		pendingRewardEventListeners();
+		tabEventListeners();
 
 		// settings popup
 		dom.settings.addEventListener("click",
@@ -112,6 +113,11 @@ Util.events(document, {
 		//close members
 		Util.one("#memberExit").addEventListener("click",
 			function() {
+				dom.members.style.display = "none"
+				Util.one("#memberText").value = "";
+				Util.one("#memberText").classList.remove("error")
+				Util.one("#memberDateText").value = "";
+				Util.one("#memberDateText").classList.remove("error")
 				if (!error) {
 					dom.members.style.display = "none"
 					dom.settingsPopup.style.display = "flex"
@@ -143,7 +149,7 @@ Util.events(document, {
 					dom.settingsPopup.style.display = "none"
 					dom.center.style.opacity = "1";
 					dom.sidebar.style.opacity = "1";
-
+					tabEventListeners();
 				}
 			});
 
@@ -191,35 +197,6 @@ Util.events(document, {
 				dom.picturePopup.style.display = "none"
 				Util.one("#editPictureImg").src = Util.one(".picSelected").src
 			});
-
-		// for switching which child's chores user is looking at
-		var children = Util.all(".tab")
-		for (let child of children) {
-			child.addEventListener("click",
-				function() {
-					skip()
-					Util.one("#deleteConfirmation").style.display = "none"
-					dom.members.style.display = "none"
-					dom.editChorePopup.style.display = "none"
-					dom.chorePopup.style.display = "none";	
-					if (!error) {
-						dom.settingsPopup.style.display = "none"
-					}			
-					dom.center.style.opacity = "1";
-					dom.sidebar.style.opacity = "1";
-					startClean();
-					Util.one(".tabSelected").classList.remove("tabSelected")
-					child.classList.add("tabSelected")
-					Util.one("#childChores").innerHTML = child.id + "'s Chores"
-					fillChores(child.id);
-					itemEventListeners();
-					pendingCheckoffEventListeners();
-					pendingRewardEventListeners();
-					// list item popups
-
-					currentChild = child.id;
-				});
-		}
 
 		// chore popup close button
 		Util.one("#chorePopupClose").addEventListener("click",
@@ -354,6 +331,9 @@ Util.events(document, {
 		if (dom.parentName.value.length == 0) {
 			dom.parentName.classList = "error";
 		}
+		else {
+			dom.parentName.classList.remove("error")
+		}
 		error = dom.parentName.value.length == 0;
 	},
 
@@ -368,18 +348,6 @@ Util.events(document, {
 });
 
 // begin helper functions
-
-// function populateKids(){
-// 	var kids = Util.all(".tab");
-	
-// 	for (var i in kids){
-// 		var div = document.createElement("div");
-// 		div.innerHTML = kids[i].id;
-// 		Util.one("#members").appendChild(div)
-
-// 		console.log(kids[i])
-// 	}
-// }
 
 function regularChorePopup(choreName) {
 	dom.chorePopup.style.display = "flex";
@@ -601,6 +569,35 @@ function pendingRewardEventListeners() {
 			function(event) {
 				event.stopPropagation();
 				this.parentNode.remove();
+			});
+	}
+}
+
+function tabEventListeners() {
+	// for switching which child's chores user is looking at
+	var children = Util.all(".tab")
+	for (let child of children) {
+		child.addEventListener("click",
+			function() {
+				Util.one("#deleteConfirmation").style.display = "none"
+				dom.editChorePopup.style.display = "none"
+				dom.chorePopup.style.display = "none";	
+				if (!error) {
+					dom.settingsPopup.style.display = "none"
+				}			
+				dom.center.style.opacity = "1";
+				dom.sidebar.style.opacity = "1";
+				startClean();
+				Util.one(".tabSelected").classList.remove("tabSelected")
+				child.classList.add("tabSelected")
+				Util.one("#childChores").innerHTML = child.id + "'s Chores"
+				fillChores(child.id);
+				itemEventListeners();
+				pendingCheckoffEventListeners();
+				pendingRewardEventListeners();
+				// list item popups
+
+				currentChild = child.id;
 			});
 	}
 }

@@ -516,7 +516,8 @@ button {
 	text-align: center;
 	font-size: 20px;
 	border-radius: 10px;
-	border-color: white;
+	background-color: white;
+	color: var(--main-background);
 	border-width: 2px;
 	margin-right: 25px;
 }

@@ -85,7 +85,7 @@ var chores = {
         "reward": "$10",
         "picture": "assets/images/lawn.jpg",
         "child": "Allie",
-        "completed": true,
+        "completed": false,
     },
 
     "vacuum": {
@@ -96,7 +96,7 @@ var chores = {
         "reward": "$10",
         "picture": "assets/images/lawn.jpg",
         "child": "Allie",
-        "completed": true,
+        "completed": false,
     },
 
     "dust": {

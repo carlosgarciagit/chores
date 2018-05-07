@@ -39,6 +39,7 @@ Util.events(document, {
 		itemEventListeners();
 		pendingCheckoffEventListeners();
 		pendingRewardEventListeners();
+		tabEventListeners();
 
 		// settings popup
 		dom.settings.addEventListener("click",
@@ -105,9 +106,11 @@ Util.events(document, {
 		//close members
 		Util.one("#memberExit").addEventListener("click",
 			function() {
-				if (!error) {
-					dom.members.style.display = "none"
-				}
+				dom.members.style.display = "none"
+				Util.one("#memberText").value = "";
+				Util.one("#memberText").classList.remove("error")
+				Util.one("#memberDateText").value = "";
+				Util.one("#memberDateText").classList.remove("error")
 			});
 
 		//add member on save
@@ -135,7 +138,7 @@ Util.events(document, {
 					dom.settingsPopup.style.display = "none"
 					dom.center.style.opacity = "1";
 					dom.sidebar.style.opacity = "1";
-
+					tabEventListeners();
 				}
 			});
 
@@ -183,33 +186,6 @@ Util.events(document, {
 				dom.picturePopup.style.display = "none"
 				Util.one("#editPictureImg").src = Util.one(".picSelected").src
 			});
-
-		// for switching which child's chores user is looking at
-		var children = Util.all(".tab")
-		for (let child of children) {
-			child.addEventListener("click",
-				function() {
-					Util.one("#deleteConfirmation").style.display = "none"
-					dom.editChorePopup.style.display = "none"
-					dom.chorePopup.style.display = "none";	
-					if (!error) {
-						dom.settingsPopup.style.display = "none"
-					}			
-					dom.center.style.opacity = "1";
-					dom.sidebar.style.opacity = "1";
-					startClean();
-					Util.one(".tabSelected").classList.remove("tabSelected")
-					child.classList.add("tabSelected")
-					Util.one("#childChores").innerHTML = child.id + "'s Chores"
-					fillChores(child.id);
-					itemEventListeners();
-					pendingCheckoffEventListeners();
-					pendingRewardEventListeners();
-					// list item popups
-
-					currentChild = child.id;
-				});
-		}
 
 		// chore popup close button
 		Util.one("#chorePopupClose").addEventListener("click",
@@ -586,6 +562,35 @@ function pendingRewardEventListeners() {
 			function(event) {
 				event.stopPropagation();
 				this.parentNode.remove();
+			});
+	}
+}
+
+function tabEventListeners() {
+	// for switching which child's chores user is looking at
+	var children = Util.all(".tab")
+	for (let child of children) {
+		child.addEventListener("click",
+			function() {
+				Util.one("#deleteConfirmation").style.display = "none"
+				dom.editChorePopup.style.display = "none"
+				dom.chorePopup.style.display = "none";	
+				if (!error) {
+					dom.settingsPopup.style.display = "none"
+				}			
+				dom.center.style.opacity = "1";
+				dom.sidebar.style.opacity = "1";
+				startClean();
+				Util.one(".tabSelected").classList.remove("tabSelected")
+				child.classList.add("tabSelected")
+				Util.one("#childChores").innerHTML = child.id + "'s Chores"
+				fillChores(child.id);
+				itemEventListeners();
+				pendingCheckoffEventListeners();
+				pendingRewardEventListeners();
+				// list item popups
+
+				currentChild = child.id;
 			});
 	}
 }

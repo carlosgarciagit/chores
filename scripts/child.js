@@ -101,6 +101,7 @@ Util.events(document, {
 				if (!error) { //error = false when user does not type name
 					dom.settingsPopup.style.display = "none";
 				}
+									console.log('yokes')
 				populateChorePopup(item.id);
 				});
 		}
@@ -169,7 +170,7 @@ Util.events(document, {
 	"mousemove": function(evt) {
 		var element = Util.one(".item-drag");
 		if (element != null) {
-			if (evt.clientY - prevY > 1 || evt.clientX - prevX > 1) {
+			if (Math.abs(evt.clientY - prevY) > 1 || Math.abs(evt.clientX - prevX) > 1) {
 				flag = false
 			}
 			document.documentElement.style.setProperty('--top', (evt.clientY - prevY) + 'px')
@@ -190,7 +191,7 @@ Util.events(document, {
 					if (!error) { //error = false when user does not type name
 						dom.settingsPopup.style.display = "none";
 					}
-					console.log('yikes')
+										console.log('yikes')
 					populateChorePopup(item.id)
 				}
 				else if (column.id == "left" && column.id != startingColumn) {

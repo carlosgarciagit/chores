@@ -1,8 +1,10 @@
 #editChorePopup {
-	height: 65%;
-    width: 50%;
+	height: 45vw;
+	min-height: 550px;
+	max-height: 55%;
+    width: 50vw;
     padding:10px;
-    top:25%;
+    top:15%;
     left:25%;
     margin:auto;
 	border: solid grey 3px;
@@ -17,7 +19,7 @@
 }
 
 #editTitle {
-	font-size: 40px;
+	font-size: 4vw;
 	color:var(--main-background);
 	text-align:center;
 	margin-bottom:30px;
@@ -40,46 +42,46 @@
 
 
 #editChoreLabel {
-	font-size:20px;
+	font-size:1.5vw;
 	grid-column: 1;
 	grid-row: 1;
 	font-weight:bold;
 }
 
 #editChoreText {
-	font-size:20px;
+	font-size:1.5vw;
 	grid-column: 2/4;
 	grid-row: 1;
 }
 
 #editDateLabel {
-	font-size:20px;
+	font-size:1.5vw;
 	grid-column: 1;
 	grid-row: 2;
 	font-weight:bold;
 }
 
 #editDateText {
-	font-size:20px;
 	grid-column: 2/4;
+	font-size:1.5vw;
 	grid-row: 2;
 }
 
 #editRewardLabel {
-	font-size:20px;
+	font-size:1.5vw;
 	grid-column: 1;
 	grid-row: 3;
 	font-weight:bold;
 }
 
 #editRewardText {
-	font-size:20px;
 	grid-column: 2/4;
+	font-size:1.5vw;
 	grid-row: 3;
 }
 
 #editDetailsLabel {
-	font-size:20px;
+	font-size:1.5vw;
 	grid-column: 1;
 	grid-row: 4;
 	font-weight:bold;
@@ -87,8 +89,8 @@
 }
 
 #editDetailsText {
-	font-size:20px;
 	grid-column: 2/4;
+	font-size:1.5vw;
 	grid-row: 4;
 }
 

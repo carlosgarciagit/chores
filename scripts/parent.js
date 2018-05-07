@@ -24,6 +24,10 @@ Util.events(document, {
 		dom.center = Util.one("#center")
 		dom.sidebar = Util.one("#sidebar")
 		dom.saveChore = Util.one("#newchorePopupSave")
+		dom.members = Util.one("#memberPopup")
+
+		dom.name = Util.one("#name")
+		dom.new = Util.one("#newButton")
 
 		fillChores("Dave");
 
@@ -38,10 +42,54 @@ Util.events(document, {
 
 		// settings popup
 		dom.settings.addEventListener("click",
-			function() {
+			function() {				
+				Util.one("#deleteConfirmation").style.display = "none"
+				dom.editChorePopup.style.display = "none"
+				dom.chorePopup.style.display = "none";
 				dom.settingsPopup.style.display = "flex"
 				dom.center.style.opacity = "0.15";
 				dom.sidebar.style.opacity = "0.15";
+			});
+
+		//help sequence
+		Util.one("#helpBtn").addEventListener("click",
+			function() {
+				helpSequence1()
+			});
+
+		Util.one("#next1").addEventListener("click",
+			function() {
+				helpSequence2()
+			});
+
+		Util.one("#next2").addEventListener("click",
+			function() {
+				helpSequence3()
+			});
+
+		Util.one("#next3").addEventListener("click",
+			function() {
+				helpSequence4()
+			});
+
+		Util.one("#next4").addEventListener("click",
+			function() {
+				helpSequence5()
+			});
+
+		Util.one("#next5").addEventListener("click",
+			function() {
+				helpSequence6()
+			});
+
+		Util.one("#next6").addEventListener("click",
+			function() {
+				helpSequence7()
+			});
+
+		Util.one("#skip").addEventListener("click",
+			function() {
+				skip()
 			});
 
 		// close button for settings popup
@@ -51,6 +99,43 @@ Util.events(document, {
 					dom.settingsPopup.style.display = "none"
 					dom.center.style.opacity = "1";
 					dom.sidebar.style.opacity = "1";
+				}
+			});
+
+		//close members
+		Util.one("#memberExit").addEventListener("click",
+			function() {
+				if (!error) {
+					dom.members.style.display = "none"
+				}
+			});
+
+		//add member on save
+		Util.one("#memberSave").addEventListener("click",
+			function() {
+				error = false;
+				// if user doesn't type anything into name or date, don't let them save
+				// and alert them of the problem with red border
+				if (Util.one("#memberText").value.length == 0) {
+					Util.one("#memberText").classList = "error"
+					error = true
+				}
+				if (Util.one("#memberDateText").value.length == 0) {
+					Util.one("#memberDateText").classList = "error"
+					error = true
+				}
+				if (!error) {
+					var div = document.createElement("div");
+					div.className = "tab"
+					var name = Util.one("#memberText").value
+					div.id = name
+					div.innerHTML = '<p>'+name+'</p> <i class="material-icons" style="font-size: 40px; margin-top:20px; ">keyboard_arrow_right</i>'
+					Util.one("#sidebar").appendChild(div);
+					dom.members.style.display = "none"
+					dom.settingsPopup.style.display = "none"
+					dom.center.style.opacity = "1";
+					dom.sidebar.style.opacity = "1";
+
 				}
 			});
 
@@ -100,10 +185,18 @@ Util.events(document, {
 			});
 
 		// for switching which child's chores user is looking at
-		var children = Util.all(".tab") 
+		var children = Util.all(".tab")
 		for (let child of children) {
 			child.addEventListener("click",
 				function() {
+					Util.one("#deleteConfirmation").style.display = "none"
+					dom.editChorePopup.style.display = "none"
+					dom.chorePopup.style.display = "none";	
+					if (!error) {
+						dom.settingsPopup.style.display = "none"
+					}			
+					dom.center.style.opacity = "1";
+					dom.sidebar.style.opacity = "1";
 					startClean();
 					Util.one(".tabSelected").classList.remove("tabSelected")
 					child.classList.add("tabSelected")
@@ -113,13 +206,13 @@ Util.events(document, {
 					pendingCheckoffEventListeners();
 					pendingRewardEventListeners();
 					// list item popups
-		
+
 					currentChild = child.id;
 				});
 		}
 
 		// chore popup close button
-		Util.one("#chorePopupClose").addEventListener("click", 
+		Util.one("#chorePopupClose").addEventListener("click",
 			function() {
 				dom.chorePopup.style.display = "none"
 				dom.center.style.opacity = "1";
@@ -138,6 +231,12 @@ Util.events(document, {
 			function() {
 				dom.chorePopup.style.display = "none"
 				Util.one("#deleteConfirmation").style.display = "block"
+			});
+
+		//edit members popup opens
+		Util.one("#viewKids").addEventListener("click",
+			function() {
+				dom.members.style.display = "block"
 			});
 
 		// confirm for delete confirmation
@@ -160,6 +259,12 @@ Util.events(document, {
 		// new chore button opens new chore popup
 		Util.one("#newButton").addEventListener("click",
 			function() {
+				Util.one("#deleteConfirmation").style.display = "none"
+				dom.editChorePopup.style.display = "none"
+				dom.chorePopup.style.display = "none";	
+				if (!error) {
+					dom.settingsPopup.style.display = "none"
+				}		
 				currentChore = "";
 				newChorePopup();
 			});
@@ -225,7 +330,7 @@ Util.events(document, {
 					}
 					updateChoreDivs(currentChore)
 				}
-				
+
 			});
 	},
 
@@ -250,6 +355,18 @@ Util.events(document, {
 });
 
 // begin helper functions
+
+// function populateKids(){
+// 	var kids = Util.all(".tab");
+	
+// 	for (var i in kids){
+// 		var div = document.createElement("div");
+// 		div.innerHTML = kids[i].id;
+// 		Util.one("#members").appendChild(div)
+
+// 		console.log(kids[i])
+// 	}
+// }
 
 function regularChorePopup(choreName) {
 	dom.chorePopup.style.display = "flex";
@@ -349,7 +466,7 @@ function makeReward(rewardName) {
 	name.innerHTML = rewards[rewardName].name;
 	name.classList = "rewardName"
 
-	// icon 
+	// icon
 	var icon = document.createElement("i");
 	icon.classList = "material-icons rewardsDoneCheckoff";
 	icon.innerHTML = "done"
@@ -413,7 +530,6 @@ function fillChores(childName) {
 			}
 		}
 	}
-
 	for (var key in rewards) {
 		dict = rewards[key]
 		if (dict.child == childName) {
@@ -438,6 +554,12 @@ function itemEventListeners(){
 	for (let item of items) {
 		item.addEventListener("click",
 			function() {
+				Util.one("#deleteConfirmation").style.display = "none"	
+				if (!error) {
+					dom.settingsPopup.style.display = "none"
+				}		
+				dom.editChorePopup.style.display = "none"
+				dom.chorePopup.style.display = "none";		
 				currentChore = item.id;
 				regularChorePopup(item.id);
 			});
@@ -469,3 +591,137 @@ function pendingRewardEventListeners() {
 }
 
 
+
+//onboarding functions
+function helpSequence1() {
+	var welcomePopup = document.getElementById("welcomePopup");
+	welcomePopup.style.display = "flex";
+
+	var skip = document.getElementById("skip");
+	skip.style.display = "flex"
+
+	dom.sidebar.style.opacity = "0.15"
+	dom.incomplete.style.opacity = "0.15"
+	dom.checkoff.style.opacity = "0.15"
+	dom.rewards.style.opacity = "0.15"
+	dom.name.style.opacity = "0.15"
+	dom.new.style.opacity = "0.15"
+}
+
+function helpSequence2() {
+	var welcomePopup = document.getElementById("welcomePopup");
+	welcomePopup.style.display = "none";
+
+	var newChorePopup = document.getElementById("newChorePopup");
+	newChorePopup.style.display = "flex";
+
+	dom.new.style.opacity = "1"
+	dom.new.style.border = "2px red solid"
+}
+
+
+function helpSequence3() {
+	var newChorePopup = document.getElementById("newChorePopup");
+	newChorePopup.style.display = "none";
+
+	dom.new.style.opacity = "0.15"
+	dom.new.style.border = ""
+
+	var sidebarPopup = document.getElementById("sidebarPopup");
+	sidebarPopup.style.display = "flex";
+
+	dom.sidebar.style.opacity = "1"
+	dom.sidebar.style.border = "2px red solid"
+
+}
+
+function helpSequence4() {
+	var sidebarPopup = document.getElementById("sidebarPopup");
+	sidebarPopup.style.display = "none";
+
+	dom.sidebar.style.opacity = "0.15"
+	dom.sidebar.style.border = ""
+
+	var incompletePopup = document.getElementById("incompletePopup");
+	incompletePopup.style.display = "flex";
+
+	dom.incomplete.style.opacity = "1"
+	dom.incomplete.style.border = "2px red solid"
+}
+
+function helpSequence5() {
+	var incompletePopup = document.getElementById("incompletePopup");
+	incompletePopup.style.display = "none";
+
+	dom.incomplete.style.opacity = "0.15"
+	dom.incomplete.style.border = ""
+
+	var pendingPopup = document.getElementById("pendingPopup");
+	pendingPopup.style.display = "flex";
+
+	dom.checkoff.style.opacity = "1"
+	dom.checkoff.style.border = "2px red solid"
+
+}
+
+function helpSequence6() {
+	var pendingPopup = document.getElementById("pendingPopup");
+	pendingPopup.style.display = "none";
+
+	dom.checkoff.style.opacity = "0.15"
+	dom.checkoff.style.border = ""
+
+	var rewardsPopup = document.getElementById("rewardsPopup");
+	rewardsPopup.style.display = "flex";
+
+	dom.rewards.style.opacity = "1"
+	dom.rewards.style.border = "2px red solid"
+}
+
+function helpSequence7() {
+	var rewardsPopup = document.getElementById("rewardsPopup");
+	rewardsPopup.style.display = "none";
+
+	dom.sidebar.style.opacity = "1"
+	dom.incomplete.style.opacity = "1"
+	dom.checkoff.style.opacity = "1"
+	dom.rewards.style.opacity = "1"
+	dom.name.style.opacity = "1"
+	dom.new.style.opacity = "1"
+
+	dom.rewards.style.border = ""
+	var skip = document.getElementById("skip");
+	skip.style.display = "none"
+}
+
+function skip() {
+	dom.sidebar.style.opacity = "1"
+	dom.incomplete.style.opacity = "1"
+	dom.checkoff.style.opacity = "1"
+	dom.rewards.style.opacity = "1"
+	dom.name.style.opacity = "1"
+	dom.new.style.opacity = "1"
+
+	dom.sidebar.style.border = ""
+	dom.incomplete.style.border = ""
+	dom.checkoff.style.border = ""
+	dom.rewards.style.border = ""
+	dom.name.style.border = ""
+	dom.new.style.border = ""
+
+	var rewardsPopup = document.getElementById("rewardsPopup");
+	rewardsPopup.style.display = "none";
+	var pendingPopup = document.getElementById("pendingPopup");
+	pendingPopup.style.display = "none";
+	var incompletePopup = document.getElementById("incompletePopup");
+	incompletePopup.style.display = "none";
+	var sidebarPopup = document.getElementById("sidebarPopup");
+	sidebarPopup.style.display = "none";
+	var newChorePopup = document.getElementById("newChorePopup");
+	newChorePopup.style.display = "none";
+	var welcomePopup = document.getElementById("welcomePopup");
+	welcomePopup.style.display = "none";
+
+	var skip = document.getElementById("skip");
+	skip.style.display = "none"
+}

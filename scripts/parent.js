@@ -2,8 +2,8 @@ var dom = {};
 var monthsDict = {1:"Jan", 2:"Feb", 3:"Mar", 4:"Apr", 5:"May", 6:"Jun", 7:"Jul", 8:"Aug", 9:"Sep", 10:"Oct", 11:"Nov", 12:"Dec"};
 var currentChore = "";
 var currentChild = "Dave";
-var popupActive = false;
 var error = false;
+var currentPic = "";
 
 Util.events(document, {
 	// Final initalization entry point: the Javascript code inside this block
@@ -15,6 +15,7 @@ Util.events(document, {
 		dom.chorePopup = Util.one("#chorePopup")
 		dom.editChorePopup = Util.one("#editChorePopup")
 		dom.settingsPopup = Util.one("#settingsPopup")
+		dom.picturePopup = Util.one("#picturePopup")
 
 		dom.incomplete = Util.one("#incomplete")
 		dom.checkoff = Util.one("#checkoff")
@@ -58,11 +59,45 @@ Util.events(document, {
 		for (let color of colors) {
 			color.addEventListener("click",
 				function() {
-					removeOtherBorders();
+					Util.one(".colorSelected").classList.remove("colorSelected")
 					color.classList.add("colorSelected")
 					dom.root.style.setProperty('--main-background', color.style.backgroundColor);
 				});
 		}
+
+		Util.one("#editPictureButton").addEventListener("click",
+			function() {
+				Util.one("#picturePopup").style.display = "flex";
+				Util.one(".picSelected").classList.remove("picSelected")
+				// to get current selected pic
+				var pics = Util.all(".pic")
+				for (let pic of pics) {
+					if (currentChore in chores && pic.src.includes(chores[currentChore].picture)) {
+						pic.classList.add("picSelected");
+					}
+					else if(pic.src.includes("assets/images/house.png") && currentChore=="") {
+						pic.classList.add("picSelected");
+					}
+				}
+				
+			});
+
+		// picture picker within settings popup
+		var pics = Util.all(".pic")
+		for (let pic of pics) {
+			pic.addEventListener("click",
+				function() {
+					Util.one(".picSelected").classList.remove("picSelected")
+					pic.classList.add("picSelected")
+				});
+		}
+
+		// close button for picture popup
+		Util.one("#picturePopupClose").addEventListener("click",
+			function() {
+				dom.picturePopup.style.display = "none"
+				Util.one("#editPictureImg").src = Util.one(".picSelected").src
+			});
 
 		// for switching which child's chores user is looking at
 		var children = Util.all(".tab") 
@@ -89,7 +124,6 @@ Util.events(document, {
 				dom.chorePopup.style.display = "none"
 				dom.center.style.opacity = "1";
 				dom.sidebar.style.opacity = "1";
-				popupActive = false;
 			});
 
 		// open edit popup from within chore popup
@@ -169,7 +203,7 @@ Util.events(document, {
 						chores[currentChore].duedate = getDate(Util.one("#editDateText").value);
 						chores[currentChore].reward = Util.one("#editRewardText").value;
 						chores[currentChore].details = Util.one("#editDetailsText").value;
-						chores[currentChore].picture = "assets/images/broom.png";
+						chores[currentChore].picture = Util.one("#editPictureImg").src;
 						chores[currentChore].child = currentChild;
 						chores[currentChore].completed = false;
 						var chore = makeChore(currentChore, false);
@@ -187,6 +221,7 @@ Util.events(document, {
 						chores[currentChore].duedate = getDate(Util.one("#editDateText").value);
 						chores[currentChore].reward = Util.one("#editRewardText").value;
 						chores[currentChore].details = Util.one("#editDetailsText").value;
+						chores[currentChore].picture = Util.one("#editPictureImg").src;
 					}
 					updateChoreDivs(currentChore)
 				}
@@ -220,7 +255,6 @@ function regularChorePopup(choreName) {
 	dom.chorePopup.style.display = "flex";
 	dom.center.style.opacity = "0.15";
 	dom.sidebar.style.opacity = "0.15";
-	popupActive = true;
 
 	Util.one("#choreText").innerHTML = chores[choreName].chore;
 	Util.one("#dateText").innerHTML = chores[choreName].duedate;
@@ -233,7 +267,6 @@ function editChorePopup(choreName) {
 	dom.center.style.opacity = "0.15";
 	dom.sidebar.style.opacity = "0.15";
 	Util.one("#editTitle").innerHTML = "Edit Chore";
-	popupActive = true;
 	Util.one("#editChoreText").classList = ""
 	Util.one("#editDateText").classList = ""
 
@@ -241,6 +274,8 @@ function editChorePopup(choreName) {
 	Util.one("#editDateText").value = chores[choreName].formatdate;
 	Util.one("#editRewardText").value = chores[choreName].reward;
 	Util.one("#editDetailsText").value = chores[choreName].details;
+	Util.one("#editPictureImg").src = chores[choreName].picture
+	currentPic = chores[choreName].picture
 }
 
 function newChorePopup(choreName) {
@@ -248,7 +283,6 @@ function newChorePopup(choreName) {
 	dom.center.style.opacity = "0.15";
 	dom.sidebar.style.opacity = "0.15";
 	Util.one("#editTitle").innerHTML = "Add Chore";
-	popupActive = true;
 	Util.one("#editChoreText").classList = ""
 	Util.one("#editDateText").classList = ""
 
@@ -258,6 +292,8 @@ function newChorePopup(choreName) {
 	Util.one("#editDateText").value = "";
 	Util.one("#editRewardText").value = "";
 	Util.one("#editDetailsText").value = "";
+	Util.one("#editPictureImg").src = "assets/images/house.png"
+	currentPic = "assets/images/house.png";
 }
 
 function makeChore(choreName, isCompleted) {
@@ -269,6 +305,7 @@ function makeChore(choreName, isCompleted) {
 	var img = document.createElement("img");
 	img.src = chores[choreName].picture;
 	img.classList = "itemImg"
+	img.id = div.id + "pic"
 
 	// chore name
 	var name = document.createElement("div");
@@ -359,6 +396,7 @@ function updateChoreDivs(choreName) {
 	var chore =Util.one("#"+choreName);
 	Util.one("#"+chore.id+"name").innerHTML = chores[currentChore].chore;
 	Util.one("#"+chore.id+"date").innerHTML = chores[currentChore].duedate;
+	Util.one("#"+chore.id+"pic").src = chores[currentChore].picture;
 }
 
 // differnt chores for different children
@@ -373,7 +411,6 @@ function fillChores(childName) {
 			else {
 				dom.checkoff.appendChild(makeChore(key, true))
 			}
-			
 		}
 	}
 

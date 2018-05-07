@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/settingsPopup.css" />
     <link rel="stylesheet" href="css/parent.css">
   	<link rel="stylesheet" href="css/newChorePopup.css" />
+    <link rel="stylesheet" href="css/picturePopup.css" />
   	<link href="https://fonts.googleapis.com/css?family=Lato:300|Roboto|Material+Icons" rel="stylesheet">
 
    	<script src="scripts/util.js"></script>
@@ -102,7 +103,11 @@
         <input id="editRewardText"></input>
 
         <div id="editDetailsLabel">Details:</div>
-				<textarea id="editDetailsText" cols="40" rows="5"></textarea>
+				<textarea id="editDetailsText" cols="40" rows="3"></textarea>
+
+        <div id="editPictureLabel">Picture:</div>
+        <img id="editPictureImg"></img>
+        <button id="editPictureButton">CHOOSE PICTURE</button>
 
       </div>
 
@@ -137,6 +142,38 @@
       </div>
       <button id="viewKids">EDIT MEMBERS</button>
       <button id="settingsPopupClose">SAVE AND EXIT</button>
+    </div>
+
+    <!-- settings popup, visibility initally hidden -->
+    <div id = "picturePopup">
+      <div id="picturePopupTitle">Choose a Picture</div>
+        <div id="picturePicker">
+          <img class = "pic" src="assets/images/clothes.jpeg"></img>
+          <img class = "pic" src="assets/images/lawn.jpg"></img>
+          <img class = "pic" src="assets/images/dog.jpeg"></img>
+          <img class = "pic" src="assets/images/dishes.jpeg"></img>
+          <img class = "pic" src="assets/images/grandma.svg"></img>
+          <img class = "pic" src="assets/images/broom.png"></img>
+          <img class = "pic" src="assets/images/cook.jpg"></img>
+          <img class = "pic" src="assets/images/duster.jpg"></img>
+          <img class = "pic" src="assets/images/bathroom.jpg"></img>
+          <img class = "pic" src="assets/images/washer.jpg"></img>
+          <img class = "pic" src="assets/images/garden.jpg"></img>
+          <img class = "pic" src="assets/images/park.jpg"></img>
+          <img class = "pic" src="assets/images/vacuum.jpg"></img>
+          <img class = "pic" src="assets/images/books.jpeg"></img>
+          <img class = "pic picSelected" src="assets/images/house.png"></img>
+          <img class = "pic" src="assets/images/sparkles.png"></img>
+          <img class = "pic" src="assets/images/car.jpeg"></img>
+          <img class = "pic" src="assets/images/trashcan.JPG"></img>
+          <img class = "pic" src="assets/images/baby.png"></img>
+          <img class = "pic" src="assets/images/clean.svg"></img>
+          <img class = "pic" src="assets/images/bucket.jpg"></img>
+          <img class = "pic" src="assets/images/homework.png"></img>
+          <img class = "pic" src="assets/images/phone.png"></img>
+          <img class = "pic" src="assets/images/bluecar.png"></img>
+        </div>
+      <button id="picturePopupClose">SAVE AND EXIT</button>
     </div>
 
    <!-- delete confirmation, visibility initally hidden -->

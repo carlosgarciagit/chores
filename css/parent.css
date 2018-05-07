@@ -397,7 +397,7 @@ button {
 
 /* ON BOARDING STUFF */
 #welcomePopup {
-	height: 15%;
+	height: auto;
   width: 30%;
 	padding: 15px;
 	position: fixed;
@@ -415,7 +415,7 @@ button {
 }
 
 #newChorePopup {
-	height: 30%;
+	height: auto;
 	width: 30%;
 	padding: 15px;
 	position: fixed;
@@ -434,7 +434,7 @@ button {
 }
 
 #sidebarPopup {
-	height: 30%;
+	height: auto;
 	width: 30%;
 	padding: 15px;
 	position: fixed;
@@ -453,7 +453,7 @@ button {
 }
 
 #rewardsPopup {
-	height: 30%;
+	height: auto;
 	width: 30%;
 	padding: 15px;
 	position: fixed;
@@ -472,7 +472,7 @@ button {
 }
 
 #pendingPopup {
-	height: 30%;
+	height: auto;
 	width: 30%;
 	padding: 15px;
 	position: fixed;
@@ -491,7 +491,7 @@ button {
 }
 
 #incompletePopup {
-	height: 30%;
+	height: auto;
 	width: 30%;
 	padding: 15px;
 	position: fixed;

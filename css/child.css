@@ -233,7 +233,7 @@ button {
 
 /* tutorial css */
 #welcomePopup {
-	height: 15%;
+	height: auto;
   width: 30%;
 	padding: 15px;
 	position: fixed;
@@ -251,7 +251,7 @@ button {
 }
 
 #todoPopup {
-	height: 30%;
+	height: auto;
 	width: 30%;
 	padding: 15px;
 	position: fixed;
@@ -270,7 +270,7 @@ button {
 }
 
 #completedPopup {
-	height: 30%;
+	height: auto;
 	width: 30%;
 	padding: 15px;
 	position: fixed;
@@ -289,7 +289,7 @@ button {
 }
 
 #rewPopup {
-	height: 20%;
+	height: auto;
 	width: 30%;
 	padding: 15px;
 	position: fixed;

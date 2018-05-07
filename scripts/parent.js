@@ -479,7 +479,7 @@ function pendingRewardEventListeners() {
 
 	dom.new.style.opacity = "1"
 	dom.new.style.border = "2px red solid"
-}
+
 
 //onboarding functions
 function helpSequence1() {
@@ -500,6 +500,7 @@ function helpSequence1() {
 function helpSequence2() {
 	var welcomePopup = document.getElementById("welcomePopup");
 	welcomePopup.style.display = "none";
+}
 
 
 function helpSequence3() {

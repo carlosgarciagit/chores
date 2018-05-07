@@ -231,34 +231,36 @@ button {
 
 .material-icons.rewardsDoneCheckoff {
 	margin-right: 5px;
-	height: 35px;
-	width: 35px;
+	height: 2vw;
+	width: 2vw;
 	padding: 2px;
-	font-size: 35px;
-	background-color: var(--main-background);
+	font-size: 2vw;
+	background-color: white;
+	border: 4px var(--main-background) solid;
 	border-radius: 10px;
 	color:white;
 }
 
 .material-icons.rewardsDoneCheckoff:hover {
 	transform: scale(1.04);
-	color:var(--secondary-background);
+	color:var(--main-background);
 }
 
 .material-icons.checkoffDone {
 	margin-right: 5px;
-	height: 2.5vw;
-	width: 2.5vw;
+	height: 2vw;
+	width: 2vw;
 	padding: 2px;
-	font-size: 2.5vw;
-	background-color: var(--main-background);
+	font-size: 2vw;
+	background-color: white;
+	border: 4px var(--main-background) solid;
 	border-radius: 10px;
 	color:white;
 }
 
 .material-icons.checkoffDone:hover {
 	transform: scale(1.04);
-	color:var(--secondary-background);
+	color:var(--main-background);
 }
 
 .tab {
@@ -351,9 +353,11 @@ button {
 }
 
 #deleteConfirmation {
-	height:100px;
-	width:250px;
-	padding:10px;
+	height: 65%;
+    width: 50%;
+    padding:10px;
+    top:25%;
+    left:25%;
 	margin:auto;
 	border: solid grey 3px;
 	flex-direction: column;
@@ -361,14 +365,31 @@ button {
 	background-color: white;
 	align-self: center;
 	z-index: 1;
-	position: relative;
+	position: fixed;
 	border-radius: 10px;
-	font-size:20px;
-
+	font-size:30px;
 	display:none;
-	top:0;
+
 }
 
+
+#sure{
+	margin-top: 20%;
+	margin-bottom: 20%;
+	margin-left:15%;
+	margin-right:10%;
+	align-items: center;
+}
+#confirm{
+	margin-left:25%;
+	height: 10%;
+	width:25%;
+}
+
+#cancel{
+	height: 10%;
+	width:25%;
+}
 .error {
 	border: 2px solid red;
 }

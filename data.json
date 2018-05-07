@@ -17,8 +17,9 @@ var chores = {
         "formatdate": "2018-05-01",
         "details": "Your clean clothes will be in the laundry basket downstairs in the kitchen. Be sure to hang up your sundress in the closet.",
         "reward": "A trip to the park",
+        "rewardid": "park",
         "picture": "assets/images/clothes.jpeg",
-        "child": "Allie",
+        "child": "Dave",
         "completed": true,
     },
 
@@ -28,6 +29,7 @@ var chores = {
         "formatdate": "2018-04-20",
         "details": "Clean off the dishes and run the dishwasher after dinner.",
         "reward": "Hugs and kisses",
+        "rewardid": "hugs",
         "picture": "assets/images/dishes.jpeg",
         "child": "Dave",
         "completed": false,
@@ -39,9 +41,10 @@ var chores = {
         "formatdate": "2018-04-29",
         "details": "Be thinking about what you want to make so we can get groceries!",
         "reward": "Choose dessert",
+        "rewardid": "dessert",
         "picture": "assets/images/cook.jpg",
         "child": "Dave",
-        "completed": true,
+        "completed": false,
     },
 
      "dog": {
@@ -50,6 +53,7 @@ var chores = {
         "formatdate": "2018-04-19",
         "details": "Toby really needs a bath! Use the hose by the porch to wash him off with shampoo.",
         "reward": "Dog park with Toby",
+        "rewardid": "dog",
         "picture": "assets/images/dog.jpeg",
         "child": "Sally",
         "completed": false,
@@ -61,8 +65,9 @@ var chores = {
         "formatdate": "2018-04-18",
         "details": "It's Grandma's birthday! Call her sometime after soccer practice and wish her a happy day and tell her about how school is going.",
         "reward": "One hour of video games",
+        "rewardid": "videogames",
         "picture": "assets/images/grandma.svg",
-        "child": "Allie",
+        "child": "Sally",
         "completed": false,
     },
 
@@ -72,8 +77,45 @@ var chores = {
         "formatdate": "2018-04-20",
         "details": "Make sure to cut the grass near the gazebo with the smaller mower.",
         "reward": "$10",
+        "rewardid": "money",
         "picture": "assets/images/lawn.jpg",
-        "child": "Dave",
+        "child": "Sally",
+        "completed": true,
+    },
+
+    "toys": {
+        "chore": "Pick up your toys",
+        "duedate": "May 10",
+        "formatdate": "2018-05-10",
+        "details": "Make sure to cut the grass near the gazebo with the smaller mower.",
+        "reward": "$10",
+        "rewardid": "money",
+        "picture": "assets/images/toys.jpg",
+        "child": "Allie",
+        "completed": false,
+    },
+
+    "vacuum": {
+        "chore": "vaccum the stairs",
+        "duedate": "May 10",
+        "formatdate": "2018-05-10",
+        "details": "Make sure to cut the grass near the gazebo with the smaller mower.",
+        "reward": "$10",
+        "rewardid": "money",
+        "picture": "assets/images/vacuum.jpg",
+        "child": "Allie",
+        "completed": false,
+    },
+
+    "dust": {
+        "chore": "dust the shelves",
+        "duedate": "May 10",
+        "formatdate": "2018-05-10",
+        "details": "Make sure to cut the grass near the gazebo with the smaller mower.",
+        "reward": "$10",
+        "rewardid": "money",
+        "picture": "assets/images/duster.jpg",
+        "child": "Allie",
         "completed": true,
     },
 }
@@ -91,7 +133,12 @@ var rewards = {
     },
     "money" : {
         "name" : "$10",
-        "picture": "assets/images/heart.jpg",
+        "picture": "assets/images/money.jpg",
+        "child": "Dave"
+    },
+    "videogames" : {
+        "name" : "1hr video games",
+        "picture": "assets/images/videogames.png",
         "child": "Dave"
     }
 }

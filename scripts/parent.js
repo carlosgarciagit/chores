@@ -31,6 +31,12 @@ Util.events(document, {
 		// // set color and name defaults
 		dom.parentName.value = "Andrew";
 
+		// event listeners for each item popup
+		// and checkmarks
+		itemEventListeners();
+		pendingCheckoffEventListeners();
+		pendingRewardEventListeners();
+
 		// settings popup
 		dom.settings.addEventListener("click",
 			function() {
@@ -112,12 +118,13 @@ Util.events(document, {
 					Util.one("#childChores").innerHTML = child.id + "'s Chores"
 					fillChores(child.id);
 					itemEventListeners();
+					pendingCheckoffEventListeners();
+					pendingRewardEventListeners();
+					// list item popups
+
 					currentChild = child.id;
 				});
 		}
-
-		// chore popup
-		itemEventListeners();
 
 		// chore popup close button
 		Util.one("#chorePopupClose").addEventListener("click",
@@ -138,6 +145,7 @@ Util.events(document, {
 		// open delete confirmation when trash can icon is clicked on chore popup
 		Util.one("#trashcan").addEventListener("click",
 			function() {
+				dom.chorePopup.style.display = "none"
 				Util.one("#deleteConfirmation").style.display = "block"
 			});
 
@@ -154,6 +162,7 @@ Util.events(document, {
 		// cancel for delete confirmation
 		Util.one("#cancel").addEventListener("click",
 			function() {
+				dom.chorePopup.style.display = "block"
 				Util.one("#deleteConfirmation").style.display = "none"
 			});
 
@@ -226,27 +235,6 @@ Util.events(document, {
 				}
 
 			});
-
-		// for checking off items in "pending checkoff" section
-		var items = Util.all(".checkoffDone")
-		for (let item of items) {
-			item.addEventListener("click",
-				function(event) {
-					event.stopPropagation();
-					dom.rewards.appendChild(makeReward(chores[item.id].reward));
-					this.parentNode.remove();
-				});
-		}
-
-		// for checking off items in "pending rewards" section
-		var items = Util.all(".rewardsDoneCheckoff")
-		for (let item of items) {
-			item.addEventListener("click",
-				function(event) {
-					event.stopPropagation();
-					this.parentNode.remove();
-				});
-		}
 	},
 
 	// dynamically change user's name when they cahgne it in settings popup
@@ -462,6 +450,37 @@ function itemEventListeners(){
 	}
 }
 
+function pendingCheckoffEventListeners() {
+	var items = Util.all(".checkoffDone")
+	for (let item of items) {
+		item.addEventListener("click",
+			function(event) {
+				event.stopPropagation();
+				dom.rewards.appendChild(makeReward(chores[item.id].rewardid));
+				pendingRewardEventListeners();
+				this.parentNode.remove();
+			});
+	}
+}
+
+function pendingRewardEventListeners() {
+	var items = Util.all(".rewardsDoneCheckoff")
+	for (let item of items) {
+		item.addEventListener("click",
+			function(event) {
+				event.stopPropagation();
+				this.parentNode.remove();
+			});
+	}
+}
+
+	var newChorePopup = document.getElementById("newChorePopup");
+	newChorePopup.style.display = "flex";
+
+	dom.new.style.opacity = "1"
+	dom.new.style.border = "2px red solid"
+}
+
 //onboarding functions
 function helpSequence1() {
 	var welcomePopup = document.getElementById("welcomePopup");
@@ -482,12 +501,6 @@ function helpSequence2() {
 	var welcomePopup = document.getElementById("welcomePopup");
 	welcomePopup.style.display = "none";
 
-	var newChorePopup = document.getElementById("newChorePopup");
-	newChorePopup.style.display = "flex";
-
-	dom.new.style.opacity = "1"
-	dom.new.style.border = "2px red solid"
-}
 
 function helpSequence3() {
 	var newChorePopup = document.getElementById("newChorePopup");

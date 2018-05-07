@@ -3,6 +3,7 @@ var prevX = 0;
 var prevY = 0;
 var startingColumn = null;
 var error = false;
+var flag = true;
 
 Util.events(document, {
 	// Final initalization entry point: the Javascript code inside this block
@@ -26,6 +27,9 @@ Util.events(document, {
 		// settings popup
 		dom.settings.addEventListener("click",
 			function() {
+				skipIntro()
+				dom.chorePopup.style.display = "none";
+				dom.rewardsPopup.style.display = "none";
 				dom.settingsPopup.style.display = "flex";
 				dom.main.style.opacity = "0.15";
 			});
@@ -33,6 +37,12 @@ Util.events(document, {
 		//help sequence
 		Util.one("#helpBtn").addEventListener("click",
 			function() {
+				skipIntro()
+				if (!error) { //error = false when user does not type name
+				dom.settingsPopup.style.display = "none";
+				}
+				dom.rewardsPopup.style.display = "none";
+				dom.chorePopup.style.display = "none"
 				helpSequence1()
 			});
 
@@ -86,7 +96,12 @@ Util.events(document, {
 		for (let item of items) {
 			item.addEventListener("click",
 				function() {
-					populateChorePopup(item.id);
+				skipIntro()	
+				dom.rewardsPopup.style.display = "none";
+				if (!error) { //error = false when user does not type name
+					dom.settingsPopup.style.display = "none";
+				}
+				populateChorePopup(item.id);
 				});
 		}
 
@@ -100,6 +115,11 @@ Util.events(document, {
 		// rewards popup
 		dom.rewards.addEventListener("click",
 			function() {
+				if (!error) { //error = false when user does not type name
+				dom.settingsPopup.style.display = "none";
+				}
+				skipIntro()
+				dom.chorePopup.style.display = "none"
 				dom.rewardsPopup.style.display = "flex";
 				dom.main.style.opacity = "0.15";
 			});
@@ -149,6 +169,9 @@ Util.events(document, {
 	"mousemove": function(evt) {
 		var element = Util.one(".item-drag");
 		if (element != null) {
+			if (evt.clientY - prevY > 1 || evt.clientX - prevX > 1) {
+				flag = false
+			}
 			document.documentElement.style.setProperty('--top', (evt.clientY - prevY) + 'px')
 			document.documentElement.style.setProperty('--left', (evt.clientX - prevX) + 'px')
 		}
@@ -158,9 +181,18 @@ Util.events(document, {
 	"mouseup": function(evt) {
 		var item = Util.one(".item-drag");
 			if (item != null) {
+
 				var box = item.children.item(item.children.length - 1);
 				var column = document.elementFromPoint(evt.clientX, evt.clientY);
-				if (column.id == "left" && column.id != startingColumn) {
+				if (flag) {	
+					skipIntro()
+					dom.rewardsPopup.style.display = "none";
+					if (!error) { //error = false when user does not type name
+						dom.settingsPopup.style.display = "none";
+					}
+					populateChorePopup(item.id)
+				}
+				else if (column.id == "left" && column.id != startingColumn) {
 					dom.toDo.appendChild(item)
 					document.documentElement.style.setProperty('--top', (0) + 'px')
 					document.documentElement.style.setProperty('--left', (0) + 'px')
@@ -174,6 +206,7 @@ Util.events(document, {
 				var promise = Util.afterAnimation(item, "moveBack")
 				promise.then(function() {
 					item.className = "item";
+					flag = true;
 				})
 
 			}

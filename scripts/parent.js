@@ -112,6 +112,17 @@ Util.events(document, {
 		//add member on save
 		Util.one("#memberSave").addEventListener("click",
 			function() {
+				error = false;
+				// if user doesn't type anything into name or date, don't let them save
+				// and alert them of the problem with red border
+				if (Util.one("#memberText").value.length == 0) {
+					Util.one("#memberText").classList = "error"
+					error = true
+				}
+				if (Util.one("#memberDateText").value.length == 0) {
+					Util.one("#memberDateText").classList = "error"
+					error = true
+				}
 				if (!error) {
 					var div = document.createElement("div");
 					div.className = "tab"

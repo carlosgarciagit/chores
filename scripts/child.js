@@ -190,6 +190,7 @@ Util.events(document, {
 					if (!error) { //error = false when user does not type name
 						dom.settingsPopup.style.display = "none";
 					}
+					console.log('yikes')
 					populateChorePopup(item.id)
 				}
 				else if (column.id == "left" && column.id != startingColumn) {

@@ -1,12 +1,12 @@
 #settingsPopup {
 	height: 45vw;
 	min-height: 450px;
-	max-height: 650px;
+	max-height: 55%;
     width: 50vw;
 	padding:10px;
 	position: fixed;
     margin: auto;
-    top: 25%;
+    top:15%;
     left: 25%;
 	border: solid grey 3px;
 	border-radius: 10px;

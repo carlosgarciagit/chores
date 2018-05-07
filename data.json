@@ -25,8 +25,8 @@ var chores = {
 
     "dishes": {
         "chore": "Clean dishes",
-        "duedate": "April 20",
-        "formatdate": "2018-04-20",
+        "duedate": "May 20",
+        "formatdate": "2018-05-20",
         "details": "Clean off the dishes and run the dishwasher after dinner.",
         "reward": "Hugs and kisses",
         "rewardid": "hugs",
@@ -37,8 +37,8 @@ var chores = {
 
     "dinner": {
         "chore": "Help make dinner",
-        "duedate": "April 29",
-        "formatdate": "2018-04-29",
+        "duedate": "May 19",
+        "formatdate": "2018-05-19",
         "details": "Be thinking about what you want to make so we can get groceries!",
         "reward": "Choose dessert",
         "rewardid": "dessert",
@@ -49,8 +49,8 @@ var chores = {
 
      "dog": {
         "chore": "Wash the dog",
-        "duedate": "April 19",
-        "formatdate": "2018-04-19",
+        "duedate": "May 9",
+        "formatdate": "2018-05-09",
         "details": "Toby really needs a bath! Use the hose by the porch to wash him off with shampoo.",
         "reward": "Dog park with Toby",
         "rewardid": "dog",
@@ -59,10 +59,22 @@ var chores = {
         "completed": false,
     },
 
+    "bathroom": {
+        "chore": "Clean the bathroom",
+        "duedate": "May 14",
+        "formatdate": "2018-05-14",
+        "details": "Clean the bathroom sink and shower on the second floor.",
+        "reward": "Dog park with Toby",
+        "rewardid": "dog",
+        "picture": "assets/images/bathroom.jpg",
+        "child": "Sally",
+        "completed": false,
+    },
+
     "grandma": {
         "chore": "Talk to Grandma",
-        "duedate": "April 18",
-        "formatdate": "2018-04-18",
+        "duedate": "May 18",
+        "formatdate": "2018-05-18",
         "details": "It's Grandma's birthday! Call her sometime after soccer practice and wish her a happy day and tell her about how school is going.",
         "reward": "One hour of video games",
         "rewardid": "videogames",
@@ -73,8 +85,8 @@ var chores = {
 
      "lawn": {
         "chore": "Mow the lawn",
-        "duedate": "April 20",
-        "formatdate": "2018-04-20",
+        "duedate": "May 2",
+        "formatdate": "2018-05-02",
         "details": "Make sure to cut the grass near the gazebo with the smaller mower.",
         "reward": "$10",
         "rewardid": "money",
@@ -85,11 +97,11 @@ var chores = {
 
     "toys": {
         "chore": "Pick up your toys",
-        "duedate": "May 10",
-        "formatdate": "2018-05-10",
+        "duedate": "May 13",
+        "formatdate": "2018-05-13",
         "details": "Make sure to cut the grass near the gazebo with the smaller mower.",
-        "reward": "$10",
-        "rewardid": "money",
+        "reward": "N/A",
+        "rewardid": "N/A",
         "picture": "assets/images/toys.jpg",
         "child": "Allie",
         "completed": false,
@@ -109,11 +121,11 @@ var chores = {
 
     "dust": {
         "chore": "dust the shelves",
-        "duedate": "May 10",
-        "formatdate": "2018-05-10",
+        "duedate": "May 11",
+        "formatdate": "2018-05-11",
         "details": "Make sure to cut the grass near the gazebo with the smaller mower.",
-        "reward": "$10",
-        "rewardid": "money",
+        "reward": "1 hour video games",
+        "rewardid": "videogames",
         "picture": "assets/images/duster.jpg",
         "child": "Allie",
         "completed": true,
@@ -137,8 +149,13 @@ var rewards = {
         "child": "Dave"
     },
     "videogames" : {
-        "name" : "1hr video games",
+        "name" : "1 hour video games",
         "picture": "assets/images/videogames.png",
         "child": "Dave"
+    },
+    "icecream" : {
+        "name" : "ice cream",
+        "picture": "assets/images/ice-cream.png",
+        "child": "Allie"
     }
 }

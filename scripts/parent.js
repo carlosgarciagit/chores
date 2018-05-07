@@ -42,7 +42,9 @@ Util.events(document, {
 		// settings popup
 		dom.settings.addEventListener("click",
 			function() {				
+				skip()
 				Util.one("#deleteConfirmation").style.display = "none"
+				dom.members.style.display = "none"
 				dom.editChorePopup.style.display = "none"
 				dom.chorePopup.style.display = "none";
 				dom.settingsPopup.style.display = "flex"
@@ -53,6 +55,11 @@ Util.events(document, {
 		//help sequence
 		Util.one("#helpBtn").addEventListener("click",
 			function() {
+				skip()
+				dom.members.style.display = "none"
+				dom.editChorePopup.style.display = "none"
+				dom.chorePopup.style.display = "none";
+				dom.settingsPopup.style.display = "none"
 				helpSequence1()
 			});
 
@@ -106,6 +113,7 @@ Util.events(document, {
 			function() {
 				if (!error) {
 					dom.members.style.display = "none"
+					dom.settingsPopup.style.display = "flex"
 				}
 			});
 
@@ -143,7 +151,9 @@ Util.events(document, {
 		for (let child of children) {
 			child.addEventListener("click",
 				function() {
+					skip()
 					Util.one("#deleteConfirmation").style.display = "none"
+					dom.members.style.display = "none"
 					dom.editChorePopup.style.display = "none"
 					dom.chorePopup.style.display = "none";	
 					if (!error) {
@@ -191,6 +201,7 @@ Util.events(document, {
 		//edit members popup opens
 		Util.one("#viewKids").addEventListener("click",
 			function() {
+				dom.settingsPopup.style.display = "none"
 				dom.members.style.display = "block"
 			});
 
@@ -214,7 +225,9 @@ Util.events(document, {
 		// new chore button opens new chore popup
 		Util.one("#newButton").addEventListener("click",
 			function() {
+				skip()
 				Util.one("#deleteConfirmation").style.display = "none"
+				dom.members.style.display = "none"
 				dom.editChorePopup.style.display = "none"
 				dom.chorePopup.style.display = "none";	
 				if (!error) {
@@ -507,7 +520,9 @@ function itemEventListeners(){
 	for (let item of items) {
 		item.addEventListener("click",
 			function() {
-				Util.one("#deleteConfirmation").style.display = "none"	
+				skip()
+				Util.one("#deleteConfirmation").style.display = "none"
+				dom.members.style.display = "none"	
 				if (!error) {
 					dom.settingsPopup.style.display = "none"
 				}		

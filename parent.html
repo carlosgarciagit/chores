@@ -24,8 +24,12 @@
 		<div id="header">
 			<div id="title">chores</div>
 			<div id="right">
-			<p id="welcome">Hi, Andrew!</p>
-			<i id="settings" class="material-icons">settings</i>
+				<button id="skip">SKIP</button>
+				<p id="welcome">Hi, Andrew!</p>
+				<i id="settings" class="material-icons">settings</i>
+				<button id="helpBtn">
+					<i id="help" class="material-icons">help</i>
+				</button>
 			</div>
 		</div>
 		<div id="sidebar">
@@ -145,6 +149,43 @@
       <button id="confirm">CONFIRM</button>
       <button id="cancel">CANCEL</button>
     </div>
+
+		<!-- HELP POPUPS BELOW -->
+		<!-- welcome popup-->
+		<div id="welcomePopup">
+				<div><span class="welcomeTo">welcome to </span><span class="welcomeChores">chores</span></div>
+				<button id="next1" class="next">NEXT</button>
+		</div>
+
+		<!-- newchore popup -->
+		<div id="newChorePopup">
+			<span class="welcomeTo">You can add a chore for a family member by clicking the New Chore button on the right</span>
+			<button id="next2" class="next">NEXT</button>
+		</div>
+
+		<!-- sidebar popup -->
+		<div id="sidebarPopup">
+			<span class="welcomeTo">To view an individuals chores, select a family member in the left sidebar</span>
+			<button id="next3" class="next">NEXT</button>
+		</div>
+
+		<!-- incomplete popup -->
+		<div id="incompletePopup">
+			<span class="welcomeTo">Newly added chores will appear here until the family member completes it</span>
+			<button id="next4" class="next">NEXT</button>
+		</div>
+
+		<!-- pending popup -->
+		<div id="pendingPopup">
+			<span class="welcomeTo">Once a chore is completed it will appear here where you can checkoff the chore. Select the checkmark to check it off</span>
+			<button id="next5" class="next">NEXT</button>
+		</div>
+
+		<!-- rewards popup -->
+		<div id="rewardsPopup">
+			<span class="welcomeTo">If a chore had an associated reward, it will appear in this section as a reminder</span>
+			<button id="next6" class="next">DONE</button>
+		</div>
 
 
 

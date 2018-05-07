@@ -37,7 +37,10 @@ Util.events(document, {
 
 		// settings popup
 		dom.settings.addEventListener("click",
-			function() {
+			function() {				
+				Util.one("#deleteConfirmation").style.display = "none"
+				dom.editChorePopup.style.display = "none"
+				dom.chorePopup.style.display = "none";
 				dom.settingsPopup.style.display = "flex"
 				dom.center.style.opacity = "0.15";
 				dom.sidebar.style.opacity = "0.15";
@@ -69,6 +72,14 @@ Util.events(document, {
 		for (let child of children) {
 			child.addEventListener("click",
 				function() {
+					Util.one("#deleteConfirmation").style.display = "none"
+					dom.editChorePopup.style.display = "none"
+					dom.chorePopup.style.display = "none";	
+					if (!error) {
+						dom.settingsPopup.style.display = "none"
+					}			
+					dom.center.style.opacity = "1";
+					dom.sidebar.style.opacity = "1";
 					startClean();
 					Util.one(".tabSelected").classList.remove("tabSelected")
 					child.classList.add("tabSelected")
@@ -126,6 +137,12 @@ Util.events(document, {
 		// new chore button opens new chore popup
 		Util.one("#newButton").addEventListener("click",
 			function() {
+				Util.one("#deleteConfirmation").style.display = "none"
+				dom.editChorePopup.style.display = "none"
+				dom.chorePopup.style.display = "none";	
+				if (!error) {
+					dom.settingsPopup.style.display = "none"
+				}		
 				currentChore = "";
 				newChorePopup();
 			});
@@ -401,6 +418,12 @@ function itemEventListeners(){
 	for (let item of items) {
 		item.addEventListener("click",
 			function() {
+				Util.one("#deleteConfirmation").style.display = "none"	
+				if (!error) {
+					dom.settingsPopup.style.display = "none"
+				}		
+				dom.editChorePopup.style.display = "none"
+				dom.chorePopup.style.display = "none";		
 				currentChore = item.id;
 				regularChorePopup(item.id);
 			});

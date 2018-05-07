@@ -240,7 +240,7 @@ Util.events(document, {
 		// cancel for delete confirmation
 		Util.one("#cancel").addEventListener("click",
 			function() {
-				dom.chorePopup.style.display = "block"
+				dom.chorePopup.style.display = "flex"
 				Util.one("#deleteConfirmation").style.display = "none"
 			});
 

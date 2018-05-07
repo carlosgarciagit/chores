@@ -474,11 +474,6 @@ function pendingRewardEventListeners() {
 	}
 }
 
-	var newChorePopup = document.getElementById("newChorePopup");
-	newChorePopup.style.display = "flex";
-
-	dom.new.style.opacity = "1"
-	dom.new.style.border = "2px red solid"
 
 
 //onboarding functions
@@ -500,6 +495,12 @@ function helpSequence1() {
 function helpSequence2() {
 	var welcomePopup = document.getElementById("welcomePopup");
 	welcomePopup.style.display = "none";
+
+	var newChorePopup = document.getElementById("newChorePopup");
+	newChorePopup.style.display = "flex";
+
+	dom.new.style.opacity = "1"
+	dom.new.style.border = "2px red solid"
 }
 
 

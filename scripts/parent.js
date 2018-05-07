@@ -574,6 +574,8 @@ function helpSequence7() {
 	dom.new.style.opacity = "1"
 
 	dom.rewards.style.border = ""
+	var skip = document.getElementById("skip");
+	skip.style.display = "none"
 }
 
 function skip() {
@@ -603,6 +605,7 @@ function skip() {
 	newChorePopup.style.display = "none";
 	var welcomePopup = document.getElementById("welcomePopup");
 	welcomePopup.style.display = "none";
+
 	var skip = document.getElementById("skip");
 	skip.style.display = "none"
 }

@@ -1,10 +1,10 @@
 #picturePopup {
-	height: 65%;
+	height: auto;
     width: 50%;
 	padding:10px;
 	position: fixed;
     margin: auto;
-    top: 25%;
+    top: 15%;
     left: 25%;
 	border: solid grey 3px;
 	border-radius: 10px;
@@ -17,7 +17,7 @@
 }
 
 #picturePopupTitle {
-	font-size: 40px;
+	font-size: 3.25vw;
 	color:var(--main-background);;
 	text-align:center;
 	margin-bottom:30px;
@@ -26,7 +26,7 @@
 
 #picturePopupClose {
 	margin-top:5px;
-	font-size: 25px;
+	font-size: 1.75vw;
 	width:50%;
 }
 

@@ -111,7 +111,7 @@ button {
 }
 #childChores{
 	margin-right: 15px;
-	font-size: 5.125vw;
+	font-size: 4.25vw;
 	margin-left: 20px;
 }
 #incomplete {
@@ -154,7 +154,7 @@ button {
 
 }
 #newButton p {
-	font-size: 2.5vw;
+	font-size: 2.25vw;
 	font-weight: bold;
 }
 #newButton:hover {
@@ -292,7 +292,7 @@ button {
 .title {
 	color:var(--main-background);
 	text-align:center;
-	font-size:2.5vw;
+	font-size:2.25vw;
 	border-bottom: solid grey 5px;
 	margin:10px;
 	font-weight: bold;
@@ -306,7 +306,7 @@ button {
 	align-items:center;
 	margin: -1px -1px 0px -1px;
 	padding:5px 30px 5px 10px;
-	font-size:2vw;
+	font-size:1.75vw;
 	border-color: grey;
 	border-width: thin;
 	border-style: solid;
@@ -321,7 +321,7 @@ button {
 	align-items:center;
 	margin:-1px -1px 0px -1px ;
 	padding:5px 30px 5px 10px;
-	font-size:2vw;
+	font-size:1.75vw;
 	border-color: grey;
 	border-width: thin;
 	border-style: solid;
@@ -537,13 +537,13 @@ font-size: 35px !important;
 }
 
 .welcomeTo {
-	font-size: 2.5vw;
+	font-size: 1.75vw;
 	font-weight: bold;
 	padding-top: 20px;
 }
 
 .welcomeChores {
-	font-size: 2.5vw;
+	font-size: 1.75vw;
 	font-weight: bolder;
 	padding-top: 20px;
 	color: var(--main-background);
@@ -553,5 +553,5 @@ font-size: 35px !important;
 	width: 100px;
 	height: 50px;
 	margin-top: 15px;
-	font-size: 1.75vw;
+	font-size: 1.25vw;
 }

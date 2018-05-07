@@ -3,9 +3,7 @@ body {
 }
 
 .newchorePopup {
-	height: 45vw;
-	min-height: 450px;
-	max-height: 55%;
+	height: auto;
     width: 50vw;
 	margin:50px;
 	padding:10px;
@@ -16,14 +14,14 @@ body {
 }
 
 #newtitle {
-	font-size: 4vw;
+	font-size: 3.5vw;
 	color:orange;
 	text-align:center;
 	margin-bottom:30px;
 }
 
 button {
-	font-size: 2.5vw;
+	font-size: 2vw;
 	color:white;
 	margin:10px;
 	padding:5px;
@@ -48,46 +46,46 @@ button {
 
 
 #newchoreLabel {
-	font-size:2vw;
+	font-size:1.5vw;
 	grid-column: 1;
 	grid-row: 1;
 	font-weight:bold;
 }
 
 #newchoreText {
-	font-size:2vw;
+	font-size:1.5vw;
 	grid-column: 2;
 	grid-row: 1;
 }
 
 #newdateLabel {
-	font-size:2vw;
+	font-size:1.5vw;
 	grid-column: 1;
 	grid-row: 2;
 	font-weight:bold;
 }
 
 #newdateText {
-	font-size:2vw;
+	font-size:1.5vw;
 	grid-column: 2;
 	grid-row: 2;
 }
 
 #newrewardLabel {
-	font-size:2vw;
+	font-size:1.5vw;
 	grid-column: 1;
 	grid-row: 3;
 	font-weight:bold;
 }
 
 #newrewardText {
-	font-size:2vw;
+	font-size:1.5vw;
 	grid-column: 2;
 	grid-row: 3;
 }
 
 #newdetailsLabel {
-	font-size:2vw;
+	font-size:1.5vw;
 	grid-column: 1;
 	grid-row: 4;
 	font-weight:bold;
@@ -95,7 +93,7 @@ button {
 }
 
 #newdetailsText {
-	font-size:2vw;
+	font-size:1.5vw;
 	grid-column: 2;
 	grid-row: 4;
 }

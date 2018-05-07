@@ -321,13 +321,13 @@ button {
 }
 
 .welcomeTo {
-	font-size: 30px;
+	font-size: 2.5vw;
 	font-weight: bold;
 	padding-top: 20px;
 }
 
 .welcomeChores {
-	font-size: 30px;
+	font-size: 2.5vw;
 	font-weight: bolder;
 	padding-top: 20px;
 	color: var(--main-background);
@@ -337,7 +337,7 @@ button {
 	width: 100px;
 	height: 50px;
 	margin-top: 15px;
-	font-size: 20px;
+	font-size: 1.75vw;
 }
 /*    */
 

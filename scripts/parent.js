@@ -414,6 +414,7 @@ function pendingCheckoffEventListeners() {
 			function(event) {
 				event.stopPropagation();
 				dom.rewards.appendChild(makeReward(chores[item.id].rewardid));
+				pendingRewardEventListeners();
 				this.parentNode.remove();
 			});
 	}

@@ -29,6 +29,12 @@ Util.events(document, {
 		// // set color and name defaults
 		dom.parentName.value = "Andrew";
 
+		// event listeners for each item popup
+		// and checkmarks
+		itemEventListeners();
+		pendingCheckoffEventListeners();
+		pendingRewardEventListeners();
+
 		// settings popup
 		dom.settings.addEventListener("click",
 			function() {
@@ -69,12 +75,13 @@ Util.events(document, {
 					Util.one("#childChores").innerHTML = child.id + "'s Chores"
 					fillChores(child.id);
 					itemEventListeners();
+					pendingCheckoffEventListeners();
+					pendingRewardEventListeners();
+					// list item popups
+		
 					currentChild = child.id;
 				});
 		}
-
-		// chore popup
-		itemEventListeners();
 
 		// chore popup close button
 		Util.one("#chorePopupClose").addEventListener("click", 
@@ -183,27 +190,6 @@ Util.events(document, {
 				}
 				
 			});
-
-		// for checking off items in "pending checkoff" section
-		var items = Util.all(".checkoffDone")
-		for (let item of items) {
-			item.addEventListener("click",
-				function(event) {
-					event.stopPropagation();
-					dom.rewards.appendChild(makeReward(chores[item.id].reward));
-					this.parentNode.remove();
-				});
-		}
-
-		// for checking off items in "pending rewards" section
-		var items = Util.all(".rewardsDoneCheckoff")
-		for (let item of items) {
-			item.addEventListener("click",
-				function(event) {
-					event.stopPropagation();
-					this.parentNode.remove();
-				});
-		}
 	},
 
 	// dynamically change user's name when they cahgne it in settings popup
@@ -415,6 +401,29 @@ function itemEventListeners(){
 			function() {
 				currentChore = item.id;
 				regularChorePopup(item.id);
+			});
+	}
+}
+
+function pendingCheckoffEventListeners() {
+	var items = Util.all(".checkoffDone")
+	for (let item of items) {
+		item.addEventListener("click",
+			function(event) {
+				event.stopPropagation();
+				dom.rewards.appendChild(makeReward(chores[item.id].rewardid));
+				this.parentNode.remove();
+			});
+	}
+}
+
+function pendingRewardEventListeners() {
+	var items = Util.all(".rewardsDoneCheckoff")
+	for (let item of items) {
+		item.addEventListener("click",
+			function(event) {
+				event.stopPropagation();
+				this.parentNode.remove();
 			});
 	}
 }

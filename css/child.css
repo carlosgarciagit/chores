@@ -93,8 +93,8 @@ button {
 }
 
 .itemImg {
-	height:3.5vw;
-	width:3.5vw;
+	height:3vw;
+	width:3vw;
 	background-color: white;
 	margin:5px;
 	cursor:move;

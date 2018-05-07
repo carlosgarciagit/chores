@@ -1,6 +1,8 @@
 #newChore{
-	height:450px;
-	width:500px;
+	height: 45vw;
+	min-height: 450px;
+	max-height: 650px;
+    width: 50vw;
 	padding:10px;
 	margin:auto;
 	border: solid grey 3px;
@@ -18,7 +20,7 @@
 }
 
 #newchorePopup{
-	font-size: 40px;
+	font-size: 4vw;
 	color:var(--main-background);;
 	text-align:center;
 	margin-bottom:30px;
@@ -26,14 +28,14 @@
 }
 
 #newchorePopupClose {
-	font-size: 25px;
+	font-size: 2.5vw;
 	padding: 3px;
 	width: 100px;
 	height: 35px;
 }
 
 #save {
-	font-size: 25px;
+	font-size: 2.5vw;
 	padding: 3px;
 	width: 100px;
 	height: 35px;
@@ -48,53 +50,53 @@
 }
 
 #newchoreLabel1{
-	font-size:20px;
+	font-size:2vw;
 	grid-column: 1;
 	grid-row: 1;
 	font-weight:bold;
 }
 
 #newchoreText {
-	font-size:20px;
+	font-size:2vw;
 	grid-column: 2;
 	grid-row: 1;
 }
 
 #newdateLabel {
-	font-size:20px;
+	font-size:2vw;
 	grid-column: 1;
 	grid-row: 2;
 	font-weight:bold;
 }
 
 #newdateText {
-	font-size:20px;
+	font-size:2vw;
 	grid-column: 2;
 	grid-row: 2;
 }
 
 #newrewardLabel {
-	font-size:20px;
+	font-size:2vw;
 	grid-column: 1;
 	grid-row: 3;
 	font-weight:bold;
 }
 
 #newrewardText {
-	font-size:20px;
+	font-size:2vw;
 	grid-column: 2;
 	grid-row: 3;
 }
 
 #newdetailsLabel {
-	font-size:20px;
+	font-size:2vw;
 	grid-column: 1;
 	grid-row: 4;
 	font-weight:bold;
 }
 
 #newdetailsText {
-	font-size:20px;
+	font-size:2vw;
 	grid-column: 2;
 	grid-row: 4;
 }

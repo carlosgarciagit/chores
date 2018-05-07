@@ -95,6 +95,7 @@ Util.events(document, {
 		// open delete confirmation when trash can icon is clicked on chore popup
 		Util.one("#trashcan").addEventListener("click",
 			function() {
+				dom.chorePopup.style.display = "none"
 				Util.one("#deleteConfirmation").style.display = "block"
 			});
 
@@ -111,6 +112,7 @@ Util.events(document, {
 		// cancel for delete confirmation
 		Util.one("#cancel").addEventListener("click",
 			function() {
+				dom.chorePopup.style.display = "block"
 				Util.one("#deleteConfirmation").style.display = "none"
 			});
 

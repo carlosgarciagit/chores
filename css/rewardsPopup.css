@@ -1,13 +1,15 @@
 #rewardsPopup {
-	height:450px;
-	width:500px;
-	padding:10px;
+	height: 65%;
+    width: 50%;
+    padding:10px;
+    top:25%;
+    left:25%;
 	margin:auto;
 	border: solid grey 3px;
 	border-radius: 10px;
 	background-color: white;
 	z-index: 1;
-	position: relative;
+	position: fixed;
 	
 
 	flex-direction: column;

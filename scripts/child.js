@@ -169,7 +169,7 @@ Util.events(document, {
 	"mousemove": function(evt) {
 		var element = Util.one(".item-drag");
 		if (element != null) {
-			if (evt.clientY - prevY > 1 || evt.clientX - prevX > 1) {
+			if (Math.abs(evt.clientY - prevY) > 1 || Math.abs(evt.clientX - prevX) > 1) {
 				flag = false
 			}
 			document.documentElement.style.setProperty('--top', (evt.clientY - prevY) + 'px')
